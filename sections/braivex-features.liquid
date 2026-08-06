@@ -1,0 +1,114 @@
+<div class="braivex-features-section">
+  <div class="braivex-container">
+    <h2 class="braivex-section-title">Enterprise AI Agents</h2>
+    <p class="braivex-section-subtitle">Automate your entire workflow with specialized intelligence.</p>
+    
+    <div class="braivex-grid">
+      {% for product in collections['all'].products limit: 6 %}
+        <div class="braivex-card">
+          <div class="braivex-card-icon">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="braivex-card-title">{{ product.title | escape }}</h3>
+          <p class="braivex-card-desc">Deploy context-aware AI to streamline operations and enhance productivity.</p>
+          <a href="{{ product.url }}" class="braivex-card-link">Learn More &rarr;</a>
+        </div>
+      {% else %}
+        <div class="braivex-card">
+          <h3 class="braivex-card-title">AI for Recruiting</h3>
+          <p class="braivex-card-desc">Automate candidate screening and outreach.</p>
+        </div>
+        <div class="braivex-card">
+          <h3 class="braivex-card-title">AI for IT</h3>
+          <p class="braivex-card-desc">Intelligent IT helpdesk and infrastructure scaling.</p>
+        </div>
+        <div class="braivex-card">
+          <h3 class="braivex-card-title">AI for HR</h3>
+          <p class="braivex-card-desc">Streamline onboarding and employee management.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .braivex-features-section {
+    background-color: #050505;
+    padding: 100px 20px;
+    color: #fff;
+  }
+  .braivex-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .braivex-section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .braivex-section-subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .braivex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .braivex-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  .braivex-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+  }
+  .braivex-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(0, 240, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .braivex-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  .braivex-card-desc {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .braivex-card-link {
+    color: #00f0ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Braivex Features",
+  "tag": "section",
+  "class": "section",
+  "presets": [
+    {
+      "name": "Braivex Features"
+    }
+  ]
+}
+{% endschema %}
