@@ -23,7 +23,7 @@
         "node_count": 1800,
         "enable_animation": true,
         "enable_scroll_morph": true,
-        "show_fps": true,
+        "show_fps": false,
         "enable_walker": true,
         "mascot_scale": 0.8,
         "mascot_color": "#ff3ec9",
