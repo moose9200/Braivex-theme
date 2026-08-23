@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header",
@@ -5,14 +14,144 @@
     "braivex-header": {
       "type": "braivex-header",
       "settings": {
+        "logo_url": "https://braivex.com/cdn/shop/files/Braivex_2.png?v=1787402023&width=400",
         "wordmark": "Braivex.",
         "menu": "main-menu",
         "cta_label": "Start a Partnership",
         "cta_link": "/pages/contact"
       }
+    },
+    "braivex_neural_hero_CqDbRk": {
+      "type": "braivex-neural-hero",
+      "name": "Braivex Neural Hero",
+      "settings": {
+        "eyebrow": "Agentic AI Platform",
+        "heading": "Agentic AI applications that make your business move faster",
+        "heading_accent": "faster",
+        "subheading": "Deliberate partnerships, measurable outcomes. Purposeful agents deployed into banking, healthcare, retail, telecom and HR — and proven against your numbers, not a demo script.",
+        "button_1_label": "Get a Demo",
+        "button_1_link": "",
+        "button_2_label": "See How It Works",
+        "button_2_link": "",
+        "node_count": 1800,
+        "enable_animation": true,
+        "enable_scroll_morph": true,
+        "show_fps": false,
+        "enable_walker": true,
+        "mascot_scale": 1,
+        "mascot_color": "#ff3ec9",
+        "color_background": "#06080b",
+        "color_node": "#00f0ff",
+        "color_edge": "#00a8ff",
+        "color_pulse": "#a8f6ff"
+      }
+    },
+    "braivex_article_MEAbWB": {
+      "type": "braivex-article",
+      "name": "Braivex article",
+      "settings": {}
+    },
+    "braivex_industries_64wxNw": {
+      "type": "braivex-industries",
+      "blocks": {
+        "industry_GAaa3b": {
+          "type": "industry",
+          "settings": {
+            "title": "Banking & Finance",
+            "desc": "Regulation-aware AI that coordinates self-service and live support on audit-ready shared context."
+          }
+        },
+        "industry_ApHxRW": {
+          "type": "industry",
+          "settings": {
+            "title": "Healthcare",
+            "desc": "24/7 HIPAA-compliant patient care with intelligent triage and less load on clinical staff."
+          }
+        },
+        "industry_bxREzH": {
+          "type": "industry",
+          "settings": {
+            "title": "Retail & Consumer",
+            "desc": "Personalised discovery and frictionless support that convert and retain."
+          }
+        },
+        "industry_3xcPRa": {
+          "type": "industry",
+          "settings": {
+            "title": "Telecom & Media",
+            "desc": "High-volume interactions handled and resolved without losing human empathy."
+          }
+        },
+        "industry_gjpgTa": {
+          "type": "industry",
+          "settings": {
+            "title": "Enterprise Operations",
+            "desc": "Repetitive internal workflows automated so teams can hold the high-leverage work."
+          }
+        },
+        "industry_ybPmzb": {
+          "type": "industry",
+          "settings": {
+            "title": "IT Managed Services",
+            "desc": "Incidents resolved faster by agents that understand your stack and escalate with precision."
+          }
+        },
+        "industry_67BeNP": {
+          "type": "industry",
+          "settings": {
+            "title": "HR & People Ops",
+            "desc": "Policy lookups and onboarding automated to end people-team fatigue."
+          }
+        },
+        "industry_6MhfCf": {
+          "type": "industry",
+          "settings": {
+            "title": "Talent Acquisition",
+            "desc": "Pipelines accelerated by agents that screen and engage top-tier talent."
+          }
+        }
+      },
+      "block_order": [
+        "industry_GAaa3b",
+        "industry_ApHxRW",
+        "industry_bxREzH",
+        "industry_3xcPRa",
+        "industry_gjpgTa",
+        "industry_ybPmzb",
+        "industry_67BeNP",
+        "industry_6MhfCf"
+      ],
+      "name": "Braivex industries",
+      "settings": {
+        "anchor": "industries",
+        "eyebrow": "Sectors and verticals",
+        "heading": "The architecture of industry intelligence.",
+        "lede": "Agentic applications engineered for the compliance requirements, workflow complexity and customer expectations of each vertical."
+      }
+    },
+    "braivex_page_content_GH8C9N": {
+      "type": "braivex-page-content",
+      "name": "Braivex page content",
+      "settings": {}
+    },
+    "braivex_page_hero_TwFiMF": {
+      "type": "braivex-page-hero",
+      "name": "Braivex page hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "lede": "",
+        "cta_label": "",
+        "cta_link": ""
+      }
     }
   },
   "order": [
-    "braivex-header"
+    "braivex-header",
+    "braivex_neural_hero_CqDbRk",
+    "braivex_article_MEAbWB",
+    "braivex_industries_64wxNw",
+    "braivex_page_content_GH8C9N",
+    "braivex_page_hero_TwFiMF"
   ]
 }
