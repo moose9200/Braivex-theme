@@ -27,7 +27,7 @@
         "enable_walker": true,
         "mascot_scale": 0.8,
         "mascot_color": "#ff3ec9",
-        "color_background": "#06080b",
+        "color_background": "#000000",
         "color_node": "#00f0ff",
         "color_edge": "#00a8ff",
         "color_pulse": "#a8f6ff"
