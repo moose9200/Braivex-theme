@@ -369,41 +369,41 @@
         "post-1": {
           "type": "post",
           "settings": {
-            "date": "18 March 2026",
-            "title": "What's new in AI for work: the features that actually accelerate productivity",
-            "link": "/blogs/news/whats-new-in-ai-for-work"
+            "date": "20 August 2026",
+            "title": "Parallel agent processing: how multi-agent systems are redefining automation",
+            "link": "/blogs/news/parallel-agent-processing-multi-agent-systems"
           }
         },
         "post-2": {
           "type": "post",
           "settings": {
-            "date": "28 February 2026",
-            "title": "Parallel agent processing: how multi-agent systems are redefining automation",
-            "link": "/blogs/news/parallel-agent-processing-multi-agent-systems"
+            "date": "19 August 2026",
+            "title": "What's new in AI for work: the features that actually accelerate productivity",
+            "link": "/blogs/news/whats-new-in-ai-for-work"
           }
         },
         "post-3": {
           "type": "post",
           "settings": {
-            "date": "10 February 2026",
-            "title": "The AI productivity gap: why brands move faster with purpose-built agents",
-            "link": "/blogs/news/the-ai-productivity-gap-purpose-built-agents"
+            "date": "13 August 2026",
+            "title": "From chatbots to agentic workflows: the evolution every leader needs to understand",
+            "link": "/blogs/news/from-chatbots-to-agentic-workflows"
           }
         },
         "post-4": {
           "type": "post",
           "settings": {
-            "date": "8 January 2026",
-            "title": "From chatbots to agentic workflows: the evolution every leader needs to understand",
-            "link": "/blogs/news/from-chatbots-to-agentic-workflows"
+            "date": "7 August 2026",
+            "title": "AI agents and the tools that make them powerful: a guide for operators",
+            "link": "/blogs/news/ai-agents-and-the-tools-that-make-them-powerful"
           }
         },
         "post-5": {
           "type": "post",
           "settings": {
-            "date": "5 December 2025",
-            "title": "AI agents and the tools that make them powerful: a guide for operators",
-            "link": "/blogs/news/ai-agents-and-the-tools-that-make-them-powerful"
+            "date": "24 July 2026",
+            "title": "The AI productivity gap: why brands move faster with purpose-built agents",
+            "link": "/blogs/news/the-ai-productivity-gap-purpose-built-agents"
           }
         }
       },
