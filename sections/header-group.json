@@ -208,10 +208,16 @@
         "cta_link": ""
       }
     },
-    "braivex_page_content_8dJmnw": {
-      "type": "braivex-page-content",
-      "name": "Braivex page content",
-      "settings": {}
+    "braivex_page_hero_4g7A3Y": {
+      "type": "braivex-page-hero",
+      "name": "Braivex page hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "lede": "",
+        "cta_label": "",
+        "cta_link": ""
+      }
     }
   },
   "order": [
@@ -222,6 +228,6 @@
     "braivex_page_content_GH8C9N",
     "braivex_page_hero_TwFiMF",
     "braivex_spec_WJHWDa",
-    "braivex_page_content_8dJmnw"
+    "braivex_page_hero_4g7A3Y"
   ]
 }
