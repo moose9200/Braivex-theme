@@ -388,7 +388,23 @@
 
     var pct = rail.querySelector('.bvx-rail__pct');
     var time = rail.querySelector('.bvx-rail__time');
+    var nav = rail.querySelector('.bvx-rail__nav');
+    var dots = rail.querySelectorAll('.bvx-rail__dot');
     var active = -1, ticking = false;
+
+    // Dot centre, measured from the top of the nav.
+    function dotCentre(i) {
+      var r = dots[i].getBoundingClientRect();
+      return r.top + r.height / 2 - nav.getBoundingClientRect().top;
+    }
+
+    // Run the spine between the first and last dot so it has no dangling
+    // head or tail beyond the outline itself.
+    function measureSpine() {
+      var top = dotCentre(0);
+      rail.style.setProperty('--bvx-rail-spine-top', top + 'px');
+      rail.style.setProperty('--bvx-rail-spine-h', Math.max(1, dotCentre(dots.length - 1) - top) + 'px');
+    }
 
     function update() {
       ticking = false;
@@ -407,10 +423,21 @@
 
       // Charge tracks node positions so the lit spine always matches the lit
       // nodes, even though sections differ wildly in length.
-      var next = heads[at + 1];
       var here = heads[at].getBoundingClientRect().top;
-      var within = next ? Math.min(1, Math.max(0, (line - here) / Math.max(1, next.getBoundingClientRect().top - here))) : p;
-      var charge = heads.length > 1 ? (at + within) / (heads.length - 1) : p;
+      // The final section ends at the bottom of the prose, not at a next
+      // heading — without that boundary the charge runs past 1 and the spark
+      // escapes the panel.
+      var until = heads[at + 1] ? heads[at + 1].getBoundingClientRect().top : box.bottom;
+      var within = Math.min(1, Math.max(0, (line - here) / Math.max(1, until - here)));
+
+      // Interpolate between real dot positions rather than even fractions:
+      // wrapped two-line items make the nodes unevenly spaced, and an even
+      // split would drift the spark off the dots.
+      var spineTop = dotCentre(0);
+      var span = Math.max(1, dotCentre(nodes.length - 1) - spineTop);
+      var from = dotCentre(at) - spineTop;
+      var to = (at + 1 < nodes.length ? dotCentre(at + 1) - spineTop : from);
+      var charge = Math.min(1, Math.max(0, (from + (to - from) * within) / span));
 
       rail.style.setProperty('--bvx-rail-p', charge.toFixed(4));
       rail.style.setProperty('--bvx-rail-read', p.toFixed(4));
@@ -436,15 +463,20 @@
       ticking = true;
       w.requestAnimationFrame(update);
     }
+    function onResize() {
+      measureSpine();                       // item wrapping changes dot spacing
+      onScroll();
+    }
 
     w.addEventListener('scroll', onScroll, { passive: true });
-    w.addEventListener('resize', onScroll);
+    w.addEventListener('resize', onResize);
+    measureSpine();
     update();
 
     rail.__bvxRail = {
       destroy: function () {
         w.removeEventListener('scroll', onScroll);
-        w.removeEventListener('resize', onScroll);
+        w.removeEventListener('resize', onResize);
         rail.__bvxRail = null;
       }
     };

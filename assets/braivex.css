@@ -892,11 +892,12 @@
 }
 
 .bvx-rail__nav { position: relative; }
+/* Spans first dot centre to last dot centre; both measured in braivex.js. */
 .bvx-rail__spine {
   position: absolute;
   left: 4px;
-  top: 6px;
-  bottom: 6px;
+  top: var(--bvx-rail-spine-top, 6px);
+  height: var(--bvx-rail-spine-h, 0);
   width: 1px;
   background: var(--bvx-line);
 }
@@ -956,10 +957,11 @@
 }
 .bvx-rail__node:hover { color: var(--bvx-ink-70); }
 .bvx-rail__node:hover .bvx-rail__dot { border-color: var(--bvx-accent); transform: scale(1.25); }
+/* Inset so the ring never spills over the panel edge or the spine. */
 .bvx-rail__node:focus-visible {
   outline: 2px solid var(--bvx-accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline-offset: -2px;
+  border-radius: 3px;
 }
 .bvx-rail__node.is-read { color: var(--bvx-ink-55); }
 .bvx-rail__node.is-read .bvx-rail__dot { background: var(--bvx-accent-2); border-color: var(--bvx-accent-2); }
