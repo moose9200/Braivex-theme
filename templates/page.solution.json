@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -11,9 +20,6 @@
     },
     "spec": {
       "type": "braivex-spec",
-      "settings": {
-        "cta_link": "/pages/contact"
-      },
       "blocks": {
         "spec-1": {
           "type": "spec",
@@ -65,7 +71,10 @@
         "spec-4",
         "spec-5",
         "spec-6"
-      ]
+      ],
+      "settings": {
+        "cta_link": "/pages/contact"
+      }
     },
     "cta": {
       "type": "braivex-cta",
@@ -92,7 +101,8 @@
       "block_order": [
         "path-1",
         "path-2"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -101,5 +111,3 @@
     "cta"
   ]
 }
-
-

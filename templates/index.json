@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -42,13 +51,11 @@
         "route-1",
         "route-2",
         "route-3"
-      ]
+      ],
+      "settings": {}
     },
     "partners": {
       "type": "braivex-partners",
-      "settings": {
-        "cta_1_link": "/pages/contact"
-      },
       "blocks": {
         "logo-1": {
           "type": "logo",
@@ -92,7 +99,10 @@
         "logo-2",
         "logo-3",
         "logo-4"
-      ]
+      ],
+      "settings": {
+        "cta_1_link": "/pages/contact"
+      }
     },
     "industries": {
       "type": "braivex-industries",
@@ -163,13 +173,11 @@
         "industry-6",
         "industry-7",
         "industry-8"
-      ]
+      ],
+      "settings": {}
     },
     "catalogue": {
       "type": "braivex-catalogue",
-      "settings": {
-        "strip_cta_1_link": "/pages/contact"
-      },
       "blocks": {
         "item-1": {
           "type": "item",
@@ -344,7 +352,10 @@
         "item-13",
         "item-14",
         "item-15"
-      ]
+      ],
+      "settings": {
+        "strip_cta_1_link": "/pages/contact"
+      }
     },
     "philosophy": {
       "type": "braivex-philosophy",
@@ -354,9 +365,6 @@
     },
     "insights": {
       "type": "braivex-insights",
-      "settings": {
-        "all_link": "/blogs/insights"
-      },
       "blocks": {
         "post-1": {
           "type": "post",
@@ -400,7 +408,10 @@
         "post-3",
         "post-4",
         "post-5"
-      ]
+      ],
+      "settings": {
+        "all_link": "/blogs/insights"
+      }
     },
     "cta": {
       "type": "braivex-cta",
@@ -429,7 +440,8 @@
       "block_order": [
         "path-1",
         "path-2"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -443,5 +455,3 @@
     "cta"
   ]
 }
-
-

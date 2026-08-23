@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header",
@@ -7,23 +16,38 @@
       "blocks": {
         "link-platform": {
           "type": "link",
-          "settings": { "label": "Platform", "link": "/#solutions" }
+          "settings": {
+            "label": "Platform",
+            "link": "/#solutions"
+          }
         },
         "link-solutions": {
           "type": "link",
-          "settings": { "label": "Solutions", "link": "/#braivex-apps" }
+          "settings": {
+            "label": "Solutions",
+            "link": "/#braivex-apps"
+          }
         },
         "link-industries": {
           "type": "link",
-          "settings": { "label": "Industries", "link": "/#industries" }
+          "settings": {
+            "label": "Industries",
+            "link": "/#industries"
+          }
         },
         "link-insights": {
           "type": "link",
-          "settings": { "label": "Insights", "link": "/#insights" }
+          "settings": {
+            "label": "Insights",
+            "link": "/#insights"
+          }
         },
         "link-contact": {
           "type": "link",
-          "settings": { "label": "Contact", "link": "/pages/contact" }
+          "settings": {
+            "label": "Contact",
+            "link": "/pages/contact"
+          }
         }
       },
       "block_order": [
@@ -40,9 +64,36 @@
         "cta_label": "Start a Partnership",
         "cta_link": "/pages/contact"
       }
+    },
+    "announcement_bar_LUK4ey": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_KKKeym": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_KKKeym"
+      ],
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     }
   },
   "order": [
-    "braivex-header"
+    "braivex-header",
+    "announcement_bar_LUK4ey"
   ]
 }
