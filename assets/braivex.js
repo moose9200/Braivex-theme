@@ -309,6 +309,152 @@
     initMarqueeResize(root);
   }
 
+  /* ---------- reading rail --------------------------------------------
+     A synapse-styled table of contents for long articles: nodes are the
+     article's own headings, the spine charges as you read, and each node
+     scrolls to its section. Built from the DOM so editors never maintain
+     a second copy of the outline. */
+  function slugify(text, used) {
+    var base = String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'section';
+    var id = base, n = 2;
+    while (used[id]) { id = base + '-' + n; n++; }
+    used[id] = true;
+    return id;
+  }
+
+  function buildRail(rail) {
+    if (rail.__bvxRail) rail.__bvxRail.destroy();
+
+    var prose = d.querySelector(rail.getAttribute('data-bvx-rail-target') || '.bvx-prose');
+    var levels = rail.getAttribute('data-bvx-rail-levels') === 'h2h3' ? 'h2, h3' : 'h2';
+    var heads = prose ? Array.prototype.slice.call(prose.querySelectorAll(levels)) : [];
+
+    // Two nodes is the minimum where an outline tells the reader anything.
+    if (heads.length < 2) { rail.hidden = true; return; }
+    rail.hidden = false;
+
+    var used = {}, i;
+    for (i = 0; i < heads.length; i++) {
+      if (!heads[i].id) heads[i].id = slugify(heads[i].textContent, used);
+      else used[heads[i].id] = true;
+    }
+
+    var words = (prose.textContent || '').trim().split(/\s+/).length;
+    var totalMin = Math.max(1, Math.round(words / 220));
+    var showTime = rail.getAttribute('data-bvx-rail-time') !== 'false';
+    var label = rail.getAttribute('data-bvx-rail-label') || 'Signal path';
+
+    var html = '' +
+      '<div class="bvx-rail__inner">' +
+        '<div class="bvx-rail__meter">' +
+          '<svg class="bvx-rail__ring" viewBox="0 0 44 44" aria-hidden="true" focusable="false">' +
+            '<circle class="bvx-rail__ring-track" cx="22" cy="22" r="19"></circle>' +
+            '<circle class="bvx-rail__ring-fill" cx="22" cy="22" r="19"></circle>' +
+          '</svg>' +
+          '<p class="bvx-rail__meta">' +
+            '<span class="bvx-rail__pct">0%</span>' +
+            (showTime ? '<span class="bvx-rail__time">' + totalMin + ' min read</span>' : '') +
+          '</p>' +
+        '</div>' +
+        (label ? '<p class="bvx-rail__label">' + label + '</p>' : '') +
+        '<nav class="bvx-rail__nav" aria-label="Article sections">' +
+          '<span class="bvx-rail__spine" aria-hidden="true">' +
+            '<span class="bvx-rail__charge"></span>' +
+            '<span class="bvx-rail__spark"></span>' +
+          '</span>' +
+          '<ol class="bvx-rail__list"></ol>' +
+        '</nav>' +
+      '</div>' +
+      '<span class="bvx-rail__bar" aria-hidden="true"></span>';
+    rail.innerHTML = html;
+
+    var list = rail.querySelector('.bvx-rail__list');
+    var nodes = [];
+    for (i = 0; i < heads.length; i++) {
+      var li = d.createElement('li');
+      li.className = 'bvx-rail__item' + (heads[i].tagName === 'H3' ? ' bvx-rail__item--sub' : '');
+      var btn = d.createElement('button');
+      btn.type = 'button';
+      btn.className = 'bvx-rail__node';
+      btn.innerHTML = '<span class="bvx-rail__dot"></span><span class="bvx-rail__text"></span>';
+      btn.querySelector('.bvx-rail__text').textContent = heads[i].textContent;
+      (function (target) {
+        btn.addEventListener('click', function () { scrollToTarget(target); });
+      })(heads[i]);
+      li.appendChild(btn);
+      list.appendChild(li);
+      nodes.push(btn);
+    }
+
+    var pct = rail.querySelector('.bvx-rail__pct');
+    var time = rail.querySelector('.bvx-rail__time');
+    var active = -1, ticking = false;
+
+    function update() {
+      ticking = false;
+      var y = w.scrollY || d.documentElement.scrollTop || 0;
+      var vh = w.innerHeight || 800;
+      var box = prose.getBoundingClientRect();
+      var top = box.top + y;
+      var height = Math.max(1, box.height - vh * 0.4);
+      var p = Math.min(1, Math.max(0, (y + headerH() + 24 - top) / height));
+
+      // Reading line: the last heading that has passed under the header.
+      var line = headerH() + 96, at = 0;
+      for (var k = 0; k < heads.length; k++) {
+        if (heads[k].getBoundingClientRect().top <= line) at = k; else break;
+      }
+
+      // Charge tracks node positions so the lit spine always matches the lit
+      // nodes, even though sections differ wildly in length.
+      var next = heads[at + 1];
+      var here = heads[at].getBoundingClientRect().top;
+      var within = next ? Math.min(1, Math.max(0, (line - here) / Math.max(1, next.getBoundingClientRect().top - here))) : p;
+      var charge = heads.length > 1 ? (at + within) / (heads.length - 1) : p;
+
+      rail.style.setProperty('--bvx-rail-p', charge.toFixed(4));
+      rail.style.setProperty('--bvx-rail-read', p.toFixed(4));
+      if (pct) pct.textContent = Math.round(p * 100) + '%';
+      if (time) {
+        var left = Math.ceil(totalMin * (1 - p));
+        time.textContent = p >= 0.995 || left <= 0 ? 'Complete' : left + ' min left';
+      }
+
+      if (at !== active) {
+        for (var j = 0; j < nodes.length; j++) {
+          nodes[j].classList.toggle('is-active', j === at);
+          nodes[j].classList.toggle('is-read', j < at);
+          if (j === at) nodes[j].setAttribute('aria-current', 'true');
+          else nodes[j].removeAttribute('aria-current');
+        }
+        active = at;
+      }
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      w.requestAnimationFrame(update);
+    }
+
+    w.addEventListener('scroll', onScroll, { passive: true });
+    w.addEventListener('resize', onScroll);
+    update();
+
+    rail.__bvxRail = {
+      destroy: function () {
+        w.removeEventListener('scroll', onScroll);
+        w.removeEventListener('resize', onScroll);
+        rail.__bvxRail = null;
+      }
+    };
+  }
+
+  function initReadingRail(root) {
+    var rails = root.querySelectorAll ? root.querySelectorAll('[data-bvx-rail]') : [];
+    for (var i = 0; i < rails.length; i++) buildRail(rails[i]);
+  }
+
   function boot(root) {
     root = root || d;
     initHeader(root);
@@ -321,6 +467,7 @@
     initTabs(root);
     initMarqueeWhenReady(root);
     initReveal(root);
+    initReadingRail(root);
   }
 
   w.Braivex = { boot: boot };

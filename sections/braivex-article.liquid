@@ -12,10 +12,25 @@
   </section>
 
   <section class="bvx">
-    <div class="bvx__inner">
+    <div class="bvx__inner bvx-article">
       <div class="bvx-prose bvx-reveal">
         {{ article.content }}
       </div>
+
+      {%- comment -%}
+        The rail builds itself from the headings in .bvx-prose, so writers never
+        maintain a second copy of the outline. It hides itself when a post has
+        fewer than two headings.
+      {%- endcomment -%}
+      {% if section.settings.show_rail %}
+        <aside class="bvx-rail"
+          data-bvx-rail
+          data-bvx-rail-target=".bvx-prose"
+          data-bvx-rail-levels="{{ section.settings.rail_levels }}"
+          data-bvx-rail-label="{{ section.settings.rail_label | escape }}"
+          data-bvx-rail-time="{% if section.settings.rail_time %}true{% else %}false{% endif %}"
+          hidden></aside>
+      {% endif %}
     </div>
   </section>
 </article>
@@ -24,7 +39,41 @@
 {
   "name": "Braivex article",
   "tag": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Reading rail"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rail",
+      "label": "Show reading rail",
+      "info": "Sticky outline in the right column. Appears on screens 1080px and wider; narrower screens get a progress bar under the header.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rail_label",
+      "label": "Rail label",
+      "default": "Signal path"
+    },
+    {
+      "type": "select",
+      "id": "rail_levels",
+      "label": "Include headings",
+      "options": [
+        { "value": "h2", "label": "Main sections only (H2)" },
+        { "value": "h2h3", "label": "Sections and subsections (H2 + H3)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "checkbox",
+      "id": "rail_time",
+      "label": "Show reading time remaining",
+      "default": true
+    }
+  ],
   "presets": [{ "name": "Braivex article" }]
 }
 {% endschema %}
