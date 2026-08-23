@@ -138,12 +138,80 @@
       "type": "braivex-page-hero",
       "name": "Braivex page hero",
       "settings": {
-        "eyebrow": "",
-        "heading": "",
+        "eyebrow": "cvbnm,",
+        "heading": "swwd",
         "lede": "",
         "cta_label": "",
         "cta_link": ""
       }
+    },
+    "braivex_spec_WJHWDa": {
+      "type": "braivex-spec",
+      "blocks": {
+        "spec_yKAmnk": {
+          "type": "spec",
+          "settings": {
+            "label": "Deployment",
+            "value": "Managed by Braivex, live in your stack in weeks not quarters."
+          }
+        },
+        "spec_A83rjk": {
+          "type": "spec",
+          "settings": {
+            "label": "Integrations",
+            "value": "CRM, helpdesk, calendar, telephony and data warehouse connectors."
+          }
+        },
+        "spec_MNztXB": {
+          "type": "spec",
+          "settings": {
+            "label": "Governance",
+            "value": "Runtime drift monitoring, audit trails, human escalation paths."
+          }
+        },
+        "spec_H9Wnyj": {
+          "type": "spec",
+          "settings": {
+            "label": "Security",
+            "value": "Encrypted transit and storage, data isolation, GDPR and CCPA aligned."
+          }
+        },
+        "spec_fzVDD9": {
+          "type": "spec",
+          "settings": {
+            "label": "Channels",
+            "value": "Voice, chat, email, SMS and WhatsApp from one agent context."
+          }
+        },
+        "spec_7nfX4n": {
+          "type": "spec",
+          "settings": {
+            "label": "Measurement",
+            "value": "Outcome reporting against the numbers agreed in discovery."
+          }
+        }
+      },
+      "block_order": [
+        "spec_yKAmnk",
+        "spec_A83rjk",
+        "spec_MNztXB",
+        "spec_H9Wnyj",
+        "spec_fzVDD9",
+        "spec_7nfX4n"
+      ],
+      "name": "Braivex spec sheet",
+      "settings": {
+        "eyebrow": "Specification",
+        "heading": "What ships with this module.",
+        "lede": "",
+        "cta_label": "Request this module",
+        "cta_link": ""
+      }
+    },
+    "braivex_page_content_8dJmnw": {
+      "type": "braivex-page-content",
+      "name": "Braivex page content",
+      "settings": {}
     }
   },
   "order": [
@@ -152,6 +220,8 @@
     "braivex_article_MEAbWB",
     "braivex_industries_64wxNw",
     "braivex_page_content_GH8C9N",
-    "braivex_page_hero_TwFiMF"
+    "braivex_page_hero_TwFiMF",
+    "braivex_spec_WJHWDa",
+    "braivex_page_content_8dJmnw"
   ]
 }
