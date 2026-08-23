@@ -12,8 +12,25 @@
     "hero": {
       "type": "braivex-neural-hero",
       "settings": {
+        "eyebrow": "Agentic AI Platform",
+        "heading": "Agentic AI applications that make your business move faster",
+        "heading_accent": "faster",
+        "subheading": "Deliberate partnerships, measurable outcomes. Purposeful agents deployed into banking, healthcare, retail, telecom and HR, and proven against your numbers, not a demo script.",
+        "button_1_label": "Get a Demo",
         "button_1_link": "/pages/contact",
-        "button_2_link": "#solutions"
+        "button_2_label": "See How It Works",
+        "button_2_link": "#solutions",
+        "node_count": 1800,
+        "enable_animation": true,
+        "enable_scroll_morph": true,
+        "show_fps": false,
+        "enable_walker": true,
+        "mascot_scale": 1,
+        "mascot_color": "#ff3ec9",
+        "color_background": "#06080b",
+        "color_node": "#00f0ff",
+        "color_edge": "#00a8ff",
+        "color_pulse": "#a8f6ff"
       }
     },
     "routes": {
@@ -25,7 +42,8 @@
             "kicker": "Ready to deploy",
             "title": "Pre-built Solutions",
             "desc": "Banking, healthcare, retail and HR applications, live from day one.",
-            "link_label": "Learn more"
+            "link_label": "Learn more",
+            "link": "/pages/contact"
           }
         },
         "route-2": {
@@ -34,7 +52,8 @@
             "kicker": "Fast-track build",
             "title": "App Accelerators",
             "desc": "A marketplace of pre-built agents and workflow templates to scale on.",
-            "link_label": "Learn more"
+            "link_label": "Learn more",
+            "link": "/pages/contact"
           }
         },
         "route-3": {
@@ -43,7 +62,8 @@
             "kicker": "Custom engineering",
             "title": "Tailored Apps",
             "desc": "Applications engineered precisely to your enterprise's complexity.",
-            "link_label": "Learn more"
+            "link_label": "Learn more",
+            "link": "/pages/contact"
           }
         }
       },
@@ -52,7 +72,12 @@
         "route-2",
         "route-3"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "solutions",
+        "eyebrow": "Three ways in",
+        "heading": "Three ways to put agents to work.",
+        "lede": "Deploy what is already built, accelerate on what is half-built, or engineer what nobody else has."
+      }
     },
     "partners": {
       "type": "braivex-partners",
@@ -63,6 +88,7 @@
             "name": "Tish Lyon",
             "link": "https://tishlyon.com/",
             "logo_asset": "brand-tish-lyon.png",
+            "logo_url": "",
             "logo_scale": 1
           }
         },
@@ -72,7 +98,8 @@
             "name": "Moksha Botanicals",
             "link": "https://mokshabotanicals.in/",
             "logo_asset": "brand-moksha-botanicals.png",
-            "logo_scale": 1.45
+            "logo_url": "",
+            "logo_scale": 1.5
           }
         },
         "logo-3": {
@@ -81,7 +108,8 @@
             "name": "Wholesale Body Jewellery",
             "link": "https://wholesalebodyjewellery.com/",
             "logo_asset": "brand-wholesale-body-jewellery.png",
-            "logo_scale": 1.35
+            "logo_url": "",
+            "logo_scale": 1.4
           }
         },
         "logo-4": {
@@ -90,7 +118,8 @@
             "name": "Swakaash",
             "link": "https://www.swakaash.com/",
             "logo_asset": "brand-swakaash.png",
-            "logo_scale": 0.85
+            "logo_url": "",
+            "logo_scale": 0.9
           }
         }
       },
@@ -101,7 +130,17 @@
         "logo-4"
       ],
       "settings": {
-        "cta_1_link": "/pages/contact"
+        "anchor": "brands",
+        "eyebrow": "Our commitment",
+        "heading": "We build for brands that refuse to be ordinary.",
+        "body_1": "Every partner receives our complete, focused expertise. We are selective because real innovation demands total alignment.",
+        "body_2": "Braivex works with leaders across health, luxury retail and global enterprise to deliver AI that is not a tool but a competitive moat.",
+        "cta_1_label": "Start a Partnership",
+        "cta_1_link": "/pages/contact",
+        "cta_2_label": "View Case Studies",
+        "cta_2_link": "/#insights",
+        "marquee_label": "Client ecosystem",
+        "logo_height": 46
       }
     },
     "industries": {
@@ -174,7 +213,12 @@
         "industry-7",
         "industry-8"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "industries",
+        "eyebrow": "Sectors and verticals",
+        "heading": "The architecture of industry intelligence.",
+        "lede": "Agentic applications engineered for the compliance requirements, workflow complexity and customer expectations of each vertical."
+      }
     },
     "catalogue": {
       "type": "braivex-catalogue",
@@ -186,7 +230,9 @@
             "kicker": "Enterprise bundle",
             "title": "Supply Chain Intelligence",
             "desc": "Global logistics streamlined with predictive neural routing.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-2": {
@@ -196,7 +242,9 @@
             "kicker": "Enterprise bundle",
             "title": "Autonomous Customer Ops",
             "desc": "End-to-end customer resolution without human intervention.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-3": {
@@ -206,7 +254,9 @@
             "kicker": "Enterprise bundle",
             "title": "Regulatory Compliance Agent",
             "desc": "Automated audit trails and real-time regulatory alignment.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-4": {
@@ -216,7 +266,9 @@
             "kicker": "Enterprise bundle",
             "title": "Neural Process Optimizer",
             "desc": "Process bottlenecks found and resolved before they touch margin.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-5": {
@@ -226,7 +278,9 @@
             "kicker": "Enterprise bundle",
             "title": "Executive Data Synthesis",
             "desc": "Instant C-suite reporting from disparate enterprise sources.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-6": {
@@ -236,7 +290,9 @@
             "kicker": "Enterprise bundle",
             "title": "Real-time Fraud Shield",
             "desc": "Sophisticated fraud stopped by sub-second neural analysis.",
-            "link_label": "View module"
+            "meta": "",
+            "link_label": "View module",
+            "link": "/pages/contact"
           }
         },
         "item-7": {
@@ -246,7 +302,9 @@
             "kicker": "Ready to build",
             "title": "Custom CRM Integrator",
             "desc": "Your existing CRM deep-linked with agentic routing logic.",
-            "link_label": "Contact for custom build"
+            "meta": "",
+            "link_label": "Contact for custom build",
+            "link": "/pages/contact"
           }
         },
         "item-8": {
@@ -256,7 +314,9 @@
             "kicker": "Ready to build",
             "title": "Financial Data Synthesizer",
             "desc": "Unified financial reporting with AI-driven insight on top.",
-            "link_label": "Contact for custom build"
+            "meta": "",
+            "link_label": "Contact for custom build",
+            "link": "/pages/contact"
           }
         },
         "item-9": {
@@ -266,7 +326,9 @@
             "kicker": "Ready to build",
             "title": "HR Voice Assistant",
             "desc": "Multilingual voice interface for hands-free employee self-service.",
-            "link_label": "Contact for custom build"
+            "meta": "",
+            "link_label": "Contact for custom build",
+            "link": "/pages/contact"
           }
         },
         "item-10": {
@@ -277,7 +339,8 @@
             "title": "Neural Routing Fabric",
             "desc": "Low-latency dispatch of intent to the agent best equipped to handle it.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         },
         "item-11": {
@@ -288,7 +351,8 @@
             "title": "SafeConnect Gateway",
             "desc": "Encrypted transit for all PII and sensitive data passing through AI.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         },
         "item-12": {
@@ -299,7 +363,8 @@
             "title": "Real-time Synthesis Engine",
             "desc": "Disparate sources consolidated into coherent natural language.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         },
         "item-13": {
@@ -310,7 +375,8 @@
             "title": "Governance & Drift Monitor",
             "desc": "Continuous runtime monitoring for hallucination and voice drift.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         },
         "item-14": {
@@ -321,7 +387,8 @@
             "title": "Agent Orchestration",
             "desc": "Multi-agent coordination for multi-step business resolution.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         },
         "item-15": {
@@ -332,7 +399,8 @@
             "title": "Distributed Context Memory",
             "desc": "Persistent encrypted memory that holds context across touchpoints.",
             "meta": "Enterprise general release",
-            "link_label": "Full spec sheet"
+            "link_label": "Full spec sheet",
+            "link": "/pages/contact"
           }
         }
       },
@@ -354,13 +422,36 @@
         "item-15"
       ],
       "settings": {
-        "strip_cta_1_link": "/pages/contact"
+        "anchor": "braivex-apps",
+        "eyebrow": "What you can deploy",
+        "heading": "Pre-built, tailored, or built on the platform.",
+        "lede": "Regulation-aware applications with no long implementation cycles and no starting from scratch.",
+        "tab_1": "Pre-built solutions",
+        "tab_2": "Tailored apps",
+        "tab_3": "Platform capabilities",
+        "strip_eyebrow": "Marketplace accelerator",
+        "strip_face": true,
+        "strip_heading": "Build agentic AI applications 10x faster.",
+        "strip_body": "Hundreds of pre-built agents, workflow templates and integrations trusted by global enterprises. Skip the boilerplate, ship the outcome.",
+        "strip_cta_1_label": "Secure Early Access",
+        "strip_cta_1_link": "/pages/contact",
+        "strip_cta_2_label": "Explore Library",
+        "strip_cta_2_link": "/pages/marketplace"
       }
     },
     "philosophy": {
       "type": "braivex-philosophy",
       "settings": {
-        "cta_1_link": "/pages/contact"
+        "anchor": "philosophy",
+        "eyebrow": "Philosophy",
+        "heading": "Deliberate partnerships. Measurable outcomes.",
+        "body": "Braivex does not work with everyone, and that is deliberate. When we partner with a brand we bring the full weight of the platform, the expertise and the commitment. Every integration is built to compound in value.",
+        "quote": "The best AI is not the most complex, it is the most purposeful.",
+        "quote_by": "Braivex product philosophy",
+        "cta_1_label": "Start Your Journey",
+        "cta_1_link": "/pages/contact",
+        "cta_2_label": "Explore Client Stories",
+        "cta_2_link": "/#insights"
       }
     },
     "insights": {
@@ -415,6 +506,11 @@
         "post-5"
       ],
       "settings": {
+        "anchor": "insights",
+        "eyebrow": "Research and discourse",
+        "heading": "AI Insights",
+        "lede": "Original research, product breakthroughs and strategic thinking from the Braivex engineering team.",
+        "all_label": "View All Insights",
         "all_link": "/blogs/insights"
       }
     },
@@ -446,7 +542,10 @@
         "path-1",
         "path-2"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "get-started",
+        "heading": "Accelerate your business with AI that actually delivers."
+      }
     }
   },
   "order": [
