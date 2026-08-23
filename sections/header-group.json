@@ -58,6 +58,7 @@
         "link-contact"
       ],
       "settings": {
+        "logo": "shopify://shop_images/Braivex_2.png",
         "logo_url": "https://braivex.com/cdn/shop/files/Braivex_2.png?v=1787402023&width=400",
         "wordmark": "Braivex.",
         "menu": "main-menu",

@@ -546,6 +546,10 @@
         "anchor": "get-started",
         "heading": "Accelerate your business with AI that actually delivers."
       }
+    },
+    "1787498296f68e5499": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -556,6 +560,7 @@
     "catalogue",
     "philosophy",
     "insights",
-    "cta"
+    "cta",
+    "1787498296f68e5499"
   ]
 }
