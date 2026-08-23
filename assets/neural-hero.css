@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Braivex — Neural Hero
+   Tokens are CSS custom properties so Shopify theme settings can swap them.
+   ========================================================================== */
+
+.bx-hero {
+  --bx-bg: #06080b;
+  --bx-node: #00f0ff;
+  --bx-edge: #00a8ff;
+  --bx-pulse: #a8f6ff;
+  --bx-ink: #ffffff;
+  --bx-ink-dim: rgba(233, 241, 248, 0.75);
+  --bx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* A sticky site header consumes flow space, so a bare 100svh hero overflows
+     the viewport by its height — clipping the CTAs and the HUD. */
+  height: calc(100vh - var(--bvx-header-h, 0px));
+  height: calc(100svh - var(--bvx-header-h, 0px));
+  /* min-height must never exceed the space actually available, or the hero
+     overflows the viewport and anything anchored to its bottom is clipped. */
+  min-height: min(520px, calc(100svh - var(--bvx-header-h, 0px)));
+  max-height: 1100px;
+  background: var(--bx-bg);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 42%, color-mix(in srgb, var(--bx-bg) 82%, #ffffff) 0%, var(--bx-bg) 62%),
+    var(--bx-bg);
+  color: var(--bx-ink);
+}
+
+/* WebGL canvas — never intercepts pointer or scroll */
+.bx-hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Depth vignette (kept in CSS so it survives the no-WebGL fallback) */
+.bx-hero__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 44%, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.38) 100%);
+}
+
+/* Contrast scrim behind the copy — holds WCAG AA at every animation state */
+.bx-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 52% 38% at 50% 50%, rgba(3, 5, 8, 0.66) 0%, rgba(3, 5, 8, 0.4) 54%, rgba(3, 5, 8, 0) 86%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.74) 0%, rgba(3, 5, 8, 0.06) 24%, rgba(3, 5, 8, 0.06) 68%, rgba(3, 5, 8, 0.8) 100%);
+}
+
+.bx-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(40px, 8vh, 104px) 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Staged reveal. JS adds .is-armed then .is-ready, so copy stays visible
+   if JS never runs at all. */
+.bx-hero.is-armed .bx-hero__content > * {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.bx-hero.is-armed.is-ready .bx-hero__content > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s var(--bx-ease), transform 0.8s var(--bx-ease);
+}
+.bx-hero.is-armed.is-ready .bx-hero__content > *:nth-child(2) { transition-delay: 0.1s; }
+.bx-hero.is-armed.is-ready .bx-hero__content > *:nth-child(3) { transition-delay: 0.2s; }
+.bx-hero.is-armed.is-ready .bx-hero__content > *:nth-child(4) { transition-delay: 0.3s; }
+
+.bx-hero__eyebrow {
+  margin: 0 0 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px 8px 13px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border: 1px solid color-mix(in srgb, var(--bx-node) 30%, transparent);
+  border-radius: 999px;
+  background: rgba(0, 240, 255, 0.08);
+  background: color-mix(in srgb, var(--bx-node) 8%, transparent);
+  color: var(--bx-node);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.bx-hero__eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bx-node);
+  box-shadow: 0 0 10px var(--bx-node);
+}
+
+.bx-hero__title {
+  margin: 0 0 22px;
+  max-width: 20ch;
+  font-family: var(--font-heading-family, inherit);
+  font-size: clamp(3.4rem, 5.4vw, 6.4rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--bx-ink);
+  text-wrap: balance;
+}
+
+.bx-hero__accent {
+  background: linear-gradient(94deg, var(--bx-node) 0%, #3aa7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--bx-node);
+}
+
+.bx-hero__sub {
+  margin: 0 0 40px;
+  max-width: 62ch;
+  font-size: clamp(1.6rem, 1.35vw, 1.9rem);
+  line-height: 1.62;
+  font-weight: 400;
+  color: var(--bx-ink-dim);
+  text-wrap: pretty;
+}
+
+.bx-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.bx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 32px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.35s var(--bx-ease), box-shadow 0.35s var(--bx-ease),
+    background-color 0.35s var(--bx-ease), border-color 0.35s var(--bx-ease);
+}
+.bx-btn:focus-visible {
+  outline: 2px solid var(--bx-node);
+  outline-offset: 3px;
+}
+
+.bx-btn--primary {
+  background: var(--bx-node);
+  color: #04070a;
+  box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.6), 0 10px 34px rgba(0, 240, 255, 0.26);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--bx-node) 60%, transparent),
+    0 10px 34px color-mix(in srgb, var(--bx-node) 26%, transparent);
+}
+.bx-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--bx-node), 0 14px 44px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 0 1px var(--bx-node), 0 14px 44px color-mix(in srgb, var(--bx-node) 40%, transparent);
+}
+.bx-btn--primary:active { transform: translateY(0) scale(0.985); }
+
+.bx-btn--ghost {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+.bx-btn--ghost:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+.bx-btn--ghost:active { transform: translateY(0) scale(0.985); }
+
+/* Diagnostics readout — off unless data-bx-stats="true" */
+.bx-hero__stats {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  margin: 0;
+  display: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.34);
+  pointer-events: none;
+  white-space: pre;
+}
+.bx-hero[data-bx-stats="true"] .bx-hero__stats { display: block; }
+
+/* No WebGL: static gradient only, copy untouched */
+.bx-hero.is-nogl .bx-hero__canvas { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bx-hero.is-armed .bx-hero__content > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .bx-btn { transition: none; }
+  .bx-btn:hover { transform: none; }
+}
+
+@media screen and (max-width: 767px) {
+  .bx-hero { min-height: min(560px, calc(100svh - var(--bvx-header-h, 0px))); }
+  .bx-hero__content { padding: 76px 20px 72px; }
+  .bx-hero__title { font-size: clamp(3rem, 8.6vw, 4.2rem); max-width: 24ch; }
+  .bx-hero__sub { font-size: 1.6rem; margin-bottom: 32px; }
+  .bx-hero__cta { width: 100%; flex-direction: column; }
+  .bx-btn { width: 100%; }
+}

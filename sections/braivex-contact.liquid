@@ -1,0 +1,93 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Contact — native Shopify contact form, Braivex styling. {% endcomment %}
+<section class="bvx">
+  <div class="bvx__inner">
+    <div class="bvx-split">
+      <div class="bvx-reveal">
+        <div class="bvx__head" style="margin-bottom: 24px;">
+          {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+          {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+          {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+        </div>
+
+        {% form 'contact' %}
+          <div class="bvx-form">
+            {% if form.posted_successfully? %}
+              <p class="bvx-form__status">{{ section.settings.success }}</p>
+            {% endif %}
+            <div class="bvx-field">
+              <label for="bvx-name">Name</label>
+              <input id="bvx-name" type="text" name="contact[name]" autocomplete="name" required="required">
+            </div>
+            <div class="bvx-field">
+              <label for="bvx-email">Work email</label>
+              <input id="bvx-email" type="email" name="contact[email]" autocomplete="email" required="required">
+            </div>
+            <div class="bvx-field">
+              <label for="bvx-company">Company</label>
+              <input id="bvx-company" type="text" name="contact[company]">
+            </div>
+            <div class="bvx-field">
+              <label for="bvx-phone">Phone</label>
+              <input id="bvx-phone" type="tel" name="contact[phone]" autocomplete="tel">
+            </div>
+            <div class="bvx-field bvx-field--wide">
+              <label for="bvx-body">What are you trying to automate?</label>
+              <textarea id="bvx-body" name="contact[body]" required="required"></textarea>
+            </div>
+            <div class="bvx-form__submit">
+              <button class="bvx-btn bvx-btn--primary" type="submit">{{ section.settings.submit }}</button>
+            </div>
+            {% if section.settings.note != blank %}<p class="bvx-form__note">{{ section.settings.note }}</p>{% endif %}
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="bvx-split__body bvx-reveal">
+        {% for block in section.blocks %}
+          <div {{ block.shopify_attributes }}>
+            <p class="bvx-cell__kicker" style="display:block;margin-bottom:8px;">{{ block.settings.label }}</p>
+            <p class="bvx-cell__title" style="font-size:1.7rem;font-weight:500;">{{ block.settings.value }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Braivex contact",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Start a partnership" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tell us what is slowing you down." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "We reply to every qualified enquiry within one business day with a named engineer, not a sales sequence." },
+    { "type": "text", "id": "submit", "label": "Submit label", "default": "Request a briefing" },
+    { "type": "textarea", "id": "note", "label": "Note under form", "default": "We use your details only to respond to this enquiry." },
+    { "type": "textarea", "id": "success", "label": "Success message", "default": "Received. An engineer will be in touch within one business day." }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Fact",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "textarea", "id": "value", "label": "Value" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Braivex contact",
+      "blocks": [
+        { "type": "fact", "settings": { "label": "Response time", "value": "One business day, from a named engineer." } },
+        { "type": "fact", "settings": { "label": "Engagement", "value": "Discovery call, scoped pilot, measured outcome." } },
+        { "type": "fact", "settings": { "label": "Selectivity", "value": "We take on a limited number of partners each quarter." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

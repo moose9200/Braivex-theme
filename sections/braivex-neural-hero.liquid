@@ -1,0 +1,99 @@
+{% comment %}
+  sections/braivex-neural-hero.liquid
+  Neural-network hero. Modular: engine + styles live in /assets, markup
+  layers come from /snippets (character-animation, character-background,
+  character-mascot, glow-effect). Everything a merchant should touch is in
+  the section schema — content, colours, node count, mascot.
+{% endcomment %}
+
+{{ 'neural-hero.css' | asset_url | stylesheet_tag }}
+{% render 'character-animation' %}
+
+{%- liquid
+  assign heading = section.settings.heading | escape
+  assign accent = section.settings.heading_accent | escape
+  if accent != blank
+    capture accent_html
+      echo '<span class="bx-hero__accent">'
+      echo accent
+      echo '</span>'
+    endcapture
+    assign heading = heading | replace_first: accent, accent_html
+  endif
+-%}
+
+<style>
+  /* Per-instance tokens, driven by the Theme Editor */
+  #BxNeuralHero-{{ section.id }} {
+    --bx-bg: {{ section.settings.color_background }};
+    --bx-node: {{ section.settings.color_node }};
+    --bx-edge: {{ section.settings.color_edge }};
+    --bx-pulse: {{ section.settings.color_pulse }};
+    --bx-mascot: {{ section.settings.mascot_color }};
+  }
+</style>
+
+<div id="BxNeuralHero-{{ section.id }}" class="bx-hero" {% render 'character-mascot', s: section.settings %}>
+  {% render 'character-background' %}
+
+  <div class="bx-hero__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="bx-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if heading != blank -%}
+      <h1 class="bx-hero__title">{{ heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="bx-hero__sub">{{ section.settings.subheading | escape | newline_to_br }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_1_label != blank or section.settings.button_2_label != blank -%}
+      <div class="bx-hero__cta">
+        {%- if section.settings.button_1_label != blank -%}
+          <a class="bx-btn bx-btn--primary" {% if section.settings.button_1_link != blank %}href="{{ section.settings.button_1_link }}"{% endif %}>{{ section.settings.button_1_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a class="bx-btn bx-btn--ghost" {% if section.settings.button_2_link != blank %}href="{{ section.settings.button_2_link }}"{% endif %}>{{ section.settings.button_2_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <p class="bx-hero__stats" aria-hidden="true"></p>
+</div>
+
+{% schema %}
+{
+  "name": "Braivex Neural Hero",
+  "tag": "section",
+  "class": "braivex-neural-hero-section",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Agentic AI Platform" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Agentic AI applications that make your business move faster" },
+    { "type": "text", "id": "heading_accent", "label": "Accent words", "info": "Words inside the heading to tint with the node colour.", "default": "faster" },
+    { "type": "textarea", "id": "subheading", "label": "Subhead", "default": "Deliberate partnerships, measurable outcomes. Purposeful agents deployed into banking, healthcare, retail, telecom and HR — and proven against your numbers, not a demo script." },
+    { "type": "text", "id": "button_1_label", "label": "Primary button label", "default": "Get a Demo" },
+    { "type": "url", "id": "button_1_link", "label": "Primary button link" },
+    { "type": "text", "id": "button_2_label", "label": "Secondary button label", "default": "See How It Works" },
+    { "type": "url", "id": "button_2_link", "label": "Secondary button link" },
+
+    { "type": "header", "content": "Animation" },
+    { "type": "range", "id": "node_count", "label": "Node count", "info": "Mobile is capped at 600 for frame rate.", "min": 400, "max": 2600, "step": 100, "default": 1800 },
+    { "type": "checkbox", "id": "enable_animation", "label": "Animate", "info": "Off renders one static frame. Reduced-motion visitors always get the static frame.", "default": true },
+    { "type": "checkbox", "id": "enable_scroll_morph", "label": "Converge into a lattice on scroll", "default": true },
+    { "type": "checkbox", "id": "show_fps", "label": "Show frame-rate readout", "info": "Diagnostics only — leave off in production.", "default": false },
+
+    { "type": "header", "content": "Mascot" },
+    { "type": "checkbox", "id": "enable_walker", "label": "Network mascot", "info": "The glowing figure that climbs the graph. Scrolling or touching it with the cursor launches it.", "default": true },
+    { "type": "range", "id": "mascot_scale", "label": "Mascot size", "min": 0.3, "max": 3, "step": 0.1, "default": 1 },
+    { "type": "color", "id": "mascot_color", "label": "Mascot rim glow", "default": "#ff3ec9" },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "color_background", "label": "Background", "default": "#06080b" },
+    { "type": "color", "id": "color_node", "label": "Node", "default": "#00f0ff" },
+    { "type": "color", "id": "color_edge", "label": "Edge", "default": "#00a8ff" },
+    { "type": "color", "id": "color_pulse", "label": "Signal pulse", "default": "#a8f6ff" }
+  ],
+  "presets": [{ "name": "Braivex Neural Hero" }]
+}
+{% endschema %}

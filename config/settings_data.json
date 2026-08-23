@@ -199,7 +199,12 @@
           "shadow": "#121212"
         }
       }
-    }
+    },
+    "color_accent": "#00f0ff",
+    "color_accent_2": "#00a8ff",
+    "color_pulse": "#a8f6ff",
+    "color_mascot": "#ff3ec9",
+    "color_background": "#06080b"
   },
   "presets": {
     "Dawn": {

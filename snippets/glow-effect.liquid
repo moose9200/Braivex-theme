@@ -1,0 +1,18 @@
+{% comment %}
+  snippets/glow-effect.liquid
+  Reusable glow layers.
+  Params:
+    kind  — 'vignette' (depth fade) | 'scrim' (WCAG copy scrim) | 'halo' (radial accent)
+    color — halo only, defaults to the node cyan
+    class — extra classes
+  Usage: {% render 'glow-effect', kind: 'scrim' %}
+{% endcomment %}
+{%- liquid assign k = kind | default: 'vignette' -%}
+{% case k %}
+  {% when 'scrim' %}
+    <div class="bx-hero__scrim {{ class }}" aria-hidden="true"></div>
+  {% when 'halo' %}
+    <div class="bvx-glow-halo {{ class }}" aria-hidden="true" style="--glow-color: {{ color | default: '#00f0ff' }}"></div>
+  {% else %}
+    <div class="bx-hero__vignette {{ class }}" aria-hidden="true"></div>
+{% endcase %}

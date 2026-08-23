@@ -1,0 +1,19 @@
+{% comment %}
+  snippets/floating-elements.liquid
+  Decorative interactive elements.
+  Params:
+    type  — 'face' (contour-face WebGL head) | 'dots' (CSS floating accents)
+    class — extra classes
+  Usage: {% render 'floating-elements', type: 'face' %}
+{% endcomment %}
+{%- liquid assign kind = type | default: 'face' -%}
+{% if kind == 'face' %}
+  <script src="{{ 'bx-face.js' | asset_url }}" defer="defer"></script>
+  <div class="bvx-face {{ class }}" data-bx-face="true">
+    <canvas aria-hidden="true"></canvas>
+  </div>
+{% elsif kind == 'dots' %}
+  <div class="bvx-floaters {{ class }}" aria-hidden="true">
+    {% for i in (1..6) %}<span class="bvx-floaters__dot" style="--i: {{ i }}"></span>{% endfor %}
+  </div>
+{% endif %}

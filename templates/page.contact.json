@@ -1,25 +1,47 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "hero": {
+      "type": "braivex-page-hero",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Contact",
+        "heading": "Start a partnership.",
+        "lede": "A short brief is enough. Tell us the workflow that is costing you the most and we will tell you whether an agent should own it."
       }
     },
     "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "type": "braivex-contact",
+      "blocks": {
+        "fact-1": {
+          "type": "fact",
+          "settings": {
+            "label": "Response time",
+            "value": "One business day, from a named engineer."
+          }
+        },
+        "fact-2": {
+          "type": "fact",
+          "settings": {
+            "label": "Engagement",
+            "value": "Discovery call, scoped pilot, measured outcome."
+          }
+        },
+        "fact-3": {
+          "type": "fact",
+          "settings": {
+            "label": "Selectivity",
+            "value": "We take on a limited number of partners each quarter."
+          }
+        }
+      },
+      "block_order": [
+        "fact-1",
+        "fact-2",
+        "fact-3"
+      ]
     }
   },
   "order": [
-    "main",
+    "hero",
     "form"
   ]
 }

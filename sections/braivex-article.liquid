@@ -1,0 +1,30 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Article — hairline hero from the article itself, then editorial body. {% endcomment %}
+<article>
+  <section class="bvx-pagehero">
+    <div class="bvx-pagehero__inner">
+      <p class="bvx__eyebrow">{{ article.published_at | date: '%d %B %Y' }}</p>
+      <h1 class="bvx-pagehero__h1">{{ article.title }}</h1>
+      {% if article.excerpt != blank %}<p class="bvx-pagehero__lede">{{ article.excerpt | strip_html }}</p>{% endif %}
+    </div>
+  </section>
+
+  <section class="bvx">
+    <div class="bvx__inner">
+      <div class="bvx-prose bvx-reveal">
+        {{ article.content }}
+      </div>
+    </div>
+  </section>
+</article>
+
+{% schema %}
+{
+  "name": "Braivex article",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Braivex article" }]
+}
+{% endschema %}

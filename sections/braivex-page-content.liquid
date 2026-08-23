@@ -1,0 +1,20 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Editorial body for pages — styles whatever the merchant writes in the page editor. {% endcomment %}
+<section class="bvx">
+  <div class="bvx__inner">
+    <div class="bvx-prose bvx-reveal">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Braivex page content",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Braivex page content" }]
+}
+{% endschema %}

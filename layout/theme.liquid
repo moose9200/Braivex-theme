@@ -68,6 +68,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer="defer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer="defer"></script>
 
+    <style>
+      /* Braivex brand tokens — Theme settings → Brand colours */
+      :root {
+        --bvx-accent: {{ settings.color_accent | default: '#00f0ff' }};
+        --bvx-accent-2: {{ settings.color_accent_2 | default: '#00a8ff' }};
+        --bx-pulse: {{ settings.color_pulse | default: '#a8f6ff' }};
+        --bx-mascot: {{ settings.color_mascot | default: '#ff3ec9' }};
+      }
+    </style>
+
     {{ content_for_header }}
 
     {%- liquid

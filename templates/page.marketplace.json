@@ -1,173 +1,20 @@
 {
   "sections": {
     "hero": {
-      "type": "braivex-neural-hero",
+      "type": "braivex-page-hero",
       "settings": {
-        "button_1_link": "/pages/contact",
-        "button_2_link": "#solutions"
+        "eyebrow": "Marketplace",
+        "heading": "Deploy a production-ready agent in minutes.",
+        "lede": "Pre-built agents, workflow templates and integrations, all governed by the Braivex platform.",
+        "cta_label": "Secure Early Access",
+        "cta_link": "/pages/contact"
       }
-    },
-    "routes": {
-      "type": "braivex-routes",
-      "blocks": {
-        "route-1": {
-          "type": "route",
-          "settings": {
-            "kicker": "Ready to deploy",
-            "title": "Pre-built Solutions",
-            "desc": "Banking, healthcare, retail and HR applications, live from day one.",
-            "link_label": "Learn more"
-          }
-        },
-        "route-2": {
-          "type": "route",
-          "settings": {
-            "kicker": "Fast-track build",
-            "title": "App Accelerators",
-            "desc": "A marketplace of pre-built agents and workflow templates to scale on.",
-            "link_label": "Learn more"
-          }
-        },
-        "route-3": {
-          "type": "route",
-          "settings": {
-            "kicker": "Custom engineering",
-            "title": "Tailored Apps",
-            "desc": "Applications engineered precisely to your enterprise's complexity.",
-            "link_label": "Learn more"
-          }
-        }
-      },
-      "block_order": [
-        "route-1",
-        "route-2",
-        "route-3"
-      ]
-    },
-    "partners": {
-      "type": "braivex-partners",
-      "settings": {
-        "cta_1_link": "/pages/contact"
-      },
-      "blocks": {
-        "logo-1": {
-          "type": "logo",
-          "settings": {
-            "name": "Tish Lyon",
-            "link": "https://tishlyon.com/",
-            "logo_asset": "brand-tish-lyon.png",
-            "logo_scale": 1
-          }
-        },
-        "logo-2": {
-          "type": "logo",
-          "settings": {
-            "name": "Moksha Botanicals",
-            "link": "https://mokshabotanicals.in/",
-            "logo_asset": "brand-moksha-botanicals.png",
-            "logo_scale": 1.45
-          }
-        },
-        "logo-3": {
-          "type": "logo",
-          "settings": {
-            "name": "Wholesale Body Jewellery",
-            "link": "https://wholesalebodyjewellery.com/",
-            "logo_asset": "brand-wholesale-body-jewellery.png",
-            "logo_scale": 1.35
-          }
-        },
-        "logo-4": {
-          "type": "logo",
-          "settings": {
-            "name": "Swakaash",
-            "link": "https://www.swakaash.com/",
-            "logo_asset": "brand-swakaash.png",
-            "logo_scale": 0.85
-          }
-        }
-      },
-      "block_order": [
-        "logo-1",
-        "logo-2",
-        "logo-3",
-        "logo-4"
-      ]
-    },
-    "industries": {
-      "type": "braivex-industries",
-      "blocks": {
-        "industry-1": {
-          "type": "industry",
-          "settings": {
-            "title": "Banking & Finance",
-            "desc": "Regulation-aware AI that coordinates self-service and live support on audit-ready shared context."
-          }
-        },
-        "industry-2": {
-          "type": "industry",
-          "settings": {
-            "title": "Healthcare",
-            "desc": "24/7 HIPAA-compliant patient care with intelligent triage and less load on clinical staff."
-          }
-        },
-        "industry-3": {
-          "type": "industry",
-          "settings": {
-            "title": "Retail & Consumer",
-            "desc": "Personalised discovery and frictionless support that convert and retain."
-          }
-        },
-        "industry-4": {
-          "type": "industry",
-          "settings": {
-            "title": "Telecom & Media",
-            "desc": "High-volume interactions handled and resolved without losing human empathy."
-          }
-        },
-        "industry-5": {
-          "type": "industry",
-          "settings": {
-            "title": "Enterprise Operations",
-            "desc": "Repetitive internal workflows automated so teams can hold the high-leverage work."
-          }
-        },
-        "industry-6": {
-          "type": "industry",
-          "settings": {
-            "title": "IT Managed Services",
-            "desc": "Incidents resolved faster by agents that understand your stack and escalate with precision."
-          }
-        },
-        "industry-7": {
-          "type": "industry",
-          "settings": {
-            "title": "HR & People Ops",
-            "desc": "Policy lookups and onboarding automated to end people-team fatigue."
-          }
-        },
-        "industry-8": {
-          "type": "industry",
-          "settings": {
-            "title": "Talent Acquisition",
-            "desc": "Pipelines accelerated by agents that screen and engage top-tier talent."
-          }
-        }
-      },
-      "block_order": [
-        "industry-1",
-        "industry-2",
-        "industry-3",
-        "industry-4",
-        "industry-5",
-        "industry-6",
-        "industry-7",
-        "industry-8"
-      ]
     },
     "catalogue": {
       "type": "braivex-catalogue",
       "settings": {
+        "eyebrow": "Library",
+        "heading": "Everything ready to deploy today.",
         "strip_cta_1_link": "/pages/contact"
       },
       "blocks": {
@@ -346,62 +193,6 @@
         "item-15"
       ]
     },
-    "philosophy": {
-      "type": "braivex-philosophy",
-      "settings": {
-        "cta_1_link": "/pages/contact"
-      }
-    },
-    "insights": {
-      "type": "braivex-insights",
-      "settings": {
-        "all_link": "/blogs/insights"
-      },
-      "blocks": {
-        "post-1": {
-          "type": "post",
-          "settings": {
-            "date": "18 March 2026",
-            "title": "What's new in AI for work: the features that actually accelerate productivity"
-          }
-        },
-        "post-2": {
-          "type": "post",
-          "settings": {
-            "date": "28 February 2026",
-            "title": "Parallel agent processing: how multi-agent systems are redefining automation"
-          }
-        },
-        "post-3": {
-          "type": "post",
-          "settings": {
-            "date": "10 February 2026",
-            "title": "The AI productivity gap: why brands move faster with purpose-built agents"
-          }
-        },
-        "post-4": {
-          "type": "post",
-          "settings": {
-            "date": "8 January 2026",
-            "title": "From chatbots to agentic workflows: the evolution every leader needs to understand"
-          }
-        },
-        "post-5": {
-          "type": "post",
-          "settings": {
-            "date": "5 December 2025",
-            "title": "AI agents and the tools that make them powerful: a guide for operators"
-          }
-        }
-      },
-      "block_order": [
-        "post-1",
-        "post-2",
-        "post-3",
-        "post-4",
-        "post-5"
-      ]
-    },
     "cta": {
       "type": "braivex-cta",
       "blocks": {
@@ -411,8 +202,7 @@
             "kicker": "High touch",
             "title": "Ready to see Braivex in action?",
             "desc": "Talk to an AI specialist and see exactly how agentic AI changes your operations.",
-            "link_label": "Schedule a Deep Dive",
-            "link": "/pages/contact"
+            "link_label": "Schedule a Deep Dive"
           }
         },
         "path-2": {
@@ -421,8 +211,7 @@
             "kicker": "Self-service",
             "title": "Want to start immediately?",
             "desc": "Browse the marketplace and deploy production-ready agents in minutes.",
-            "link_label": "Explore the Marketplace",
-            "link": "/pages/marketplace"
+            "link_label": "Explore the Marketplace"
           }
         }
       },
@@ -434,12 +223,7 @@
   },
   "order": [
     "hero",
-    "routes",
-    "partners",
-    "industries",
     "catalogue",
-    "philosophy",
-    "insights",
     "cta"
   ]
 }

@@ -1451,5 +1451,40 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Brand colours",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (node cyan)",
+        "default": "#00f0ff"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_2",
+        "label": "Edge blue",
+        "default": "#00a8ff"
+      },
+      {
+        "type": "color",
+        "id": "color_pulse",
+        "label": "Signal pulse",
+        "default": "#a8f6ff"
+      },
+      {
+        "type": "color",
+        "id": "color_mascot",
+        "label": "Mascot rim glow",
+        "default": "#ff3ec9"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Page background",
+        "default": "#06080b"
+      }
+    ]
   }
 ]

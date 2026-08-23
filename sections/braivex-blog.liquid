@@ -1,0 +1,31 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Insights index — article rows, no cards, no thumbnails. {% endcomment %}
+<section class="bvx">
+  <div class="bvx__inner">
+    {% paginate blog.articles by 24 %}
+      <div class="bvx-rows bvx-reveal">
+        {% for article in blog.articles %}
+          <a class="bvx-row" href="{{ article.url }}">
+            <span class="bvx-row__date">{{ article.published_at | date: '%d %B %Y' }}</span>
+            <span class="bvx-row__title">{{ article.title }}</span>
+            <span class="bvx-row__arrow">&rarr;</span>
+          </a>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        <div class="bvx-actions" style="margin-top:40px;">{{ paginate | default_pagination }}</div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Braivex insights index",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Braivex insights index" }]
+}
+{% endschema %}

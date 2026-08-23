@@ -1,0 +1,9 @@
+{% comment %}
+  snippets/character-background.liquid
+  The neural point-cloud backdrop: WebGL canvas + depth vignette + copy scrim.
+  Place as the first children of a .bx-hero host. The engine finds the canvas.
+  Usage: {% render 'character-background' %}
+{% endcomment %}
+<canvas class="bx-hero__canvas" aria-hidden="true"></canvas>
+{% render 'glow-effect', kind: 'vignette' %}
+{% render 'glow-effect', kind: 'scrim' %}

@@ -1,0 +1,68 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Braivex footer — statement, RFP call, two editable menus, policies. {% endcomment %}
+<footer class="bvx-footer">
+  <div class="bvx-footer__inner">
+    <div class="bvx-footer__top">
+      <div>
+        {% if section.settings.wordmark != blank %}<p class="bvx-footer__wordmark">{{ section.settings.wordmark }}</p>{% endif %}
+        {% if section.settings.statement != blank %}<p class="bvx-footer__statement">{{ section.settings.statement }}</p>{% endif %}
+        {% if section.settings.note != blank %}<p class="bvx-footer__note">{{ section.settings.note }}</p>{% endif %}
+        {% if section.settings.cta_label != blank %}
+          <div class="bvx-actions">
+            <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% endif %}>{{ section.settings.cta_label }}</a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div>
+        {% if section.settings.menu_1_title != blank %}<p class="bvx-footer__coltitle">{{ section.settings.menu_1_title }}</p>{% endif %}
+        <ul class="bvx-footer__list">
+          {% for link in linklists[section.settings.menu_1].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        {% if section.settings.menu_2_title != blank %}<p class="bvx-footer__coltitle">{{ section.settings.menu_2_title }}</p>{% endif %}
+        <ul class="bvx-footer__list">
+          {% for link in linklists[section.settings.menu_2].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="bvx-footer__bottom">
+      <p class="bvx-footer__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All trademarks are property of their respective owners.</p>
+      <ul class="bvx-footer__policies">
+        {% for policy in shop.policies %}
+          {% if policy != blank %}<li><a href="{{ policy.url }}">{{ policy.title }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Braivex footer",
+  "class": "bvx-footer-section",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Braivex." },
+    { "type": "textarea", "id": "statement", "label": "Statement", "default": "Let's build something that matters." },
+    { "type": "textarea", "id": "note", "label": "Note", "default": "Request a tailored briefing for your enterprise AI project." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Initiate RFP" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "header", "content": "Menus" },
+    { "type": "text", "id": "menu_1_title", "label": "Column 1 title", "default": "Platform" },
+    { "type": "link_list", "id": "menu_1", "label": "Column 1 menu", "default": "footer" },
+    { "type": "text", "id": "menu_2_title", "label": "Column 2 title", "default": "Company" },
+    { "type": "link_list", "id": "menu_2", "label": "Column 2 menu" }
+  ],
+  "presets": [{ "name": "Braivex footer" }]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+{% comment %}
+  snippets/character-mascot.liquid
+  Emits the engine's host data-attributes from section settings — nodes,
+  animation toggles, and the mascot (walker) with its Theme Editor size.
+  Usage: <div class="bx-hero" {% render 'character-mascot', s: section.settings %}>
+{% endcomment %}
+data-bx-neural-hero="true"
+data-bx-nodes="{{ s.node_count }}"
+data-bx-animate="{{ s.enable_animation }}"
+data-bx-morph="{{ s.enable_scroll_morph }}"
+data-bx-walker="{{ s.enable_walker }}"
+data-bx-mascot-scale="{{ s.mascot_scale | default: 1 }}"
+data-bx-stats="{{ s.show_fps }}"

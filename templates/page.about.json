@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "hero": {
+      "type": "braivex-page-hero",
+      "settings": {
+        "eyebrow": "About Braivex",
+        "lede": "Service-as-Software: secure, context-aware agents that run inside your existing systems and are paid for on outcomes, not logins."
+      }
+    },
+    "body": {
+      "type": "braivex-page-content"
+    },
+    "cta": {
+      "type": "braivex-cta",
+      "blocks": {
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "High touch",
+            "title": "Ready to see Braivex in action?",
+            "desc": "Talk to an AI specialist and see exactly how agentic AI changes your operations.",
+            "link_label": "Schedule a Deep Dive"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Self-service",
+            "title": "Want to start immediately?",
+            "desc": "Browse the marketplace and deploy production-ready agents in minutes.",
+            "link_label": "Explore the Marketplace"
+          }
+        }
+      },
+      "block_order": [
+        "path-1",
+        "path-2"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "body",
+    "cta"
+  ]
+}

@@ -1,0 +1,8 @@
+{% comment %}
+  snippets/character-animation.liquid
+  Loads three.js r128 (CDN) and the shared neural engine. The engine waits
+  for THREE, so load order is safe. Render before any host markup.
+  Usage: {% render 'character-animation' %}
+{% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer="defer"></script>
+<script src="{{ 'neural-hero.js' | asset_url }}" defer="defer"></script>

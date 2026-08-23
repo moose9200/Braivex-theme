@@ -1,0 +1,143 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Commitment statement + client ecosystem marquee (merged from two live sections). {% endcomment %}
+<section class="bvx bvx--panel" id="{{ section.settings.anchor }}">
+  <div class="bvx__inner">
+    <div class="bvx-split bvx-reveal">
+      <div>
+        <div class="bvx__head" style="margin-bottom: 28px;">
+          {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+          {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+        </div>
+        {% if section.settings.cta_1_label != blank %}
+          <div class="bvx-actions">
+            <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_1_link != blank %}href="{{ section.settings.cta_1_link }}"{% endif %}>{{ section.settings.cta_1_label }}</a>
+            {% if section.settings.cta_2_label != blank %}
+              <a class="bvx-btn bvx-btn--ghost" {% if section.settings.cta_2_link != blank %}href="{{ section.settings.cta_2_link }}"{% endif %}>{{ section.settings.cta_2_label }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="bvx-split__body">
+        {% if section.settings.body_1 != blank %}<p>{{ section.settings.body_1 }}</p>{% endif %}
+        {% if section.settings.body_2 != blank %}<p>{{ section.settings.body_2 }}</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="bvx-quote bvx-reveal" style="margin-top: 72px;">
+      {% if section.settings.marquee_label != blank %}
+        <p class="bvx__eyebrow" style="margin-bottom: 32px;">{{ section.settings.marquee_label }}</p>
+      {% endif %}
+      <div class="bvx-marquee">
+        <div class="bvx-marquee__track">
+          {% for block in section.blocks %}
+            {%- comment -%}
+              Upload each client's mark in the block's Logo setting. Without one
+              the block falls back to a monogram + wordmark lockup rather than
+              bare text. A blank link renders a span, never <a href="">.
+            {%- endcomment -%}
+            {%- liquid
+              assign words = block.settings.name | split: ' '
+              capture mono
+                for wd in words limit: 2
+                  echo wd | slice: 0 | upcase
+                endfor
+              endcapture
+              assign tag = 'span'
+              if block.settings.link != blank
+                assign tag = 'a'
+              endif
+            -%}
+            <{{ tag }} class="bvx-logo"
+              {% if tag == 'a' %}{% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} target="_blank" rel="noopener"{% endif %}
+              style="--bvx-logo-h: {{ section.settings.logo_height }}px; --bvx-logo-scale: {{ block.settings.logo_scale | default: 1 }}"
+              {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 480 }}"
+                  srcset="{{ block.settings.image | image_url: width: 240 }} 240w, {{ block.settings.image | image_url: width: 480 }} 480w"
+                  sizes="{{ section.settings.logo_height }}px"
+                  alt="{{ block.settings.name | escape }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  loading="lazy">
+              {% elsif block.settings.logo_asset != blank %}
+                {%- comment -%}
+                  Mark shipped with the theme, pre-processed to a trimmed white
+                  silhouette on transparency so it sits on the dark marquee.
+                  Intrinsic dimensions unknown for arbitrary assets/URLs; CSS
+                  (max-height/max-width on .bvx-logo img) controls display size.
+                {%- endcomment -%}
+                {% # theme-check-disable ImgWidthAndHeight %}
+                <img src="{{ block.settings.logo_asset | asset_url }}" alt="{{ block.settings.name | escape }}" loading="lazy" decoding="async">
+                {% # theme-check-enable ImgWidthAndHeight %}
+              {% elsif block.settings.logo_url != blank %}
+                {% # theme-check-disable ImgWidthAndHeight %}
+                <img src="{{ block.settings.logo_url }}" alt="{{ block.settings.name | escape }}" loading="lazy" decoding="async">
+                {% # theme-check-enable ImgWidthAndHeight %}
+              {% else %}
+                {% if mono != blank %}<span class="bvx-logo__mono" aria-hidden="true">{{ mono }}</span>{% endif %}
+                <span class="bvx-logo__name">{{ block.settings.name }}</span>
+              {% endif %}
+            </{{ tag }}>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Braivex partners",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "brands" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our commitment" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We build for brands that refuse to be ordinary." },
+    { "type": "textarea", "id": "body_1", "label": "Paragraph 1", "default": "Every partner receives our complete, focused expertise. We are selective because real innovation demands total alignment." },
+    { "type": "textarea", "id": "body_2", "label": "Paragraph 2", "default": "Braivex works with leaders across health, luxury retail and global enterprise to deliver AI that is not a tool but a competitive moat." },
+    { "type": "text", "id": "cta_1_label", "label": "Primary button", "default": "Start a Partnership" },
+    { "type": "url", "id": "cta_1_link", "label": "Primary link", "default": "/pages/contact" },
+    { "type": "text", "id": "cta_2_label", "label": "Secondary button", "default": "View Case Studies" },
+    { "type": "url", "id": "cta_2_link", "label": "Secondary link", "default": "/#insights" },
+    { "type": "text", "id": "marquee_label", "label": "Marquee label", "default": "Client ecosystem" },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo height",
+      "unit": "px",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "default": 46
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Client logo",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Client name" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Logo image (overrides asset)" },
+        { "type": "text", "id": "logo_asset", "label": "Theme asset filename", "info": "e.g. brand-tish-lyon.png (shipped in assets/)" },
+        { "type": "text", "id": "logo_url", "label": "External logo URL" },
+        { "type": "number", "id": "logo_scale", "label": "Logo scale (0.5–3, 1 = natural size)", "default": 1 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Braivex partners",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "Tish Lyon", "link": "https://tishlyon.com/", "logo_asset": "brand-tish-lyon.png", "logo_scale": 1 } },
+        { "type": "logo", "settings": { "name": "Moksha Botanicals", "link": "https://mokshabotanicals.in/", "logo_asset": "brand-moksha-botanicals.png", "logo_scale": 1.45 } },
+        { "type": "logo", "settings": { "name": "Wholesale Body Jewellery", "link": "https://wholesalebodyjewellery.com/", "logo_asset": "brand-wholesale-body-jewellery.png", "logo_scale": 1.35 } },
+        { "type": "logo", "settings": { "name": "Swakaash", "link": "https://www.swakaash.com/", "logo_asset": "brand-swakaash.png", "logo_scale": 0.85 } }
+      ]
+    }
+  ]
+}
+{% endschema %}
