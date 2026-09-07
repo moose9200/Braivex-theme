@@ -58,8 +58,9 @@
         "link-contact"
       ],
       "settings": {
+        "logo": "shopify://shop_images/braivex-lockup.png",
         "logo_url": "https://braivex.com",
-        "wordmark": "",
+        "wordmark": "Braivex",
         "menu": "main-menu",
         "cta_label": "Start a Partnership",
         "cta_link": "/pages/contact"
