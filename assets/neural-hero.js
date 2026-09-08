@@ -314,7 +314,6 @@
     var combo = 1, comboT = 0, formedFlash = 0, formedDone = false;
     var HOP = 0.055;
     var CASCADE_BUDGET = mob ? 280 : 900;
-    var hud = null, hudPct = null, hudFill = null, hudFlash = null, hudHint = null, hudClock = 0;
 
     /* --- Network Walker --------------------------------------------------
        A glowing stick figure who lives in the graph: climbs edge to edge,
@@ -391,10 +390,6 @@
       wk.spin = (rnd() < 0.5 ? -1 : 1) * (5 + rnd() * 4);
       wk.airT = 0.05;                                    // re-arms the catch guard
       juggle++;
-      if (hudFlash) {
-        hudFlash.textContent = 'Keep-up \u00d7' + juggle;
-        hudFlash.style.opacity = '1';
-      }
       comboT = 1.3;                                      // reuses the flash fade timer
     }
     function wkThrow() {
@@ -528,11 +523,7 @@
             if (tu > 3.14159) tu -= 6.28318;
             if (tu < -3.14159) tu += 6.28318;
             wk.tumble = tu; wk.grabT = 0.3;      // catch crouch, then unwind
-            if (juggle >= 3 && hudFlash) {
-              hudFlash.textContent = 'Caught after \u00d7' + juggle + ' keep-ups';
-              hudFlash.style.opacity = '1';
-              comboT = 2;
-            }
+            if (juggle >= 3) comboT = 2;
             juggle = 0;
             var nb4 = wkNext(best4, -1);
             if (nb4 < 0) wkSpawn(Math.floor(rnd() * NODES));
@@ -659,36 +650,6 @@
       host.appendChild(glow);
     }
 
-    if (animate) {
-      hud = d.createElement('div');
-      hud.setAttribute('aria-hidden', 'true');
-      // Colour comes from the theme's dimmed-ink token, not a local rgba, so
-      // the readout cannot drift below AA when the palette changes.
-      hud.style.cssText = 'position:absolute;left:24px;bottom:22px;z-index:2;pointer-events:none;' +
-        'display:flex;flex-direction:column;gap:7px;width:206px;' +
-        'font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.12em;' +
-        'text-transform:uppercase;color:var(--bx-ink-dim,rgba(233,241,248,0.75))';
-      hud.innerHTML =
-        '<div style="display:flex;justify-content:space-between;align-items:baseline">' +
-          '<span>Network formed</span>' +
-          '<span data-pct style="color:var(--bx-node);font-variant-numeric:tabular-nums">0%</span>' +
-        '</div>' +
-        '<div style="height:1px;background:rgba(255,255,255,0.12)">' +
-          '<div data-fill style="height:1px;width:0%;background:var(--bx-node);' +
-            'box-shadow:0 0 8px var(--bx-node);transition:width .25s linear"></div>' +
-        '</div>' +
-        '<div data-flash style="height:15px;opacity:0;color:var(--bx-node);transition:opacity .25s ease"></div>' +
-        '<div data-hint style="text-transform:none;letter-spacing:0.02em;' +
-          'font-size:12px;transition:opacity .6s ease">' +
-          (mob ? 'Tap to send a signal' : 'Click to send a signal') + '</div>';
-      host.appendChild(hud);
-      hudPct = hud.querySelector('[data-pct]');
-      hudFill = hud.querySelector('[data-fill]');
-      hudFlash = hud.querySelector('[data-flash]');
-      hudHint = hud.querySelector('[data-hint]');
-      setTimeout(function () { if (hudHint && !formed) hudHint.style.opacity = '0.75'; }, 9000);
-    }
-
     // Inject a signal and let it walk the graph.
     function ignite(start, tNow) {
       combo = pending.length ? Math.min(5, combo + 1) : 1;
@@ -697,11 +658,6 @@
       var c = { s: stamp, fired: 0, budget: Math.round(CASCADE_BUDGET * (0.55 + combo * 0.45)), hops: 9 + combo * 2 };
       seenStamp[start] = stamp;
       pending.push({ n: start, t: tNow, hop: 0, c: c });
-      if (hudFlash) {
-        hudFlash.textContent = combo > 1 ? 'Signal chained \u00d7' + combo : 'Signal sent';
-        hudFlash.style.opacity = '1';
-      }
-      if (hudHint) { hudHint.style.opacity = '0'; }
     }
 
     function onMove(e) {
@@ -858,7 +814,6 @@
         comboT -= dt;
         if (comboT <= 0) {
           combo = 1;
-          if (hudFlash) hudFlash.style.opacity = '0';
         }
       }
       if (formedFlash > 0) formedFlash -= dt;
@@ -983,21 +938,12 @@
 
       if (walkerOn && wk) wkStep(dt);
 
-      if (hud) {
-        hudClock += dt;
-        if (hudClock > 0.12) {
-          hudClock = 0;
-          var pct = formed / NODES;
-          hudPct.textContent = Math.round(pct * 100) + '%';
-          hudFill.style.width = (pct * 100).toFixed(1) + '%';
-          if (!formedDone && pct >= 0.999) {
-            formedDone = true;
-            formedFlash = 1.4;
-            hudFlash.textContent = 'Network formed';
-            hudFlash.style.opacity = '1';
-            comboT = 2.4;
-          }
-        }
+      // The completion burst brightens the edges (see edgeBase below); the
+      // on-canvas readout it used to accompany was removed.
+      if (!formedDone && formed / NODES >= 0.999) {
+        formedDone = true;
+        formedFlash = 1.4;
+        comboT = 2.4;
       }
 
       renderer.render(scene, camera);
@@ -1070,7 +1016,6 @@
         w.removeEventListener('pointerout', onLeave);
         host.removeEventListener('pointerdown', onDown);
         if (glow && glow.parentNode) glow.parentNode.removeChild(glow);
-        if (hud && hud.parentNode) hud.parentNode.removeChild(hud);
         w.removeEventListener('resize', onResizeObserved);
         if (io) io.disconnect();
         if (ro) ro.disconnect();
