@@ -3,10 +3,29 @@
 
 {% comment %} Editorial body for pages — styles whatever the merchant writes in the page editor. {% endcomment %}
 <section class="bvx">
-  <div class="bvx__inner">
+  {%- comment -%}
+    .bvx-article is the shared two-column reading layout (prose + sticky rail),
+    not article-only markup. Single column until 1080px.
+  {%- endcomment -%}
+  <div class="bvx__inner bvx-article">
     <div class="bvx-prose bvx-reveal">
       {{ page.content }}
     </div>
+
+    {%- comment -%}
+      The rail builds itself from the headings the merchant wrote, and hides
+      itself when a page has fewer than two. Page copy tends to use H3 subheads
+      under a single H2, so both levels are included by default.
+    {%- endcomment -%}
+    {% if section.settings.show_rail %}
+      <aside class="bvx-rail"
+        data-bvx-rail
+        data-bvx-rail-target=".bvx-prose"
+        data-bvx-rail-levels="{{ section.settings.rail_levels }}"
+        data-bvx-rail-label="{{ section.settings.rail_label | escape }}"
+        data-bvx-rail-time="{% if section.settings.rail_time %}true{% else %}false{% endif %}"
+        hidden></aside>
+    {% endif %}
   </div>
 </section>
 
@@ -14,7 +33,41 @@
 {
   "name": "Braivex page content",
   "tag": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section rail"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rail",
+      "label": "Show section rail",
+      "info": "Sticky outline in the right column, built from this page's headings. Appears on screens 1080px and wider; narrower screens get a progress bar under the header. Hidden automatically if the page has fewer than two headings.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rail_label",
+      "label": "Rail label",
+      "default": "On this page"
+    },
+    {
+      "type": "select",
+      "id": "rail_levels",
+      "label": "Include headings",
+      "options": [
+        { "value": "h2", "label": "Main sections only (H2)" },
+        { "value": "h2h3", "label": "Sections and subsections (H2 + H3)" }
+      ],
+      "default": "h2h3"
+    },
+    {
+      "type": "checkbox",
+      "id": "rail_time",
+      "label": "Show reading time remaining",
+      "default": false
+    }
+  ],
   "presets": [{ "name": "Braivex page content" }]
 }
 {% endschema %}
