@@ -2,8 +2,10 @@
 <script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
 
 {% comment %}
-  AI Insights. Blocks are used so posts can be curated by hand; point them at
-  blog articles once the Insights blog is populated.
+  AI Insights. Pulls the latest posts straight from the chosen blog so the
+  homepage can never drift out of step with the blog itself — titles, dates
+  and links all come from the articles. Falling back to hand-curated blocks
+  only when no blog is selected.
 {% endcomment %}
 <section class="bvx bvx--panel" id="{{ section.settings.anchor }}">
   <div class="bvx__inner">
@@ -13,14 +15,28 @@
       {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
     </div>
 
+    {%- liquid
+      assign feed = blogs[section.settings.blog]
+      assign post_limit = section.settings.post_limit | default: 5
+    -%}
     <div class="bvx-rows bvx-reveal">
-      {% for block in section.blocks %}
-        <a class="bvx-row" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {{ block.shopify_attributes }}>
-          <span class="bvx-row__date">{{ block.settings.date }}</span>
-          <span class="bvx-row__title">{{ block.settings.title }}</span>
-          <span class="bvx-row__arrow">&rarr;</span>
-        </a>
-      {% endfor %}
+      {% if feed != blank and feed.articles_count > 0 %}
+        {% for article in feed.articles limit: post_limit %}
+          <a class="bvx-row" href="{{ article.url }}">
+            <span class="bvx-row__date">{{ article.published_at | date: '%d %B %Y' }}</span>
+            <span class="bvx-row__title">{{ article.title }}</span>
+            <span class="bvx-row__arrow">&rarr;</span>
+          </a>
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          <a class="bvx-row" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {{ block.shopify_attributes }}>
+            <span class="bvx-row__date">{{ block.settings.date }}</span>
+            <span class="bvx-row__title">{{ block.settings.title }}</span>
+            <span class="bvx-row__arrow">&rarr;</span>
+          </a>
+        {% endfor %}
+      {% endif %}
     </div>
 
     {% if section.settings.all_label != blank %}
@@ -40,6 +56,21 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Research and discourse" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "AI Insights" },
     { "type": "textarea", "id": "lede", "label": "Lede", "default": "Original research, product breakthroughs and strategic thinking from the Braivex engineering team." },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Pull posts from this blog",
+      "info": "Recommended. Titles, dates and links stay in sync with the blog automatically. Leave empty to curate posts by hand using the blocks below."
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": "Posts to show",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 5
+    },
     { "type": "text", "id": "all_label", "label": "View all label", "default": "View All Insights" },
     { "type": "text", "id": "all_link", "label": "View all link", "default": "/blogs/news" }
   ],

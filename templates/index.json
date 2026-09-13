@@ -456,62 +456,15 @@
     },
     "insights": {
       "type": "braivex-insights",
-      "blocks": {
-        "post-1": {
-          "type": "post",
-          "settings": {
-            "date": "20 August 2026",
-            "title": "Parallel agent processing: how multi-agent systems are redefining automation",
-            "link": "/blogs/news/parallel-agent-processing-multi-agent-systems"
-          }
-        },
-        "post-2": {
-          "type": "post",
-          "settings": {
-            "date": "19 August 2026",
-            "title": "What's new in AI for work: the features that actually accelerate productivity",
-            "link": "/blogs/news/whats-new-in-ai-for-work"
-          }
-        },
-        "post-3": {
-          "type": "post",
-          "settings": {
-            "date": "13 August 2026",
-            "title": "From chatbots to agentic workflows: the evolution every leader needs to understand",
-            "link": "/blogs/news/from-chatbots-to-agentic-workflows"
-          }
-        },
-        "post-4": {
-          "type": "post",
-          "settings": {
-            "date": "7 August 2026",
-            "title": "AI agents and the tools that make them powerful: a guide for operators",
-            "link": "/blogs/news/ai-agents-and-the-tools-that-make-them-powerful"
-          }
-        },
-        "post-5": {
-          "type": "post",
-          "settings": {
-            "date": "24 July 2026",
-            "title": "The AI productivity gap: why brands move faster with purpose-built agents",
-            "link": "/blogs/news/the-ai-productivity-gap-purpose-built-agents"
-          }
-        }
-      },
-      "block_order": [
-        "post-1",
-        "post-2",
-        "post-3",
-        "post-4",
-        "post-5"
-      ],
       "settings": {
         "anchor": "insights",
         "eyebrow": "Research and discourse",
         "heading": "AI Insights",
         "lede": "Original research, product breakthroughs and strategic thinking from the Braivex engineering team.",
         "all_label": "View All Insights",
-        "all_link": "/blogs/news"
+        "all_link": "/blogs/news",
+        "blog": "news",
+        "post_limit": 5
       }
     },
     "cta": {
