@@ -1,0 +1,141 @@
+{
+  "sections": {
+    "hero": {
+      "type": "braivex-page-hero",
+      "settings": {
+        "eyebrow": "Loculens by Braivex",
+        "heading": "Every review, every branch, one workspace.",
+        "lede": "Review management for businesses with more than one location. Loculens connects to your Google Business Profile, discovers every branch, reads every review, names the team members mentioned in them and tracks which ones you have answered — with an AI-drafted reply waiting when you have not.",
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "what": {
+      "type": "braivex-spec",
+      "blocks": {
+        "w-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Branch discovery",
+            "value": "Connect the Google account that manages the business and Loculens finds every verified location itself. No spreadsheet of Place IDs, no location seeding."
+          }
+        },
+        "w-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Sentiment and topics",
+            "value": "Each review is classified for sentiment and topic, so a rating breakdown, a sentiment pulse and topic bars sit above the feed — and every panel filters it."
+          }
+        },
+        "w-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Team-member mentions",
+            "value": "Names in review text are extracted and ranked with per-person star splits. You see who customers praise by name, per branch, per time window."
+          }
+        },
+        "w-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Reply tracking and drafting",
+            "value": "Unanswered reviews are surfaced, and a reply drafter proposes a response in your voice. A person approves it; nothing is posted on its own."
+          }
+        },
+        "w-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Time windows and export",
+            "value": "Every panel carries its own window with custom date ranges, scoped to one branch or all of them. CSV export for the full review set and the team ranking."
+          }
+        },
+        "w-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Proven at scale",
+            "value": "Running live across five studios for a national jewellery retailer — 479 reviews at the last full sync, branches rated 4.7 to 5.0."
+          }
+        }
+      },
+      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "settings": {
+        "eyebrow": "What it does",
+        "heading": "Built for the operator with five branches, not the marketer with one.",
+        "lede": "Multi-location review management is a volume problem before it is a tone-of-voice problem. Loculens is built around that.",
+        "cta_label": "",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "guardrails": {
+      "type": "braivex-spec",
+      "blocks": {
+        "g-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Source precedence",
+            "value": "Google Business Profile, then Apify, then Places, in that order. A sync never overwrites stored reviews with a weaker source."
+          }
+        },
+        "g-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Spend caps you control",
+            "value": "Review collection bills per review returned, so it runs behind a monthly budget, a minimum sync interval and a pause switch. A plan can lower the cap; it can never raise it."
+          }
+        },
+        "g-3": {
+          "type": "spec",
+          "settings": {
+            "label": "One workspace per business",
+            "value": "Each customer's reviews, roster, settings, accounts and spend ledger live in their own workspace. Nothing about a customer is in the code."
+          }
+        },
+        "g-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Plans and trial",
+            "value": "Starter, Growth and Scale, each with quotas for locations, reviews per month and reply drafts per month. Every workspace starts on a 14-day trial."
+          }
+        }
+      },
+      "block_order": ["g-1", "g-2", "g-3", "g-4"],
+      "settings": {
+        "eyebrow": "Guardrails",
+        "heading": "Designed so the bill and the data behave.",
+        "lede": "",
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "cta": {
+      "type": "braivex-cta",
+      "blocks": {
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "See it running",
+            "title": "Bring your locations. We will show you your reviews.",
+            "desc": "A 30-minute walkthrough on your own Google Business Profile, not a demo dataset.",
+            "link_label": "Book a demo",
+            "link": "/pages/contact"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Also from Braivex",
+            "title": "Hiring, screened with the same discipline.",
+            "desc": "HireSieve turns a folder of CVs into an evidence-quoted shortlist — and never rejects anyone on its own.",
+            "link_label": "See HireSieve",
+            "link": "/pages/hiresieve"
+          }
+        }
+      },
+      "block_order": ["path-1", "path-2"],
+      "settings": {
+        "anchor": "get-started",
+        "heading": "Review management that scales with your branches, not your headcount."
+      }
+    }
+  },
+  "order": ["hero", "what", "guardrails", "cta"]
+}

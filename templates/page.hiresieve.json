@@ -1,0 +1,155 @@
+{
+  "sections": {
+    "hero": {
+      "type": "braivex-page-hero",
+      "settings": {
+        "eyebrow": "HireSieve by Braivex",
+        "heading": "Every score quotes the line of the CV it came from.",
+        "lede": "Recruitment screening for hiring teams. Drop a folder of CVs in, press one button, and get a ranked shortlist where every number is traceable to the candidate's own words. An AI agent extracts the facts. A deterministic engine does the arithmetic. A person decides — nothing auto-rejects.",
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "what": {
+      "type": "braivex-spec",
+      "blocks": {
+        "w-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Evidence, not vibes",
+            "value": "The model returns facts and the quote each fact came from. Every score on the shortlist links back to the line of the CV that produced it."
+          }
+        },
+        "w-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Arithmetic you can audit",
+            "value": "The language model never produces a number. A deterministic scoring engine is the only place a number is created, so two runs on the same CV give the same score."
+          }
+        },
+        "w-3": {
+          "type": "spec",
+          "settings": {
+            "label": "A failed requirement is a label, not a rejection",
+            "value": "Candidates who miss a requirement are flagged for a person to overrule. The full score and the full record are kept either way."
+          }
+        },
+        "w-4": {
+          "type": "spec",
+          "settings": {
+            "label": "It asks before it spends",
+            "value": "About 4.5p and 45 seconds per CV. It shows the count, the job advert and the cost before sending anything, and asks a second time above 80 CVs in one run."
+          }
+        },
+        "w-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Every batch can be undone",
+            "value": "Undo removes an assessment, never a CV. A copy of whatever was removed is kept. Nothing is deleted by mistake."
+          }
+        },
+        "w-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Roles and billing built in",
+            "value": "Owner, admin, member and viewer roles. Teammates join by invite. Trial, Starter, Team and Scale plans with hosted checkout."
+          }
+        }
+      },
+      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "settings": {
+        "eyebrow": "What it does",
+        "heading": "Screening that a hiring manager, a candidate and a regulator can all read.",
+        "lede": "",
+        "cta_label": "",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "never": {
+      "type": "braivex-spec",
+      "blocks": {
+        "n-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Reject anyone automatically",
+            "value": "A failed requirement is a label a person can overrule, not a deletion."
+          }
+        },
+        "n-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Guess whether a CV was written by AI",
+            "value": "Detectors misfire on roughly 61% of non-native English writers and show demographic bias. Using one would be a discrimination claim with the evidence already published."
+          }
+        },
+        "n-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Score spelling, grammar, or which school someone attended",
+            "value": "Class and race proxies that look like merit."
+          }
+        },
+        "n-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Count a career gap or penalise part-time work",
+            "value": "Gaps are shown to a human. They are never counted against anyone."
+          }
+        },
+        "n-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Produce a number the model invented",
+            "value": "The model returns facts and quotes. The scoring engine does every calculation, and it is the only place a number is created."
+          }
+        },
+        "n-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Leave the paperwork to you",
+            "value": "A data protection impact assessment, legitimate-interests assessment, record of processing and candidate notices ship with it."
+          }
+        }
+      },
+      "block_order": ["n-1", "n-2", "n-3", "n-4", "n-5", "n-6"],
+      "settings": {
+        "eyebrow": "What it deliberately will not do",
+        "heading": "The constraints matter more than the feature list — and tests enforce them.",
+        "lede": "",
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "cta": {
+      "type": "braivex-cta",
+      "blocks": {
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "See it running",
+            "title": "Bring a job advert and a folder of CVs.",
+            "desc": "A 30-minute walkthrough on your own vacancy, with the cost shown before a single CV is read.",
+            "link_label": "Book a demo",
+            "link": "/pages/contact"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Also from Braivex",
+            "title": "Your reviews, with the same evidence trail.",
+            "desc": "Loculens reads every Google review across every branch, names the team members in them and drafts the replies you have not sent.",
+            "link_label": "See Loculens",
+            "link": "/pages/loculens"
+          }
+        }
+      },
+      "block_order": ["path-1", "path-2"],
+      "settings": {
+        "anchor": "get-started",
+        "heading": "Shortlists you can defend to the candidate you did not hire."
+      }
+    }
+  },
+  "order": ["hero", "what", "never", "cta"]
+}
