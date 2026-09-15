@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "hero": {
+      "type": "braivex-product-hero",
+      "settings": {
+        "eyebrow": "BriefSieve by Braivex · The operator's daily brief",
+        "heading": "BriefSieve",
+        "badge": "Early access",
+        "lede": "Your numbers, read for you every morning. Ad ROAS, cross-channel marketing, social, email, sales, marketplaces, competitors, industry buzz, inbox and calendar on one screen — with a guru you can question, that narrates the numbers and never computes them.",
+        "metric": "Ten data sections, your own API keys, one brief",
+        "mock": "briefsieve",
+        "chips_link": "#what",
+        "feature_1_label": "The morning brief", "feature_1_region": "brief",
+        "feature_2_label": "KPIs, compared", "feature_2_region": "kpis",
+        "feature_3_label": "Your channels, your keys", "feature_3_region": "channels",
+        "feature_4_label": "Ask the guru", "feature_4_region": "guru",
+        "cta_primary_label": "Request early access",
+        "cta_primary_link": "/pages/contact",
+        "cta_secondary_label": "See the plans",
+        "cta_secondary_link": "#plans"
+      }
+    },
+    "what": {
+      "type": "braivex-spec",
+      "blocks": {
+        "w-1": { "type": "spec", "settings": { "label": "The morning brief", "value": "A daily brief written from last night's syncs: what moved, what is running low, what worked. Three things worth your attention before you open a single dashboard." } },
+        "w-2": { "type": "spec", "settings": { "label": "Ten sections, overview and detail", "value": "Ad ROAS, cross-channel marketing, social, email, sales, Amazon, competitor watch, product launches, industry buzz, and inbox plus calendar. Each with a global date range, a compare period and trend charts." } },
+        "w-3": { "type": "spec", "settings": { "label": "Ask the guru", "value": "A chat that answers from your own figures, remembers your context per user, and cites the sync it drew from. It narrates pre-computed numbers only — the model is never allowed to do the arithmetic on money or metrics." } },
+        "w-4": { "type": "spec", "settings": { "label": "Your channels, your keys", "value": "Connect Meta, Google and TikTok Ads, Instagram, Shopify, Klaviyo, Dynamics, Amazon Seller Central, Gmail or Outlook with calendar, and Reddit through OAuth. Credentials are yours, stored encrypted, never custodial." } },
+        "w-5": { "type": "spec", "settings": { "label": "Roles that match a real business", "value": "Admin, finance, marketing, stock and tech, each seeing what they need, with a permission matrix you can edit per workspace. Every write is logged." } },
+        "w-6": { "type": "spec", "settings": { "label": "Buzz: what the market is saying", "value": "Multi-layer trend and celebrity monitoring for your category, so the brief tells you what customers are about to ask for, not only what they bought last week." } }
+      },
+      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "settings": {
+        "eyebrow": "What it does",
+        "heading": "Acts like a marketing manager who has already read everything.",
+        "lede": "Built for the operator who runs ads, stock, email and a marketplace at once, and would rather be told what changed than go looking.",
+        "cta_label": "",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "why": {
+      "type": "braivex-philosophy",
+      "settings": {
+        "anchor": "why",
+        "eyebrow": "The one rule",
+        "heading": "The model never computes money.",
+        "body": "Every figure in the brief is calculated by code from the synced data, then handed to the guru to explain. It can tell you why ROAS fell and which campaign moved it. It cannot invent a total, round a margin or estimate a number it was not given. If a figure is not in the data, the brief says so.",
+        "quote": "Numbers are computed first, then narrated. Never the other way round.",
+        "quote_by": "BriefSieve product principle",
+        "cta_1_label": "Request early access",
+        "cta_1_link": "/pages/contact",
+        "cta_2_label": "",
+        "cta_2_link": "/#insights"
+      }
+    },
+    "plans": {
+      "type": "braivex-pricing",
+      "blocks": {
+        "p-1": { "type": "plan", "settings": { "name": "Starter", "price": "$49", "period": "/month", "featured": false, "blurb": "One operator, the core channels.", "features": "4 connectors: Shopify, Meta, Google + 1\n1 seat\n300 guru messages a month\nDaily brief, all ten sections", "cta_label": "Request early access", "cta_link": "/pages/contact" } },
+        "p-2": { "type": "plan", "settings": { "name": "Growth", "price": "$149", "period": "/month", "badge": "Most popular", "featured": true, "blurb": "A small team across every channel.", "features": "10 connectors, including Amazon, email, social and competitor watch\n3 seats with roles\n1,500 guru messages a month\nInbox and calendar in the brief", "cta_label": "Request early access", "cta_link": "/pages/contact" } },
+        "p-3": { "type": "plan", "settings": { "name": "Scale", "price": "$349", "period": "/month", "featured": false, "blurb": "Several brands, one brief each.", "features": "25 connectors, multi-brand\n10 seats, editable permission matrix\n5,000 guru messages a month\nPriority support", "cta_label": "Request early access", "cta_link": "/pages/contact" } }
+      },
+      "block_order": ["p-1", "p-2", "p-3"],
+      "settings": {
+        "anchor": "plans",
+        "eyebrow": "Plans",
+        "heading": "Priced by connectors and seats. The brief is the same on every plan.",
+        "lede": "Early-access pricing in USD, billed monthly. Bring your own AI key on any plan.",
+        "note": "Prices in USD, billed monthly, cancel any time. Early-access customers keep their launch price."
+      }
+    },
+    "faq": {
+      "type": "braivex-faq",
+      "blocks": {
+        "q-1": { "type": "qa", "settings": { "q": "Which channels can it read?", "a": "Meta Ads, Google Ads, TikTok Ads, Instagram, Shopify, Klaviyo, Microsoft Dynamics, Amazon Seller Central, Gmail and Outlook with calendar, and Reddit, connected through OAuth with your own accounts. More connectors are added as early-access customers need them." } },
+        "q-2": { "type": "qa", "settings": { "q": "Does the AI calculate my numbers?", "a": "No. Totals, ratios and comparisons are computed by code from the synced data. The guru explains them and points to the sync they came from. It is not allowed to compute money or metrics itself." } },
+        "q-3": { "type": "qa", "settings": { "q": "Who holds the API keys?", "a": "You do. Keys and tokens are stored encrypted in your workspace and used only to sync your data. You can bring your own AI provider key as well — Anthropic, OpenAI, Gemini, Groq or OpenRouter." } },
+        "q-4": { "type": "qa", "settings": { "q": "Can finance see something different from marketing?", "a": "Yes. Five functional roles ship by default — admin, finance, marketing, stock and tech — and the permission matrix is editable per workspace. Every write is recorded in an audit log." } },
+        "q-5": { "type": "qa", "settings": { "q": "What does early access mean?", "a": "The product is built and running for its first operator. Early-access customers are onboarded by us, get a direct line for connector requests, and keep their launch price." } }
+      },
+      "block_order": ["q-1", "q-2", "q-3", "q-4", "q-5"],
+      "settings": { "anchor": "faq", "eyebrow": "Questions", "heading": "Asked before signing up." }
+    },
+    "cta": {
+      "type": "braivex-cta",
+      "blocks": {
+        "path-1": { "type": "path", "settings": { "kicker": "Early access", "title": "Get tomorrow morning's brief.", "desc": "Tell us your channels. We connect them with you and the first brief lands the next morning.", "link_label": "Request early access", "link": "/pages/contact" } },
+        "path-2": { "type": "path", "settings": { "kicker": "Also from Braivex", "title": "Every branch's reviews, read the same way.", "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply.", "link_label": "See Loculens", "link": "/pages/loculens" } }
+      },
+      "block_order": ["path-1", "path-2"],
+      "settings": { "anchor": "get-started", "heading": "One brief, every channel, before your first coffee." }
+    }
+  },
+  "order": ["hero", "what", "why", "plans", "faq", "cta"]
+}

@@ -1,0 +1,53 @@
+{{ 'braivex.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
+
+{% comment %}
+  Real captures of a product (GIF or PNG shipped as theme assets, so they
+  travel with the repo). Each block names the asset file and its pixel size.
+{% endcomment %}
+<section class="bvx" id="{{ section.settings.anchor | default: 'see-it' }}">
+  <div class="bvx__inner">
+    <div class="bvx__head bvx-reveal">
+      {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+    </div>
+    <div class="bvx-shots bvx-reveal">
+      {% for block in section.blocks %}
+        {% if block.settings.asset != blank %}
+          <figure class="bvx-shot{% if block.settings.wide %} bvx-shot--wide{% endif %}" {{ block.shopify_attributes }}>
+            <img src="{{ block.settings.asset | asset_url }}" alt="{{ block.settings.alt | escape }}" loading="lazy" width="{{ block.settings.width | default: 1100 }}" height="{{ block.settings.height | default: 771 }}">
+            {% if block.settings.caption != blank %}<figcaption>{{ block.settings.caption }}</figcaption>{% endif %}
+          </figure>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.settings.note != blank %}<p class="bvx-shots__note bvx-reveal">{{ section.settings.note }}</p>{% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Braivex showcase",
+  "tag": "section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "see-it" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "See it work" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Lede" },
+    { "type": "textarea", "id": "note", "label": "Note under the captures" }
+  ],
+  "blocks": [
+    { "type": "shot", "name": "Capture", "settings": [
+      { "type": "text", "id": "asset", "label": "Asset filename", "info": "A file in the theme's assets folder, e.g. hiresieve-screening.gif" },
+      { "type": "text", "id": "alt", "label": "Alt text" },
+      { "type": "number", "id": "width", "label": "Pixel width", "default": 1100 },
+      { "type": "number", "id": "height", "label": "Pixel height", "default": 771 },
+      { "type": "textarea", "id": "caption", "label": "Caption" },
+      { "type": "checkbox", "id": "wide", "label": "Full width", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "Braivex showcase" }]
+}
+{% endschema %}
