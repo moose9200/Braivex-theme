@@ -1,6 +1,27 @@
-# Loculens + HireSieve on braivex.com — PLAN
+# Braivex products on braivex.com — PLAN
 
 Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
+
+## Scope change — 15 Sep 2026 (Hemant, after v1 shipped)
+Hemant's decisions, verbatim intent: **five products** (Loculens, HireSieve, VirtualPA, Read Estate RAG, voicedesk); **research and set US pricing for all**; **link live apps** for trial/sign-up; **rename VirtualPA** to an available name (virtualpa.services belongs to an unrelated Manchester firm — Verified by fetch 15 Sep); **every product gets an explainable animated mockup** like Loculens; detail pages must **leverage the apps' own content**, not thin spec grids; mockup locations = **US cities**; never say "two products".
+Read Estate RAG and voicedesk are codenames → need public names by the same rule (Assumed; confirm with Hemant before publishing).
+
+### Decisions v2 (Hemant, 15 Sep 21:00 via AskUserQuestion)
+- Loculens and HireSieve keep their names (Hemant: "keep loculense and hiresieve as it is").
+- **VirtualPA → BriefSieve · Read Estate RAG → HomeSieve · voicedesk → VoiceSieve** — chosen by Hemant from RDAP-free candidates (.com via Verisign RDAP 404, .ai via rdap.org 404, 15 Sep). Domains are *free*, not registered — registering them is Hemant's call.
+- **Pricing: publish USD tiers for all five** — figures and competitor evidence in `~/braivex-theme/backups/2026-09-15_us-pricing-proposal.md` (5 research agents, ~40 competitor pricing pages fetched). Loculens `plans.ts` (£29/79/199 DRAFT) and Stripe Prices still need updating to $39/$99/$299 by Hemant; HireSieve `billing.py` already matches $0/19/49/129.
+- **VoiceSieve badged "In development"** (no product code exists — repo README/RESUME, Gate 2 pending); BriefSieve and HomeSieve badged "Early access" (built, no public sign-up URL). CTAs for those three → `/pages/contact`.
+- HireSieve primary CTA = "Request a deployment" → contact, not the live app: README says one organisation per deployment and `/signup` on hiresieve.braivex.com redirects to `/signin` (Verified curl 15 Sep) — a stranger cannot self-serve.
+- HireSieve repo captures (`docs/media/*.gif|png`) **not published**: they still show the old "Hirelense" brand, UK cities and £ — looked at in the preview screenshot. `braivex-showcase` section stays in the theme for when they are re-recorded.
+- HomeSieve mockup names source *types* ("Agency portals, Aggregators, Classifieds, Own scrapers ×2"), not portal brands: the five live sources are UK portals (Rightmove, Zoopla, OnTheMarket, Gumtree, Nestoria — `src/lib/sources.ts` via vault) and a US-city mockup must not invent US sources. FAQ says so plainly.
+
+### Acceptance v2 (in addition to v1 below, all still required)
+- [x] Homepage shows 5 product rows, each with its own animated HTML/CSS mockup and region-highlight chips — 15 Sep 21:20 test theme 162222342398, `shoot.js`: rows 5, mocks `loculens,hiresieve,briefsieve,homesieve,voicesieve`, hover on every row's first chip → `data-focus` = region, exactly 1 `.is-lit` at opacity 1, others <0.5, clears on pointer-out; bars end at `matrix(1,0,0,1,0,0)`; screenshots `backups/2026-09-15_products-v2-shots/home-{desktop,mobile,reduced}.png` looked at
+- [x] 5 detail pages built from each app's real copy — Loculens: landing.tsx h1/lede/"Three things"/why/how-it-works/FAQ verbatim + plans; HireSieve: README lede, "will not do" table verbatim, billing.py plan features verbatim; BriefSieve: vault `VirtualPA.md` + repo README (10 sections, BYOK connectors, roles, "LLM never computes money"); HomeSieve: vault `Read Estate RAG/{Architecture,RAG Pipeline,Data Sources}.md`; VoiceSieve: repo `SPEC.md` §1–2 (P0/A1/A2, X-DIS, X-HON rules). Live-app CTA `https://loculens.braivex.com/signup` → 200 (curl 15 Sep). Templates render on test theme: loculens/hiresieve 200 at 1440/390/reduced, FAQ opens, ≥3 plan prices parsed. **briefsieve/homesieve/voicesieve return 404 until the three Shopify pages exist** (see Open risks)
+- [x] US pricing (USD) shown per product, traceable — every tier in the proposal file cites the competitor URLs fetched; cost bases: Loculens `plans.ts` comments (Verified), HireSieve README (Verified), other three **Assumed** and labelled so in the file. Site shows Loculens $39/99/299, HireSieve $0/19/49/129, BriefSieve $49/149/349, HomeSieve $79/199/599, VoiceSieve $99/299/699 ("Planned pricing" — not on sale)
+- [x] Names approved by Hemant before publish — AskUserQuestion 15 Sep: BriefSieve, HomeSieve, VoiceSieve (+ "In development" label)
+- [x] Global positioning; mockups US cities/USD — SoHo NYC/Chicago/Austin/Denver/Seattle (Loculens), Austin (HireSieve, HomeSieve), Dallas (VoiceSieve); HireSieve metric reworded to "a few cents per CV" (README's own $2.25/50 CVs); HireSieve page lede drops "for UK hiring teams"
+- [ ] 1440 + 390 + reduced-motion verified **on live** for every row and page — test theme 117/126 (9 = the three missing pages); live re-run after push pending in Evidence log
 
 ## Acceptance (each line testable; tick only with evidence in the log)
 - [x] Homepage has a new interactive "Products" section showing exactly 2 products (Loculens, HireSieve) as two always-visible rows; feature chips highlight the matching mockup region on hover AND keyboard focus; renders at 1440px and 390px with no horizontal scroll *(acceptance reworded 15 Sep to match the recorded pattern decision — was "switchable/ARIA tabs")* — 15 Sep 20:18 `products-test.js` 23/23 PASS on live: rows ['Loculens','HireSieve'], hover `data-focus=team` lit opacity 1 / others 0.38, keyboard chip1→Tab→chip2 = `sentiment`, Tab past list clears; hScroll false @1440 and @390
@@ -60,6 +81,8 @@ Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 - 15 Sep 20:18 — console noise "Framing https://shop.app violates CSP" + one 403 appears identically on `/` and `/pages/contact` (untouched pages) and comes from Shopify's `shop-login-button` — platform behaviour, not a regression
 
 ## Open risks
+- **Three Shopify pages do not exist yet**: `/pages/briefsieve`, `/pages/homesieve`, `/pages/voicesieve` (templates pushed; page objects need `pageCreate` with templateSuffix briefsieve/homesieve/voicesieve). Blocked 15 Sep: claude.ai Shopify connector token expired and this session cannot re-run OAuth; Shopify CLI theme token cannot create pages. Until then the homepage rows for those three link to 404s.
+- Loculens in-app pricing page still shows £29/£79/£199 DRAFT while braivex.com shows $39/$99/$299 — `src/lib/plans.ts` + Stripe Prices to be updated by Hemant.
 - Shopify silently rejects invalid schema (seen 08 Sep). Mitigation: theme check + verify live `updatedAt` per new file. *Mitigated 15 Sep: live rendering proves all 7 files applied.*
 - Shopify connector (claude.ai) token expired 15 Sep 20:12 — any further store-side mutation (pages, articles, metafields) needs re-authorisation in claude.ai connector settings. Theme changes are unaffected (git → GitHub → Shopify sync).
 - Second animated surface on homepage next to WebGL hero — keep preview animation subtle, pause when off-screen via IntersectionObserver (already used by `initReveal`).
