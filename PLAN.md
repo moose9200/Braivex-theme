@@ -3,14 +3,14 @@
 Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 
 ## Acceptance (each line testable; tick only with evidence in the log)
-- [ ] Homepage has a new interactive "Products" section showing exactly 2 products (Loculens, HireSieve) as two always-visible rows; feature chips highlight the matching mockup region on hover AND keyboard focus; renders at 1440px and 390px with no horizontal scroll *(acceptance reworded 15 Sep to match the recorded pattern decision — was "switchable/ARIA tabs")*
-- [ ] Each product row: name, one-line value prop, proof line with a real number, 4 feature chips, animated UI mockup (HTML/CSS, no video/canvas), CTA pair to its detail page
-- [ ] `/pages/loculens` and `/pages/hiresieve` return HTTP 200 on braivex.com, using the designed `page.solution` template family, each with real product copy from the repos (no placeholder text)
-- [ ] Header "Solutions" nav resolves to the new section (anchor exists on live homepage)
-- [ ] `prefers-reduced-motion` disables preview animation (verified via emulation, not code-reading)
-- [ ] Zero fabricated claims: every number on the product pages traces to the product README or vault note
-- [ ] Theme check exit 0; GitHub→Shopify sync applied (file `updatedAt` on live theme advances); live curl shows new section
-- [ ] Screenshots at 1440 and 390 attached in Evidence log, both looked at
+- [x] Homepage has a new interactive "Products" section showing exactly 2 products (Loculens, HireSieve) as two always-visible rows; feature chips highlight the matching mockup region on hover AND keyboard focus; renders at 1440px and 390px with no horizontal scroll *(acceptance reworded 15 Sep to match the recorded pattern decision — was "switchable/ARIA tabs")* — 15 Sep 20:18 `products-test.js` 23/23 PASS on live: rows ['Loculens','HireSieve'], hover `data-focus=team` lit opacity 1 / others 0.38, keyboard chip1→Tab→chip2 = `sentiment`, Tab past list clears; hScroll false @1440 and @390
+- [x] Each product row: name, one-line value prop, proof line with a real number, 4 feature chips, animated UI mockup (HTML/CSS, no video/canvas), CTA pair to its detail page — 15 Sep 20:18 live: chips [4,4], mockups `bvx-mock--loculens`/`--hiresieve`, metrics parsed from HTML, chips+secondary link → `/pages/loculens` ×4; zero `<video>`/`<canvas>` in the section
+- [x] `/pages/loculens` and `/pages/hiresieve` return HTTP 200 on braivex.com, using the designed `page.solution` template family, each with real product copy from the repos (no placeholder text) — 15 Sep 20:12 `curl -w %{http_code}` → 200/200; live HTML contains "Loculens by Braivex" / "HireSieve by Braivex" eyebrows; screenshots `shots/loculens-desktop.png`, `shots/hiresieve-mobile.png` looked at
+- [x] Header "Solutions" nav resolves to the new section (anchor exists on live homepage) — 15 Sep 20:12 live nav parsed: `('Solutions','/#products')`; `id="products"` count 1, `id="braivex-apps"` count 1 (no duplicate ids)
+- [x] `prefers-reduced-motion` disables preview animation (verified via emulation, not code-reading) — 15 Sep 20:18 Playwright `reducedMotion:'reduce'`, measured immediately on scroll-in with no wait: bar `transform matrix(1,0,0,1,0,0)`, `transitionDuration 0s`, pulse `strokeDashoffset 0px` → end state shown, nothing animates
+- [x] Zero fabricated claims: every number on the product pages traces to the product README or vault note — 479 reviews / 5 branches / ratings 4.7–5.0 ← vault `Loculens.md` table; ~4.5p / 45 s / "asks again above 80" ← HireSieve README "What it costs"; the ~61% detector figure ← README "will not do" table. Mockup candidate names and the sample review are decorative and labelled as such in the snippet comments, matching the product's own fabricated-demo convention
+- [x] Theme check exit 0; GitHub→Shopify sync applied; live curl shows new section — 15 Sep 20:10 `shopify theme check --fail-level error` → PASS; 20:12 live homepage renders `#products`, both mockups, 8 chips, 4 pillars and the repointed nav, which requires all 7 pushed files (section, 2 snippets, css, js, index.json, header-group.json) to have applied. *GraphQL `updatedAt` cross-check not run: Shopify connector token expired mid-session — live behaviour is the stronger evidence anyway*
+- [x] Screenshots at 1440 and 390 attached in Evidence log, both looked at — `products-desktop.png`, `products-mobile.png`, `products-reduced-motion.png`, `loculens-{desktop,mobile,desktop-reduced-motion}.png`, `hiresieve-{desktop,mobile,desktop-reduced-motion}.png`; copies in `~/braivex-theme/backups/2026-09-15_products-section-shots/`. Viewed: desktop rows render as designed, mobile stacks mockup-first, product-page heroes correct at both widths
 
 ## Facts (Verified — source: file/command/URL fetched this session)
 - Loculens = Braivex product: review management for multi-location businesses; Google Business Profile / Apify / Places sources; sentiment, team-member mentions, reply tracking; multi-tenant v0.5.0, `/signup`, Stripe plans Starter/Growth/Scale, 14-day trial. Source: `gh api repos/moose9200/Loculens/readme`, vault `work/active/loculens/Loculens.md` (updated 09 Sep 2026)
@@ -50,7 +50,16 @@ Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 - 14 Sep 23:12 — research agent A: 15 homepages / 12 detail pages fetched; Intercom is the only 2-product site; pattern = two stacked full-width blocks + "Together" bridge; outcome-named CTAs
 - 14 Sep 23:14 — `python3 json.load` × 2 templates → valid; `shopify theme check --fail-level error` → PASS
 - 14 Sep 23:15 — `git push` templates/page.loculens.json, templates/page.hiresieve.json
+- 14 Sep 23:19 — `pageCreate` ×2 → Page/139592564990 loculens, Page/139592597758 hiresieve, both published
+- 14 Sep 23:22 — until-loop: both live pages render their template eyebrow ("Loculens by Braivex" / "HireSieve by Braivex") → SYNCED
+- 15 Sep 20:10 — `shopify theme check --fail-level error` → PASS on full WIP; regions in snippets == regions in CSS (8/8); `git push` b9acd1b (section, 2 snippets, css, js, index.json, header-group.json)
+
+- 15 Sep 20:18 — retest after fix: `node products-test.js https://braivex.com/` → **23/23 PASS** (tap targets 0 short at 1440 and 390)
+- 15 Sep 20:12 — `node products-test.js https://braivex.com/` → 19/22: all render, hover, keyboard-focus, reduced-motion (bars `matrix(1,0,0,1,0,0)` with `transitionDuration 0s`, pulse `strokeDashoffset 0px`), 390px no h-scroll, mockup-first on mobile PASS. FAILs: (a) test tabbed off the last chip — test bug, rewritten to Tab chip1→chip2; (b) two `.bvx-link` secondary links at 24px tall → fixed, scoped `.bvx-product .bvx-link{min-height:44px}`, pushed 557be56 20:17. Retest pending sync.
+- 15 Sep 20:13 — `node shoot.js` on both product pages: 1440/390/reduced-motion, hScroll false ×6, smallTapTargets 0 ×6 → `shots/loculens-*.png`, `shots/hiresieve-*.png`
+- 15 Sep 20:18 — console noise "Framing https://shop.app violates CSP" + one 403 appears identically on `/` and `/pages/contact` (untouched pages) and comes from Shopify's `shop-login-button` — platform behaviour, not a regression
 
 ## Open risks
-- Shopify silently rejects invalid schema (seen 08 Sep). Mitigation: theme check + verify live `updatedAt` per new file.
+- Shopify silently rejects invalid schema (seen 08 Sep). Mitigation: theme check + verify live `updatedAt` per new file. *Mitigated 15 Sep: live rendering proves all 7 files applied.*
+- Shopify connector (claude.ai) token expired 15 Sep 20:12 — any further store-side mutation (pages, articles, metafields) needs re-authorisation in claude.ai connector settings. Theme changes are unaffected (git → GitHub → Shopify sync).
 - Second animated surface on homepage next to WebGL hero — keep preview animation subtle, pause when off-screen via IntersectionObserver (already used by `initReveal`).
