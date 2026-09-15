@@ -1006,3 +1006,261 @@
   .bvx-rail__dot { transition: none; }
   .bvx-rail__node.is-active .bvx-rail__dot::after { animation: none; opacity: 0; }
 }
+
+/* ---------- products (two rows + bridge) --------------------------------
+   Row = copy + HTML/CSS mockup. Hovering/focusing a feature chip sets
+   data-focus on the row (braivex.js initProductRows) and the matching
+   [data-mock-region] lights while the rest dims. Mockups animate in via the
+   shared .bvx-reveal.is-in hook; everything is static under reduced motion. */
+.bvx-products { display: flex; flex-direction: column; gap: 96px; }
+
+.bvx-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .bvx-product { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; }
+  .bvx-product--reverse .bvx-product__copy { order: 2; }
+  .bvx-product--reverse .bvx-product__visual { order: 1; }
+}
+/* Mobile: mockup first so the product is seen before it is read about. */
+@media (max-width: 899px) {
+  .bvx-product__visual { order: -1; }
+}
+
+.bvx-product__name {
+  margin: 10px 0 12px;
+  font-family: var(--font-heading-family, inherit);
+  font-size: clamp(3rem, 3.4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--bvx-ink);
+}
+.bvx-product__headline {
+  margin: 0 0 16px;
+  font-size: 1.8rem;
+  line-height: 1.55;
+  color: var(--bvx-ink-70);
+  text-wrap: pretty;
+}
+.bvx-product__metric {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 24px;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  color: var(--bvx-ink-55);
+}
+.bvx-product__metric-dot {
+  flex: none; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--bvx-accent);
+  box-shadow: 0 0 10px var(--bvx-accent);
+}
+
+.bvx-product__features {
+  list-style: none; margin: 0 0 28px; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.bvx-chip {
+  display: inline-flex; align-items: center;
+  min-height: 44px;                                  /* tap target */
+  padding: 0 16px;
+  border: 1px solid var(--bvx-line);
+  border-radius: 999px;
+  font-size: 1.35rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--bvx-ink-70);
+  text-decoration: none;
+  transition: color 0.25s var(--bvx-ease), border-color 0.25s var(--bvx-ease), background-color 0.25s var(--bvx-ease);
+}
+.bvx-chip:hover, .bvx-chip:focus-visible {
+  color: var(--bvx-ink);
+  border-color: var(--bvx-accent);
+  background: rgba(0, 240, 255, 0.07);
+  outline: none;
+}
+.bvx-chip:focus-visible { box-shadow: 0 0 0 2px var(--bvx-accent); }
+.bvx-product .bvx-actions { gap: 22px; }
+
+/* --- mockup frame --- */
+.bvx-mock {
+  --mock-ink: #e9eef3;
+  --mock-dim: #7f8a95;
+  position: relative;
+  background: linear-gradient(180deg, #0c0f13, #08090c);
+  border: 1px solid var(--bvx-line);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1.15rem;
+  color: var(--mock-ink);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 240, 255, 0.04) inset;
+}
+.bvx-mock__bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bvx-line-soft);
+  background: rgba(255, 255, 255, 0.02);
+}
+.bvx-mock__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.12); }
+.bvx-mock__title { margin-left: 8px; font-size: 1.1rem; letter-spacing: 0.04em; color: var(--mock-dim); }
+.bvx-mock__body { padding: 14px; display: grid; gap: 12px; }
+.bvx-mock__card {
+  padding: 12px 14px;
+  border: 1px solid var(--bvx-line-soft);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.015);
+}
+.bvx-mock__label {
+  display: block; margin-bottom: 8px;
+  font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mock-dim);
+}
+.bvx-mock__label--sub { margin-top: 12px; }
+.bvx-mock__grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 560px) { .bvx-mock__grid { grid-template-columns: 1fr 1fr; } }
+
+/* Region focus: lit region gets a cyan ring, everything else steps back. */
+.bvx-mock__region { transition: opacity 0.3s var(--bvx-ease), box-shadow 0.3s var(--bvx-ease), border-color 0.3s var(--bvx-ease); border-radius: 6px; }
+.bvx-product[data-focus] .bvx-mock__region { opacity: 0.38; }
+.bvx-product[data-focus="branches"]  .bvx-mock__region[data-mock-region="branches"],
+.bvx-product[data-focus="sentiment"] .bvx-mock__region[data-mock-region="sentiment"],
+.bvx-product[data-focus="team"]      .bvx-mock__region[data-mock-region="team"],
+.bvx-product[data-focus="reply"]     .bvx-mock__region[data-mock-region="reply"],
+.bvx-product[data-focus="evidence"]  .bvx-mock__region[data-mock-region="evidence"],
+.bvx-product[data-focus="score"]     .bvx-mock__region[data-mock-region="score"],
+.bvx-product[data-focus="flag"]      .bvx-mock__region[data-mock-region="flag"],
+.bvx-product[data-focus="cost"]      .bvx-mock__region[data-mock-region="cost"] {
+  opacity: 1;
+  box-shadow: 0 0 0 1px var(--bvx-accent), 0 0 24px rgba(0, 240, 255, 0.25);
+}
+
+/* Bars grow in when the row reveals. */
+.bvx-mock__row, .bvx-mock__rank li, .bvx-mock__score {
+  display: grid; align-items: center; gap: 8px;
+}
+.bvx-mock__row { grid-template-columns: 24px 1fr 32px; margin-bottom: 6px; font-size: 1.05rem; color: var(--mock-dim); }
+.bvx-mock__row b, .bvx-mock__rank b { color: var(--mock-ink); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.bvx-mock__fill {
+  position: relative; display: block; height: 8px; border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06); overflow: hidden;
+}
+.bvx-mock__fill::after {
+  content: ""; position: absolute; inset: 0; width: var(--w, 0%);
+  background: linear-gradient(90deg, var(--bvx-accent-2), var(--bvx-accent));
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 0.9s var(--bvx-ease);
+}
+.bvx-mock__fill--thin { height: 5px; }
+.bvx-reveal.is-in .bvx-mock__fill::after { transform: scaleX(1); }
+/* Stagger the bars so the panel reads as data arriving, not a page paint. */
+.bvx-reveal.is-in .bvx-mock__row:nth-child(2) .bvx-mock__fill::after,
+.bvx-reveal.is-in .bvx-mock__rank li:nth-child(2) .bvx-mock__fill::after { transition-delay: 0.08s; }
+.bvx-reveal.is-in .bvx-mock__row:nth-child(3) .bvx-mock__fill::after,
+.bvx-reveal.is-in .bvx-mock__rank li:nth-child(3) .bvx-mock__fill::after { transition-delay: 0.16s; }
+.bvx-reveal.is-in .bvx-mock__row:nth-child(4) .bvx-mock__fill::after,
+.bvx-reveal.is-in .bvx-mock__rank li:nth-child(4) .bvx-mock__fill::after { transition-delay: 0.24s; }
+.bvx-reveal.is-in .bvx-mock__row:nth-child(5) .bvx-mock__fill::after { transition-delay: 0.32s; }
+
+/* Loculens specifics */
+.bvx-mock__branches { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px; }
+.bvx-mock__tab {
+  padding: 6px 10px; border-radius: 999px;
+  border: 1px solid var(--bvx-line-soft);
+  font-size: 1.05rem; color: var(--mock-dim); white-space: nowrap;
+}
+.bvx-mock__tab em { font-style: normal; color: var(--mock-ink); margin-left: 4px; }
+.bvx-mock__tab.is-on { color: #04070a; background: var(--bvx-accent); border-color: var(--bvx-accent); font-weight: 600; }
+.bvx-mock__pulse { display: block; width: 100%; height: 40px; }
+.bvx-mock__pulse-line {
+  fill: none; stroke: var(--bvx-accent); stroke-width: 1.5; stroke-linecap: round;
+  stroke-dasharray: 400; stroke-dashoffset: 400;
+  filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.6));
+  transition: stroke-dashoffset 1.4s var(--bvx-ease) 0.3s;
+}
+.bvx-reveal.is-in .bvx-mock__pulse-line { stroke-dashoffset: 0; }
+.bvx-mock__rank { list-style: none; margin: 0; padding: 0; }
+.bvx-mock__rank li { grid-template-columns: 18px 64px 1fr 30px; margin-bottom: 9px; font-size: 1.1rem; }
+.bvx-mock__avatar { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a3542, #141a21); border: 1px solid var(--bvx-line); }
+.bvx-mock__who { color: var(--mock-ink); }
+.bvx-mock__review-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.bvx-mock__stars { color: #ffd166; letter-spacing: 1px; font-size: 1.1rem; }
+.bvx-mock__meta { font-size: 1.05rem; color: var(--mock-dim); }
+.bvx-mock__meta em { font-style: normal; color: var(--bvx-accent); }
+.bvx-mock__quote { margin: 0 0 10px; font-size: 1.25rem; line-height: 1.5; color: var(--mock-ink); }
+.bvx-mock__quote mark { background: rgba(0, 240, 255, 0.16); color: var(--mock-ink); padding: 0 3px; border-radius: 2px; }
+.bvx-mock__reply {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center;
+  padding: 8px 10px; border-radius: 6px;
+  border: 1px dashed rgba(0, 240, 255, 0.35); background: rgba(0, 240, 255, 0.04);
+}
+.bvx-mock__reply-tag { font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bvx-accent); white-space: nowrap; }
+.bvx-mock__reply-text { font-size: 1.1rem; color: var(--mock-ink); }
+.bvx-mock__approve, .bvx-mock__run {
+  padding: 5px 10px; border-radius: 999px; white-space: nowrap;
+  background: var(--bvx-accent); color: #04070a; font-weight: 700; font-size: 1rem;
+}
+@media (max-width: 559px) { .bvx-mock__reply { grid-template-columns: 1fr; } }
+
+/* HireSieve specifics */
+.bvx-mock__cost {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 12px; border-radius: 6px;
+  border: 1px solid var(--bvx-line-soft); background: rgba(255, 255, 255, 0.015);
+  font-size: 1.1rem; color: var(--mock-dim);
+}
+.bvx-mock__folder { font-size: 1.4rem; }
+.bvx-mock__cost-text { flex: 1 1 auto; }
+.bvx-mock__cost-text b { color: var(--mock-ink); font-weight: 600; }
+.bvx-mock__shortlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.bvx-mock__cand {
+  display: grid; grid-template-columns: 22px 92px 1fr; grid-template-rows: auto auto;
+  gap: 4px 10px; align-items: center;
+  padding: 10px 12px; border-radius: 6px;
+  border: 1px solid var(--bvx-line-soft); background: rgba(255, 255, 255, 0.015);
+}
+.bvx-mock__pos { grid-row: 1 / span 2; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 1rem; font-weight: 700; color: var(--mock-ink); background: rgba(255, 255, 255, 0.06); }
+.bvx-mock__cand-name { color: var(--mock-ink); font-weight: 600; font-size: 1.15rem; }
+.bvx-mock__score { grid-template-columns: 1fr 28px; }
+.bvx-mock__score b { color: var(--mock-ink); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.bvx-mock__evidence, .bvx-mock__flag { grid-column: 2 / span 2; font-size: 1.05rem; color: var(--mock-dim); line-height: 1.45; }
+.bvx-mock__evidence em { font-style: normal; color: var(--bvx-accent); }
+.bvx-mock__cand--flag { border-color: rgba(255, 209, 102, 0.35); }
+.bvx-mock__flag { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.bvx-mock__flag-tag { padding: 3px 8px; border-radius: 999px; background: rgba(255, 209, 102, 0.14); color: #ffd166; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.bvx-mock__flag-text b { color: var(--mock-ink); font-weight: 600; }
+.bvx-mock__foot { display: flex; justify-content: space-between; gap: 10px; padding: 2px 4px 0; font-size: 1rem; color: var(--mock-dim); letter-spacing: 0.04em; }
+@media (max-width: 420px) { .bvx-mock__cand { grid-template-columns: 22px 1fr; } .bvx-mock__score { grid-column: 2; } .bvx-mock__evidence, .bvx-mock__flag { grid-column: 2; } }
+
+/* --- bridge --- */
+.bvx-bridge {
+  margin-top: 96px; padding-top: 56px;
+  border-top: 1px solid var(--bvx-line);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px 64px;
+}
+@media (min-width: 900px) { .bvx-bridge { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+.bvx-bridge__h3 {
+  margin: 10px 0 0;
+  font-family: var(--font-heading-family, inherit);
+  font-size: clamp(2.4rem, 2.8vw, 3.2rem);
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+  color: var(--bvx-ink);
+}
+.bvx-bridge__pillars { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 22px; }
+.bvx-bridge__pillars::before {                       /* the synapse spine */
+  content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px;
+  background: linear-gradient(180deg, var(--bvx-accent), var(--bvx-accent-2), transparent);
+}
+.bvx-bridge__pillar { display: grid; grid-template-columns: 11px 1fr; gap: 18px; align-items: start; }
+.bvx-bridge__node {
+  width: 11px; height: 11px; margin-top: 6px; border-radius: 50%;
+  background: var(--bvx-panel); border: 1px solid var(--bvx-accent);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.45);
+}
+.bvx-bridge__text { font-size: 1.7rem; line-height: 1.5; color: var(--bvx-ink-70); text-wrap: pretty; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bvx-mock__fill::after { transition: none; transform: scaleX(1); }
+  .bvx-mock__pulse-line { transition: none; stroke-dashoffset: 0; }
+  .bvx-mock__region, .bvx-chip { transition: none; }
+}

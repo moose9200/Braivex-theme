@@ -3,8 +3,8 @@
 Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 
 ## Acceptance (each line testable; tick only with evidence in the log)
-- [ ] Homepage has a new interactive "Products" section showing exactly 2 products (Loculens, HireSieve), switchable, keyboard-operable (ARIA tabs), renders at 1440px and 390px with no horizontal scroll
-- [ ] Each product card: name, one-line value prop, 3 outcome bullets, animated UI preview (HTML/CSS, no video), CTA to its detail page
+- [ ] Homepage has a new interactive "Products" section showing exactly 2 products (Loculens, HireSieve) as two always-visible rows; feature chips highlight the matching mockup region on hover AND keyboard focus; renders at 1440px and 390px with no horizontal scroll *(acceptance reworded 15 Sep to match the recorded pattern decision — was "switchable/ARIA tabs")*
+- [ ] Each product row: name, one-line value prop, proof line with a real number, 4 feature chips, animated UI mockup (HTML/CSS, no video/canvas), CTA pair to its detail page
 - [ ] `/pages/loculens` and `/pages/hiresieve` return HTTP 200 on braivex.com, using the designed `page.solution` template family, each with real product copy from the repos (no placeholder text)
 - [ ] Header "Solutions" nav resolves to the new section (anchor exists on live homepage)
 - [ ] `prefers-reduced-motion` disables preview animation (verified via emulation, not code-reading)
@@ -32,11 +32,13 @@ Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 - Replacing the 14 placeholder catalogue items is out of scope unless Hemant says so; new section sits above catalogue and takes the `#braivex-apps` anchor so "Solutions" nav lands on real products. Validate: state in summary; reversible.
 
 ## Unknowns (investigation tasks)
-- [ ] Which interactive pattern top 2-product companies use → research agent A
-- [ ] ARIA/keyboard spec for tab switcher + reduced-motion handling → research agent B (WAI-ARIA APG fetch)
+- [x] Which interactive pattern top 2-product companies use → research agent A, 14 Sep 23:12: 15 homepages fetched; Intercom (only 2-product site) = two stacked rows + bridge; alternating rows dominant (Vercel, Linear, Cursor, Stripe, Sierra, Harvey)
+- [x] ARIA/keyboard + reduced-motion spec → research agent B, 15 Sep 00:04: 39 pages fetched (w3.org APG, WCAG 2.2.2, web.dev, MDN, 24 raw homepages). B recommended a tab switcher; **A wins on evidence** (B's tab examples are SDK/framework switchers with 6–29 tabs, not 2-product showcases). Adopted from B: compositor-only animation (transform/opacity/stroke-dashoffset), reveal-gated animation via IntersectionObserver, reduced-motion shows end state (CodeSandbox rule), no `animation-timeline` (0/24 sites use it). No pause control needed: mockups animate once on reveal (<5 s), not infinite loops, so WCAG 2.2.2 does not apply.
 - [x] Do `loculens` / `hiresieve` pages already exist in Shopify → GraphQL `pages(first:25)` 14 Sep: only contact, about-us, marketplace exist. **Task:** `pageCreate` ×2 with templateSuffix `loculens` / `hiresieve` after templates sync
 
 ## Decisions (what + why + rejected)
+- **Section pattern = two stacked full-width product rows + a "Together" bridge block** (Intercom, the only fetched 2-product site; alternating rows dominant across Vercel/Linear/Cursor/Stripe/Sierra/Harvey). Interactivity comes from (1) HTML/CSS product mockups that animate on scroll-in via the existing `initReveal` observer and (2) hover/focus on a sub-feature card highlighting the matching region of the mockup. Rejected: tab switcher — hides one product from the DOM/SEO and reads as thin with only two tabs (research A, rec 1); bento grid — too few items.
+- Both products always visible; CTA pair per row = primary "Book a demo" + outcome-named secondary ("See how Loculens reads a branch →") per research A rec 4.
 - Reuse `initTabs` + `.bvx-tab` for the product switcher — already accessible, already styled, zero new JS for switching. Rejected: new bespoke switcher.
 - Reuse `page.solution` template family for detail pages — designed for exactly this; add `page.loculens.json`, `page.hiresieve.json`. Rejected: new section type.
 - Product previews = pure HTML/CSS mockups with CSS keyframes (bars growing, chat lines appearing), gated by `prefers-reduced-motion`. Rejected: video (weight, autoplay policy), canvas (second WebGL surface competing with hero).
@@ -45,6 +47,9 @@ Started 14 Sep 2026. Owner: Hemant. Executor: Claude.
 ## Evidence log (command → exit code / number / screenshot path)
 - 14 Sep 22:58 — `gh repo list moose9200` → both repos exist, descriptions read
 - 14 Sep 22:59 — `git status --porcelain | wc -l` → 0; HEAD 3027c51
+- 14 Sep 23:12 — research agent A: 15 homepages / 12 detail pages fetched; Intercom is the only 2-product site; pattern = two stacked full-width blocks + "Together" bridge; outcome-named CTAs
+- 14 Sep 23:14 — `python3 json.load` × 2 templates → valid; `shopify theme check --fail-level error` → PASS
+- 14 Sep 23:15 — `git push` templates/page.loculens.json, templates/page.hiresieve.json
 
 ## Open risks
 - Shopify silently rejects invalid schema (seen 08 Sep). Mitigation: theme check + verify live `updatedAt` per new file.

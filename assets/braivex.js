@@ -487,6 +487,36 @@
     for (var i = 0; i < rails.length; i++) buildRail(rails[i]);
   }
 
+  /* ---------- product rows --------------------------------------------
+     Hovering or focusing a feature chip lights the matching mockup region:
+     the row carries data-focus=<region> and CSS does the rest. Pointer and
+     keyboard behave identically, so the highlight is reachable by Tab. */
+  function initProductRows(root) {
+    var rows = root.querySelectorAll ? root.querySelectorAll('[data-bvx-product]') : [];
+    for (var i = 0; i < rows.length; i++) {
+      (function (row) {
+        if (row.__bvxProduct) return;
+        row.__bvxProduct = true;
+        function set(e) {
+          var chip = e.target.closest ? e.target.closest('[data-region]') : null;
+          if (chip && chip.getAttribute('data-region')) row.setAttribute('data-focus', chip.getAttribute('data-region'));
+        }
+        function clear(e) {
+          // Only clear when focus/pointer actually leaves the chip list.
+          var list = row.querySelector('.bvx-product__features');
+          if (!list) return;
+          var next = e.relatedTarget;
+          if (next && list.contains(next)) return;
+          row.removeAttribute('data-focus');
+        }
+        row.addEventListener('pointerover', set);
+        row.addEventListener('focusin', set);
+        row.addEventListener('pointerout', clear);
+        row.addEventListener('focusout', clear);
+      })(rows[i]);
+    }
+  }
+
   function boot(root) {
     root = root || d;
     initHeader(root);
@@ -500,6 +530,7 @@
     initMarqueeWhenReady(root);
     initReveal(root);
     initReadingRail(root);
+    initProductRows(root);
   }
 
   w.Braivex = { boot: boot };

@@ -1,0 +1,65 @@
+{% comment %}
+  snippets/product-mock-loculens.liquid
+  HTML/CSS mockup of the Loculens dashboard. Decorative — the real copy is in
+  the product row. Regions carry data-mock-region so a hovered chip can light
+  them (see .bvx-product[data-focus] rules in braivex.css). Numbers are the
+  live Tish Lyon figures from the product note, not invented.
+  Usage: {% render 'product-mock-loculens', name: 'Loculens' %}
+{% endcomment %}
+<div class="bvx-mock bvx-mock--loculens" role="img" aria-label="{{ name | default: 'Loculens' }} dashboard: five branches, rating breakdown, sentiment pulse, team-member ranking and a review with a drafted reply">
+  <div class="bvx-mock__bar" aria-hidden="true">
+    <span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span>
+    <span class="bvx-mock__title">{{ name | default: 'Loculens' }} · Reviews</span>
+  </div>
+
+  <div class="bvx-mock__body" aria-hidden="true">
+    <div class="bvx-mock__region bvx-mock__branches" data-mock-region="branches">
+      <span class="bvx-mock__tab is-on">All branches</span>
+      <span class="bvx-mock__tab">Oxford St <em>168</em></span>
+      <span class="bvx-mock__tab">Liverpool <em>142</em></span>
+      <span class="bvx-mock__tab">Bluewater <em>97</em></span>
+      <span class="bvx-mock__tab">Trafford <em>70</em></span>
+      <span class="bvx-mock__tab">Edinburgh <em>2</em></span>
+    </div>
+
+    <div class="bvx-mock__grid">
+      <div class="bvx-mock__region bvx-mock__card bvx-mock__ratings" data-mock-region="sentiment">
+        <span class="bvx-mock__label">Rating breakdown</span>
+        <div class="bvx-mock__rows">
+          <div class="bvx-mock__row"><span>5★</span><i class="bvx-mock__fill" style="--w:78%"></i><b>374</b></div>
+          <div class="bvx-mock__row"><span>4★</span><i class="bvx-mock__fill" style="--w:14%"></i><b>67</b></div>
+          <div class="bvx-mock__row"><span>3★</span><i class="bvx-mock__fill" style="--w:4%"></i><b>19</b></div>
+          <div class="bvx-mock__row"><span>2★</span><i class="bvx-mock__fill" style="--w:2%"></i><b>10</b></div>
+          <div class="bvx-mock__row"><span>1★</span><i class="bvx-mock__fill" style="--w:2%"></i><b>9</b></div>
+        </div>
+        <span class="bvx-mock__label bvx-mock__label--sub">Sentiment pulse</span>
+        <svg class="bvx-mock__pulse" viewBox="0 0 200 40" preserveAspectRatio="none">
+          <path class="bvx-mock__pulse-line" d="M0 28 C 20 26, 30 18, 50 20 S 80 30, 100 22 S 130 8, 150 14 S 180 24, 200 10" />
+        </svg>
+      </div>
+
+      <div class="bvx-mock__region bvx-mock__card bvx-mock__team" data-mock-region="team">
+        <span class="bvx-mock__label">Team-member mentions</span>
+        <ol class="bvx-mock__rank">
+          <li><span class="bvx-mock__avatar"></span><span class="bvx-mock__who">Amelia</span><i class="bvx-mock__fill bvx-mock__fill--thin" style="--w:92%"></i><b>4.9</b></li>
+          <li><span class="bvx-mock__avatar"></span><span class="bvx-mock__who">Priya</span><i class="bvx-mock__fill bvx-mock__fill--thin" style="--w:81%"></i><b>4.9</b></li>
+          <li><span class="bvx-mock__avatar"></span><span class="bvx-mock__who">Jordan</span><i class="bvx-mock__fill bvx-mock__fill--thin" style="--w:63%"></i><b>4.8</b></li>
+          <li><span class="bvx-mock__avatar"></span><span class="bvx-mock__who">Sam</span><i class="bvx-mock__fill bvx-mock__fill--thin" style="--w:44%"></i><b>4.7</b></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="bvx-mock__region bvx-mock__card bvx-mock__review" data-mock-region="reply">
+      <div class="bvx-mock__review-head">
+        <span class="bvx-mock__stars">★★★★★</span>
+        <span class="bvx-mock__meta">Liverpool · 2 days ago · <em>unanswered</em></span>
+      </div>
+      <p class="bvx-mock__quote">"<mark>Priya</mark> was brilliant — talked me through every option and the piercing was painless."</p>
+      <div class="bvx-mock__reply">
+        <span class="bvx-mock__reply-tag">Drafted reply</span>
+        <span class="bvx-mock__reply-text">Thank you — we've passed this straight to Priya. See you for the check-up.</span>
+        <span class="bvx-mock__approve">Approve</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+{% comment %}
+  snippets/product-mock-hiresieve.liquid
+  HTML/CSS mockup of the HireSieve shortlist. Decorative. Candidates are
+  invented (as in the product's own demo); the cost line is the README's
+  real figure. Regions carry data-mock-region for the chip highlight.
+  Usage: {% render 'product-mock-hiresieve', name: 'HireSieve' %}
+{% endcomment %}
+<div class="bvx-mock bvx-mock--hiresieve" role="img" aria-label="{{ name | default: 'HireSieve' }} shortlist: a folder of CVs screened, each score with the CV line it came from, a flagged requirement a person can overrule, and the cost shown before the run">
+  <div class="bvx-mock__bar" aria-hidden="true">
+    <span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span>
+    <span class="bvx-mock__title">{{ name | default: 'HireSieve' }} · Store Manager, Bluewater</span>
+  </div>
+
+  <div class="bvx-mock__body" aria-hidden="true">
+    <div class="bvx-mock__region bvx-mock__cost" data-mock-region="cost">
+      <span class="bvx-mock__folder">📁</span>
+      <span class="bvx-mock__cost-text"><b>23 CVs</b> found · about <b>£1.04</b> · roughly <b>17 min</b></span>
+      <span class="bvx-mock__run">Screen 23 →</span>
+    </div>
+
+    <ol class="bvx-mock__shortlist">
+      <li class="bvx-mock__cand">
+        <span class="bvx-mock__pos">1</span>
+        <span class="bvx-mock__cand-name">R. Okafor</span>
+        <span class="bvx-mock__region bvx-mock__score" data-mock-region="score"><i class="bvx-mock__fill" style="--w:91%"></i><b>91</b></span>
+        <span class="bvx-mock__region bvx-mock__evidence" data-mock-region="evidence">"led a team of 11 across two sites for 3 years" <em>— CV, line 14</em></span>
+      </li>
+      <li class="bvx-mock__cand">
+        <span class="bvx-mock__pos">2</span>
+        <span class="bvx-mock__cand-name">M. Ferreira</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:84%"></i><b>84</b></span>
+        <span class="bvx-mock__evidence">"weekend and late-shift rota ownership" <em>— CV, line 9</em></span>
+      </li>
+      <li class="bvx-mock__cand bvx-mock__cand--flag">
+        <span class="bvx-mock__pos">3</span>
+        <span class="bvx-mock__cand-name">S. Lindqvist</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:77%"></i><b>77</b></span>
+        <span class="bvx-mock__region bvx-mock__flag" data-mock-region="flag">
+          <span class="bvx-mock__flag-tag">Requirement not met</span>
+          <span class="bvx-mock__flag-text">Right to work not stated · <b>a person decides</b></span>
+        </span>
+      </li>
+      <li class="bvx-mock__cand">
+        <span class="bvx-mock__pos">4</span>
+        <span class="bvx-mock__cand-name">T. Adeyemi</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:70%"></i><b>70</b></span>
+        <span class="bvx-mock__evidence">"cash reconciliation, daily, two tills" <em>— CV, line 21</em></span>
+      </li>
+    </ol>
+
+    <div class="bvx-mock__foot">
+      <span>Nothing auto-rejects</span><span>Undo this batch</span>
+    </div>
+  </div>
+</div>

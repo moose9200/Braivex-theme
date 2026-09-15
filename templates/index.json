@@ -503,11 +503,103 @@
     "1787498296f68e5499": {
       "type": "_blocks",
       "settings": {}
+    },
+    "products": {
+      "type": "braivex-products",
+      "blocks": {
+        "loculens": {
+          "type": "product",
+          "settings": {
+            "kicker": "Review management · multi-location",
+            "name": "Loculens",
+            "headline": "Every review, every branch, one workspace — with the team members named and the reply already drafted.",
+            "metric": "Live across 5 branches and 479 reviews for a national jewellery retailer",
+            "page_link": "/pages/loculens",
+            "mock": "loculens",
+            "reverse": false,
+            "feature_1_label": "Branch discovery",
+            "feature_1_region": "branches",
+            "feature_2_label": "Sentiment and topics",
+            "feature_2_region": "sentiment",
+            "feature_3_label": "Team-member mentions",
+            "feature_3_region": "team",
+            "feature_4_label": "Drafted replies",
+            "feature_4_region": "reply",
+            "cta_primary_label": "Book a demo",
+            "cta_primary_link": "/pages/contact",
+            "cta_secondary_label": "See how Loculens reads a branch"
+          }
+        },
+        "hiresieve": {
+          "type": "product",
+          "settings": {
+            "kicker": "Recruitment screening · evidence-quoted",
+            "name": "HireSieve",
+            "headline": "A folder of CVs in, a ranked shortlist out — and every score quotes the line it came from.",
+            "metric": "About 4.5p and 45 seconds per CV, with the cost shown before it spends",
+            "page_link": "/pages/hiresieve",
+            "mock": "hiresieve",
+            "reverse": true,
+            "feature_1_label": "Evidence quotes",
+            "feature_1_region": "evidence",
+            "feature_2_label": "Deterministic scoring",
+            "feature_2_region": "score",
+            "feature_3_label": "Flags, never rejects",
+            "feature_3_region": "flag",
+            "feature_4_label": "Asks before it spends",
+            "feature_4_region": "cost",
+            "cta_primary_label": "Book a demo",
+            "cta_primary_link": "/pages/contact",
+            "cta_secondary_label": "See how HireSieve scores a CV"
+          }
+        },
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "text": "An AI extracts. A deterministic engine calculates. A person decides."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "text": "Deployed into the systems you already run, under your access controls."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "text": "Every output traceable to its source — a review, a CV line, a record."
+          }
+        },
+        "p4": {
+          "type": "pillar",
+          "settings": {
+            "text": "Priced on outcomes, not logins."
+          }
+        }
+      },
+      "block_order": [
+        "loculens",
+        "hiresieve",
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "anchor": "products",
+        "eyebrow": "Products",
+        "heading": "Two products, one intelligence layer.",
+        "lede": "Purpose-built agents that live inside the systems you already run. Each one keeps a person deciding, and shows its evidence.",
+        "bridge_eyebrow": "What they share",
+        "bridge_heading": "Different jobs. The same discipline."
+      }
     }
   },
   "order": [
     "hero",
     "routes",
+    "products",
     "partners",
     "industries",
     "catalogue",
