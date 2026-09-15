@@ -525,8 +525,8 @@
             "feature_3_region": "team",
             "feature_4_label": "Drafted replies",
             "feature_4_region": "reply",
-            "cta_primary_label": "Book a demo",
-            "cta_primary_link": "/pages/contact",
+            "cta_primary_label": "Start a 14-day trial",
+            "cta_primary_link": "https://loculens.braivex.com/signup",
             "cta_secondary_label": "See how Loculens reads a branch"
           }
         },
@@ -536,7 +536,7 @@
             "kicker": "Recruitment screening · evidence-quoted",
             "name": "HireSieve",
             "headline": "A folder of CVs in, a ranked shortlist out — and every score quotes the line it came from.",
-            "metric": "About 4.5p and 45 seconds per CV, with the cost shown before it spends",
+            "metric": "About 45 seconds and a few cents per CV, with the cost shown before it spends",
             "page_link": "/pages/hiresieve",
             "mock": "hiresieve",
             "reverse": true,
@@ -548,7 +548,7 @@
             "feature_3_region": "flag",
             "feature_4_label": "Asks before it spends",
             "feature_4_region": "cost",
-            "cta_primary_label": "Book a demo",
+            "cta_primary_label": "Request a deployment",
             "cta_primary_link": "/pages/contact",
             "cta_secondary_label": "See how HireSieve scores a CV"
           }
@@ -576,11 +576,86 @@
           "settings": {
             "text": "Priced on outcomes, not logins."
           }
+        },
+        "briefsieve": {
+          "type": "product",
+          "settings": {
+            "kicker": "Operator's daily brief · every channel",
+            "name": "BriefSieve",
+            "badge": "Early access",
+            "headline": "Ads, sales, stock, email, marketplaces and inbox read for you each morning — with a guru that narrates the numbers and never computes them.",
+            "metric": "Ten data sections, your own API keys, one brief",
+            "page_link": "/pages/briefsieve",
+            "mock": "briefsieve",
+            "reverse": false,
+            "feature_1_label": "The morning brief",
+            "feature_1_region": "brief",
+            "feature_2_label": "KPIs, compared",
+            "feature_2_region": "kpis",
+            "feature_3_label": "Your channels, your keys",
+            "feature_3_region": "channels",
+            "feature_4_label": "Ask the guru",
+            "feature_4_region": "guru",
+            "cta_primary_label": "Request early access",
+            "cta_primary_link": "/pages/contact",
+            "cta_secondary_label": "See what a brief contains"
+          }
+        },
+        "homesieve": {
+          "type": "product",
+          "settings": {
+            "kicker": "Property listings copilot · cited answers",
+            "name": "HomeSieve",
+            "badge": "Early access",
+            "headline": "Ask the market a question in plain language. Get the listings that match, scored against your brief, each answer citing where it came from.",
+            "metric": "Five live listing sources, two of them scrapers we built",
+            "page_link": "/pages/homesieve",
+            "mock": "homesieve",
+            "reverse": true,
+            "feature_1_label": "Ask in plain language",
+            "feature_1_region": "ask",
+            "feature_2_label": "Live sources",
+            "feature_2_region": "sources",
+            "feature_3_label": "Scored listings",
+            "feature_3_region": "listings",
+            "feature_4_label": "Every answer cited",
+            "feature_4_region": "evidence",
+            "cta_primary_label": "Request early access",
+            "cta_primary_link": "/pages/contact",
+            "cta_secondary_label": "See how HomeSieve answers a brief"
+          }
+        },
+        "voicesieve": {
+          "type": "product",
+          "settings": {
+            "kicker": "Voice agents · inbound and win-back",
+            "name": "VoiceSieve",
+            "badge": "In development",
+            "headline": "Mines your recorded calls into a knowledge base, answers customers live from your order system, and calls lapsed customers back — declaring itself an AI in its first sentence.",
+            "metric": "Specified end to end; product build starts after sign-off",
+            "page_link": "/pages/voicesieve",
+            "mock": "voicesieve",
+            "reverse": false,
+            "feature_1_label": "Mined from real calls",
+            "feature_1_region": "mine",
+            "feature_2_label": "Inbound, live from Shopify",
+            "feature_2_region": "inbound",
+            "feature_3_label": "Win-back calling",
+            "feature_3_region": "outbound",
+            "feature_4_label": "Hands off when unsure",
+            "feature_4_region": "handoff",
+            "cta_primary_label": "Join the waitlist",
+            "cta_primary_link": "/pages/contact",
+            "cta_secondary_label": "See how VoiceSieve handles a call"
+          }
         }
       },
       "block_order": [
         "loculens",
         "hiresieve",
+        "briefsieve",
+        "homesieve",
+        "voicesieve",
         "p1",
         "p2",
         "p3",
@@ -590,7 +665,7 @@
         "anchor": "products",
         "eyebrow": "Products",
         "heading": "Purpose-built products. One intelligence layer.",
-        "lede": "Purpose-built agents that live inside the systems you already run. Each one keeps a person deciding, and shows its evidence.",
+        "lede": "Purpose-built agents that live inside the systems you already run — reviews, hiring, marketing, property, the phone. Each one keeps a person deciding, and shows its evidence.",
         "bridge_eyebrow": "What they share",
         "bridge_heading": "Different jobs. The same discipline."
       }

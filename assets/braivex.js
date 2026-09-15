@@ -497,9 +497,20 @@
       (function (row) {
         if (row.__bvxProduct) return;
         row.__bvxProduct = true;
+        function light(region) {
+          // One class on the matching mockup region; CSS cannot compare two
+          // elements' attributes, so the JS does the match once here.
+          var regions = row.querySelectorAll('[data-mock-region]');
+          for (var r = 0; r < regions.length; r++) {
+            regions[r].classList.toggle('is-lit', !!region && regions[r].getAttribute('data-mock-region') === region);
+          }
+        }
         function set(e) {
           var chip = e.target.closest ? e.target.closest('[data-region]') : null;
-          if (chip && chip.getAttribute('data-region')) row.setAttribute('data-focus', chip.getAttribute('data-region'));
+          var region = chip && chip.getAttribute('data-region');
+          if (!region) return;
+          row.setAttribute('data-focus', region);
+          light(region);
         }
         function clear(e) {
           // Only clear when focus/pointer actually leaves the chip list.
@@ -508,6 +519,7 @@
           var next = e.relatedTarget;
           if (next && list.contains(next)) return;
           row.removeAttribute('data-focus');
+          light(null);
         }
         row.addEventListener('pointerover', set);
         row.addEventListener('focusin', set);

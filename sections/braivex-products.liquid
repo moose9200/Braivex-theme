@@ -2,9 +2,9 @@
 <script src="{{ 'braivex.js' | asset_url }}" defer="defer"></script>
 
 {% comment %}
-  Products. Two full-width rows (one per product) and a closing "together"
-  bridge — the pattern the two-product incumbents use, rather than a tab
-  switcher that would hide one product from the page. Each row pairs copy
+  Products. One full-width row per product and a closing "together" bridge —
+  stacked rows rather than a tab switcher, so every product stays on the page
+  and in the DOM. Each row pairs copy
   with an HTML/CSS mockup of the real UI; hovering or focusing a feature
   chip lights the matching region of the mockup (data-focus on the row,
   wired in braivex.js initProductRows). Mockups animate in through the
@@ -27,7 +27,7 @@
 
             <div class="bvx-product__copy">
               {% if block.settings.kicker != blank %}<p class="bvx-cell__kicker">{{ block.settings.kicker }}</p>{% endif %}
-              <h3 class="bvx-product__name">{{ block.settings.name }}</h3>
+              <h3 class="bvx-product__name">{{ block.settings.name }}{% if block.settings.badge != blank %} <span class="bvx-product__badge">{{ block.settings.badge }}</span>{% endif %}</h3>
               {% if block.settings.headline != blank %}<p class="bvx-product__headline">{{ block.settings.headline }}</p>{% endif %}
               {% if block.settings.metric != blank %}
                 <p class="bvx-product__metric"><span class="bvx-product__metric-dot" aria-hidden="true"></span>{{ block.settings.metric }}</p>
@@ -60,6 +60,9 @@
               {% case block.settings.mock %}
                 {% when 'loculens' %}{% render 'product-mock-loculens', name: block.settings.name %}
                 {% when 'hiresieve' %}{% render 'product-mock-hiresieve', name: block.settings.name %}
+                {% when 'briefsieve' %}{% render 'product-mock-briefsieve', name: block.settings.name %}
+                {% when 'homesieve' %}{% render 'product-mock-homesieve', name: block.settings.name %}
+                {% when 'voicesieve' %}{% render 'product-mock-voicesieve', name: block.settings.name %}
               {% endcase %}
             </div>
           </article>
@@ -67,7 +70,7 @@
       {% endfor %}
     </div>
 
-    {%- comment -%} The bridge: what both products share. Reads as one company, not two. {%- endcomment -%}
+    {%- comment -%} The bridge: what every product shares. Reads as one company. {%- endcomment -%}
     {% assign pillars = section.blocks | where: 'type', 'pillar' %}
     {% if section.settings.bridge_heading != blank or pillars.size > 0 %}
       <div class="bvx-bridge bvx-reveal">
@@ -94,7 +97,7 @@
 {
   "name": "Braivex products",
   "tag": "section",
-  "max_blocks": 8,
+  "max_blocks": 12,
   "settings": [
     { "type": "text", "id": "anchor", "label": "Anchor id", "default": "products" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Products" },
@@ -111,6 +114,7 @@
       "settings": [
         { "type": "text", "id": "kicker", "label": "Kicker", "info": "Category line above the name" },
         { "type": "text", "id": "name", "label": "Product name", "default": "Product" },
+        { "type": "text", "id": "badge", "label": "Badge", "info": "e.g. In development, Early access. Blank for a live product." },
         { "type": "textarea", "id": "headline", "label": "One-line outcome" },
         { "type": "text", "id": "metric", "label": "Proof line", "info": "One real number. Leave blank rather than invent one." },
         { "type": "text", "id": "page_link", "label": "Product page", "info": "Relative path such as /pages/loculens. Feature chips and the secondary link go here." },
@@ -120,14 +124,17 @@
           "label": "Mockup",
           "options": [
             { "value": "loculens", "label": "Loculens dashboard" },
-            { "value": "hiresieve", "label": "HireSieve shortlist" }
+            { "value": "hiresieve", "label": "HireSieve shortlist" },
+            { "value": "briefsieve", "label": "BriefSieve brief" },
+            { "value": "homesieve", "label": "HomeSieve copilot" },
+            { "value": "voicesieve", "label": "VoiceSieve console" }
           ],
           "default": "loculens"
         },
         { "type": "checkbox", "id": "reverse", "label": "Mockup on the left", "default": false },
         { "type": "header", "content": "Feature chips (hover lights the mockup)" },
         { "type": "text", "id": "feature_1_label", "label": "Feature 1" },
-        { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "Mockup region id: loculens = branches, sentiment, team, reply · hiresieve = evidence, score, flag, cost" },
+        { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "loculens: branches, sentiment, team, reply · hiresieve: evidence, score, flag, cost · briefsieve: brief, kpis, channels, guru · homesieve: ask, sources, listings, evidence · voicesieve: mine, inbound, outbound, handoff" },
         { "type": "text", "id": "feature_2_label", "label": "Feature 2" },
         { "type": "text", "id": "feature_2_region", "label": "Region 2" },
         { "type": "text", "id": "feature_3_label", "label": "Feature 3" },
@@ -174,7 +181,7 @@
             "kicker": "Recruitment screening · evidence-quoted",
             "name": "HireSieve",
             "headline": "A folder of CVs in, a ranked shortlist out — and every score quotes the line it came from.",
-            "metric": "About 4.5p and 45 seconds per CV, with the cost shown before it spends",
+            "metric": "About 45 seconds and a few cents per CV, with the cost shown before it spends",
             "page_link": "/pages/hiresieve",
             "mock": "hiresieve",
             "reverse": true,
@@ -183,6 +190,61 @@
             "feature_3_label": "Flags, never rejects", "feature_3_region": "flag",
             "feature_4_label": "Asks before it spends", "feature_4_region": "cost",
             "cta_secondary_label": "See how HireSieve scores a CV"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "kicker": "Operator's daily brief · every channel",
+            "name": "BriefSieve",
+            "badge": "Early access",
+            "headline": "Ads, sales, stock, email, marketplaces and inbox read for you each morning — with a guru that narrates the numbers and never computes them.",
+            "metric": "Ten data sections, your own API keys, one brief",
+            "page_link": "/pages/briefsieve",
+            "mock": "briefsieve",
+            "feature_1_label": "The morning brief", "feature_1_region": "brief",
+            "feature_2_label": "KPIs, compared", "feature_2_region": "kpis",
+            "feature_3_label": "Your channels, your keys", "feature_3_region": "channels",
+            "feature_4_label": "Ask the guru", "feature_4_region": "guru",
+            "cta_primary_label": "Request early access",
+            "cta_secondary_label": "See what a brief contains"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "kicker": "Property listings copilot · cited answers",
+            "name": "HomeSieve",
+            "badge": "Early access",
+            "headline": "Ask the market a question in plain language. Get the listings that match, scored against your brief, each answer citing where it came from.",
+            "metric": "Five live listing sources, two of them scrapers we built",
+            "page_link": "/pages/homesieve",
+            "mock": "homesieve",
+            "reverse": true,
+            "feature_1_label": "Ask in plain language", "feature_1_region": "ask",
+            "feature_2_label": "Live sources", "feature_2_region": "sources",
+            "feature_3_label": "Scored listings", "feature_3_region": "listings",
+            "feature_4_label": "Every answer cited", "feature_4_region": "evidence",
+            "cta_primary_label": "Request early access",
+            "cta_secondary_label": "See how HomeSieve answers a brief"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "kicker": "Voice agents · inbound and win-back",
+            "name": "VoiceSieve",
+            "badge": "In development",
+            "headline": "Mines your recorded calls into a knowledge base, answers customers live from your order system, and calls lapsed customers back — declaring itself an AI in its first sentence.",
+            "metric": "Specified end to end; product build starts after sign-off",
+            "page_link": "/pages/voicesieve",
+            "mock": "voicesieve",
+            "feature_1_label": "Mined from real calls", "feature_1_region": "mine",
+            "feature_2_label": "Inbound, live from Shopify", "feature_2_region": "inbound",
+            "feature_3_label": "Win-back calling", "feature_3_region": "outbound",
+            "feature_4_label": "Hands off when unsure", "feature_4_region": "handoff",
+            "cta_primary_label": "Join the waitlist",
+            "cta_secondary_label": "See how VoiceSieve handles a call"
           }
         },
         { "type": "pillar", "settings": { "text": "An AI extracts. A deterministic engine calculates. A person decides." } },

@@ -1,0 +1,57 @@
+{% comment %}
+  snippets/product-mock-voicesieve.liquid
+  HTML/CSS mockup of the VoiceSieve console. Decorative — names, order
+  numbers and counts are invented. The behaviour shown is the specified
+  behaviour: the agent declares itself an AI in its first sentence, answers
+  tracking questions live from the order system, works a win-back list with
+  offers from an approved matrix only, and hands off when it does not know.
+  The product is in development; nothing here is a screenshot.
+  Usage: {% render 'product-mock-voicesieve', name: 'VoiceSieve' %}
+{% endcomment %}
+<div class="bvx-mock bvx-mock--voicesieve" role="img" aria-label="{{ name | default: 'VoiceSieve' }} console: a knowledge base mined from recorded calls, a live inbound call answered from the order system, a win-back calling queue and a handoff to a person">
+  <div class="bvx-mock__bar" aria-hidden="true">
+    <span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span>
+    <span class="bvx-mock__title">{{ name | default: 'VoiceSieve' }} · Inbound line · Dallas</span>
+    <span class="bvx-mock__badge">In development</span>
+  </div>
+
+  <div class="bvx-mock__body" aria-hidden="true">
+    <div class="bvx-mock__grid">
+      <div class="bvx-mock__region bvx-mock__card bvx-mock__kb" data-mock-region="mine">
+        <span class="bvx-mock__label">Knowledge base · mined from 1,240 calls</span>
+        <div class="bvx-mock__rows">
+          <div class="bvx-mock__row bvx-mock__row--wide"><span>Shipping</span><i class="bvx-mock__fill" style="--w:41%"></i><b>41%</b></div>
+          <div class="bvx-mock__row bvx-mock__row--wide"><span>Returns</span><i class="bvx-mock__fill" style="--w:22%"></i><b>22%</b></div>
+          <div class="bvx-mock__row bvx-mock__row--wide"><span>Sizing</span><i class="bvx-mock__fill" style="--w:18%"></i><b>18%</b></div>
+          <div class="bvx-mock__row bvx-mock__row--wide"><span>Terms</span><i class="bvx-mock__fill" style="--w:11%"></i><b>11%</b></div>
+        </div>
+        <span class="bvx-mock__note">House style learnt from your best agents: warm, short, first names.</span>
+      </div>
+
+      <div class="bvx-mock__region bvx-mock__card bvx-mock__call" data-mock-region="inbound">
+        <span class="bvx-mock__label">Live · 00:42</span>
+        <span class="bvx-mock__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <ol class="bvx-mock__lines bvx-mock__lines--call">
+          <li><em>Agent</em>Hi, I'm Ava, an AI assistant — this call is recorded. How can I help?</li>
+          <li><em>Caller</em>Where's my order, 48211?</li>
+          <li><em>Agent</em>It left our Dallas warehouse yesterday. Tracking ends 7734, due Thursday. <span class="bvx-mock__live">live from Shopify</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="bvx-mock__region bvx-mock__card bvx-mock__queue" data-mock-region="outbound">
+      <span class="bvx-mock__label">Win-back queue · calling window 10:00–16:00</span>
+      <ol class="bvx-mock__rows">
+        <li class="bvx-mock__qrow"><span class="bvx-mock__who">Sam R.</span><span>last order 94 days</span><span>RFM 4·2·5</span><b>10:15</b></li>
+        <li class="bvx-mock__qrow"><span class="bvx-mock__who">K. Nguyen</span><span>121 days</span><span>RFM 3·3·4</span><b>10:35</b></li>
+        <li class="bvx-mock__qrow"><span class="bvx-mock__who">Priya M.</span><span>88 days</span><span>RFM 5·1·5</span><b>10:50</b></li>
+      </ol>
+      <span class="bvx-mock__note">Offers come from the approved matrix only. A "no" ends the pitch.</span>
+    </div>
+
+    <div class="bvx-mock__region bvx-mock__cite bvx-mock__handoff" data-mock-region="handoff">
+      <span class="bvx-mock__reply-tag">Handoff</span>
+      <span class="bvx-mock__cite-text">Caller wants to change a delivery address — not in an authoritative source. <b>Transferring to Jordan, notes attached.</b></span>
+    </div>
+  </div>
+</div>

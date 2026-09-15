@@ -1,0 +1,57 @@
+{% comment %}
+  snippets/product-mock-homesieve.liquid
+  HTML/CSS mockup of the HomeSieve copilot. Decorative — the listings and
+  prices are invented sample data. What it shows is real: a plain-language
+  brief, live listing sources, listings scored against the brief, and every
+  answer citing the listing it came from. Regions carry data-mock-region.
+  Usage: {% render 'product-mock-homesieve', name: 'HomeSieve' %}
+{% endcomment %}
+<div class="bvx-mock bvx-mock--homesieve" role="img" aria-label="{{ name | default: 'HomeSieve' }} copilot: a brief typed in plain language, five live listing sources, three matching listings scored against the brief, and the citation for the answer">
+  <div class="bvx-mock__bar" aria-hidden="true">
+    <span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span><span class="bvx-mock__dot"></span>
+    <span class="bvx-mock__title">{{ name | default: 'HomeSieve' }} · Austin · Copilot</span>
+  </div>
+
+  <div class="bvx-mock__body" aria-hidden="true">
+    <div class="bvx-mock__region bvx-mock__card bvx-mock__chat" data-mock-region="ask">
+      <p class="bvx-mock__q">Retail units under $1.2M within two miles of downtown Austin, corner frontage, listed this month.</p>
+      <p class="bvx-mock__a">Three match. The strongest is the 2,400 sq ft corner unit on E 6th — listed three days ago at $1.08M, frontage on two streets, photos show a glazed corner. <em>Sources cited below.</em></p>
+    </div>
+
+    <div class="bvx-mock__region bvx-mock__channels" data-mock-region="sources">
+      <span class="bvx-mock__label">5 live sources · synced 06:10</span>
+      <div class="bvx-mock__chips">
+        <span class="bvx-mock__chip">Agency portals</span>
+        <span class="bvx-mock__chip">Aggregators</span>
+        <span class="bvx-mock__chip">Classifieds</span>
+        <span class="bvx-mock__chip">Own scrapers ×2</span>
+      </div>
+    </div>
+
+    <ol class="bvx-mock__region bvx-mock__listings" data-mock-region="listings">
+      <li class="bvx-mock__listing">
+        <span class="bvx-mock__photo bvx-mock__photo--a"></span>
+        <span class="bvx-mock__listing-name">E 6th St · 2,400 sq ft · corner</span>
+        <span class="bvx-mock__listing-meta">$1.08M · listed 3 days ago</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:92%"></i><b>92</b></span>
+      </li>
+      <li class="bvx-mock__listing">
+        <span class="bvx-mock__photo bvx-mock__photo--b"></span>
+        <span class="bvx-mock__listing-name">S Congress Ave · 1,900 sq ft</span>
+        <span class="bvx-mock__listing-meta">$960k · listed 9 days ago</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:84%"></i><b>84</b></span>
+      </li>
+      <li class="bvx-mock__listing">
+        <span class="bvx-mock__photo bvx-mock__photo--c"></span>
+        <span class="bvx-mock__listing-name">Burnet Rd · 3,100 sq ft</span>
+        <span class="bvx-mock__listing-meta">$1.19M · listed 12 days ago · no corner</span>
+        <span class="bvx-mock__score"><i class="bvx-mock__fill" style="--w:71%"></i><b>71</b></span>
+      </li>
+    </ol>
+
+    <div class="bvx-mock__region bvx-mock__cite" data-mock-region="evidence">
+      <span class="bvx-mock__reply-tag">Cited</span>
+      <span class="bvx-mock__cite-text">Size and frontage from the listing text · corner glazing read from 4 photos · price as listed, 3 days ago · <b>link to the source listing</b></span>
+    </div>
+  </div>
+</div>
