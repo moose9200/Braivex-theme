@@ -1082,6 +1082,9 @@
 }
 .bvx-chip:focus-visible { box-shadow: 0 0 0 2px var(--bvx-accent); }
 .bvx-product .bvx-actions { gap: 22px; }
+/* The secondary text link sits beside a 50px button; give it the same tap
+   height so it is not a 20px target on a phone. Scoped to product rows. */
+.bvx-product .bvx-link { min-height: 44px; }
 
 /* --- mockup frame --- */
 .bvx-mock {
