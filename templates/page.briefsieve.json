@@ -230,7 +230,7 @@
             "title": "Every branch's reviews, read the same way.",
             "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply.",
             "link_label": "See Loculens",
-            "link": "/pages/loculens"
+            "link": "https://loculens.braivex.com"
           }
         }
       },

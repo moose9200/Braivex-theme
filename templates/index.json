@@ -514,7 +514,7 @@
             "name": "Loculens",
             "headline": "Every review from every branch, in one workspace.\nThe team members mentioned are named and the reply is already drafted.",
             "metric": "Live across 5 branches and 479 reviews for a national jewellery retailer",
-            "page_link": "/pages/loculens",
+            "page_link": "https://loculens.braivex.com",
             "mock": "loculens",
             "reverse": false,
             "feature_1_label": "Branch discovery",
@@ -527,7 +527,7 @@
             "feature_4_region": "reply",
             "cta_primary_label": "Start a 14-day trial",
             "cta_primary_link": "https://loculens.braivex.com/signup",
-            "cta_secondary_label": "See how Loculens reads a branch"
+            "cta_secondary_label": "Open loculens.braivex.com"
           }
         },
         "hiresieve": {
@@ -537,7 +537,7 @@
             "name": "HireSieve",
             "headline": "A folder of CVs goes in and a ranked shortlist comes out.\nEvery score quotes the line of the CV it came from.",
             "metric": "About 45 seconds and a few cents per CV, with the cost shown before it spends",
-            "page_link": "/pages/hiresieve",
+            "page_link": "https://hiresieve.braivex.com",
             "mock": "hiresieve",
             "reverse": true,
             "feature_1_label": "Evidence quotes",
@@ -550,7 +550,7 @@
             "feature_4_region": "cost",
             "cta_primary_label": "Request a deployment",
             "cta_primary_link": "/pages/contact",
-            "cta_secondary_label": "See how HireSieve scores a CV"
+            "cta_secondary_label": "Open hiresieve.braivex.com"
           }
         },
         "p1": {

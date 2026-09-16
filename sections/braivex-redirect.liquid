@@ -1,0 +1,27 @@
+{% comment %}
+  Sends the visitor straight to the product's own site. Used where a
+  braivex.com product page has been replaced by the live app. A Shopify URL
+  redirect (301, Admin → Navigation → URL redirects) is the better tool
+  once set; this section covers the page until then and as a fallback.
+{% endcomment %}
+{% if section.settings.url != blank %}
+  <meta http-equiv="refresh" content="0; url={{ section.settings.url }}">
+  <meta name="robots" content="noindex">
+  <script>window.location.replace({{ section.settings.url | json }});</script>
+  <section class="bvx" style="min-height: 60vh; display: grid; place-items: center;">
+    <p class="bvx__lede" style="text-align: center;">
+      Taking you to <a class="bvx-link" href="{{ section.settings.url }}">{{ section.settings.url | remove: 'https://' | remove: 'http://' }}</a>
+    </p>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Braivex redirect",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "url", "label": "Send visitors to", "info": "Full URL, e.g. https://hiresieve.braivex.com" }
+  ],
+  "presets": [{ "name": "Braivex redirect" }]
+}
+{% endschema %}
