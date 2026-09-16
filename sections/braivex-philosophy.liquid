@@ -12,9 +12,9 @@
         </div>
         {% if section.settings.cta_1_label != blank %}
           <div class="bvx-actions">
-            <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_1_link != blank %}href="{{ section.settings.cta_1_link }}"{% endif %}>{{ section.settings.cta_1_label }}</a>
+            <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_1_link != blank %}href="{{ section.settings.cta_1_link }}"{% if section.settings.cta_1_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.cta_1_label }}</a>
             {% if section.settings.cta_2_label != blank %}
-              <a class="bvx-btn bvx-btn--ghost" {% if section.settings.cta_2_link != blank %}href="{{ section.settings.cta_2_link }}"{% endif %}>{{ section.settings.cta_2_label }}</a>
+              <a class="bvx-btn bvx-btn--ghost" {% if section.settings.cta_2_link != blank %}href="{{ section.settings.cta_2_link }}"{% if section.settings.cta_2_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.cta_2_label }}</a>
             {% endif %}
           </div>
         {% endif %}

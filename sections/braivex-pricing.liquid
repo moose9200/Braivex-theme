@@ -29,7 +29,7 @@
             </ul>
           {% endif %}
           {% if block.settings.cta_label != blank %}
-            <a class="bvx-btn {% if block.settings.featured %}bvx-btn--primary{% else %}bvx-btn--ghost{% endif %}" href="{{ block.settings.cta_link | default: '/pages/contact' }}">{{ block.settings.cta_label }}</a>
+            <a class="bvx-btn {% if block.settings.featured %}bvx-btn--primary{% else %}bvx-btn--ghost{% endif %}" href="{{ block.settings.cta_link | default: '/pages/contact' }}"{% if block.settings.cta_link contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_label }}</a>
           {% endif %}
         </div>
       {% endfor %}

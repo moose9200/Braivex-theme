@@ -30,7 +30,7 @@
                 <h3 class="bvx-cell__title">{{ block.settings.title }}</h3>
                 <p class="bvx-cell__desc">{{ block.settings.desc }}</p>
                 {% if block.settings.link_label != blank %}
-                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
+                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
                 {% endif %}
               </article>
             {% endif %}
@@ -47,7 +47,7 @@
                 <h3 class="bvx-cell__title">{{ block.settings.title }}</h3>
                 <p class="bvx-cell__desc">{{ block.settings.desc }}</p>
                 {% if block.settings.link_label != blank %}
-                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
+                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
                 {% endif %}
               </article>
             {% endif %}
@@ -65,7 +65,7 @@
                 <p class="bvx-cell__desc">{{ block.settings.desc }}</p>
                 {% if block.settings.meta != blank %}<span class="bvx-cell__meta">{{ block.settings.meta }}</span>{% endif %}
                 {% if block.settings.link_label != blank %}
-                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
+                  <div class="bvx-cell__foot"><a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a></div>
                 {% endif %}
               </article>
             {% endif %}
@@ -82,9 +82,9 @@
         {% if section.settings.strip_body != blank %}<p class="bvx__lede" style="max-width: 62ch; margin-bottom: 26px;">{{ section.settings.strip_body }}</p>{% endif %}
         {% if section.settings.strip_cta_1_label != blank %}
           <div class="bvx-actions">
-            <a class="bvx-btn bvx-btn--primary" {% if section.settings.strip_cta_1_link != blank %}href="{{ section.settings.strip_cta_1_link }}"{% endif %}>{{ section.settings.strip_cta_1_label }}</a>
+            <a class="bvx-btn bvx-btn--primary" {% if section.settings.strip_cta_1_link != blank %}href="{{ section.settings.strip_cta_1_link }}"{% if section.settings.strip_cta_1_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.strip_cta_1_label }}</a>
             {% if section.settings.strip_cta_2_label != blank %}
-              <a class="bvx-btn bvx-btn--ghost" {% if section.settings.strip_cta_2_link != blank %}href="{{ section.settings.strip_cta_2_link }}"{% endif %}>{{ section.settings.strip_cta_2_label }}</a>
+              <a class="bvx-btn bvx-btn--ghost" {% if section.settings.strip_cta_2_link != blank %}href="{{ section.settings.strip_cta_2_link }}"{% if section.settings.strip_cta_2_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.strip_cta_2_label }}</a>
             {% endif %}
           </div>
         {% endif %}

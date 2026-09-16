@@ -10,7 +10,7 @@
   <script>window.location.replace({{ section.settings.url | json }});</script>
   <section class="bvx" style="min-height: 60vh; display: grid; place-items: center;">
     <p class="bvx__lede" style="text-align: center;">
-      Taking you to <a class="bvx-link" href="{{ section.settings.url }}">{{ section.settings.url | remove: 'https://' | remove: 'http://' }}</a>
+      Taking you to <a class="bvx-link" href="{{ section.settings.url }}" target="_blank" rel="noopener">{{ section.settings.url | remove: 'https://' | remove: 'http://' }}</a>
     </p>
   </section>
 {% endif %}

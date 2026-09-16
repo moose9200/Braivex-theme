@@ -40,7 +40,7 @@
                   {% assign rkey = 'feature_' | append: i | append: '_region' %}
                   {% if block.settings[lkey] != blank %}
                     <li>
-                      <a class="bvx-chip" href="{{ block.settings.page_link }}" data-region="{{ block.settings[rkey] }}">{{ block.settings[lkey] }}</a>
+                      <a class="bvx-chip" href="{{ block.settings.page_link }}"{% if block.settings.page_link contains '://' %} target="_blank" rel="noopener"{% endif %} data-region="{{ block.settings[rkey] }}">{{ block.settings[lkey] }}</a>
                     </li>
                   {% endif %}
                 {% endfor %}
@@ -48,10 +48,10 @@
 
               <div class="bvx-actions">
                 {% if block.settings.cta_primary_label != blank %}
-                  <a class="bvx-btn bvx-btn--primary" href="{{ block.settings.cta_primary_link | default: '/pages/contact' }}">{{ block.settings.cta_primary_label }}</a>
+                  <a class="bvx-btn bvx-btn--primary" href="{{ block.settings.cta_primary_link | default: '/pages/contact' }}"{% if block.settings.cta_primary_link contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_primary_label }}</a>
                 {% endif %}
                 {% if block.settings.cta_secondary_label != blank %}
-                  <a class="bvx-link" href="{{ block.settings.page_link }}">{{ block.settings.cta_secondary_label }} <span class="bvx-link__arrow" aria-hidden="true">&rarr;</span></a>
+                  <a class="bvx-link" href="{{ block.settings.page_link }}"{% if block.settings.page_link contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_secondary_label }} <span class="bvx-link__arrow" aria-hidden="true">&rarr;</span></a>
                 {% endif %}
               </div>
             </div>

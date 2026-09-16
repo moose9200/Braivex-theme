@@ -49,10 +49,10 @@
     {%- if section.settings.button_1_label != blank or section.settings.button_2_label != blank -%}
       <div class="bx-hero__cta">
         {%- if section.settings.button_1_label != blank -%}
-          <a class="bx-btn bx-btn--primary" {% if section.settings.button_1_link != blank %}href="{{ section.settings.button_1_link }}"{% endif %}>{{ section.settings.button_1_label | escape }}</a>
+          <a class="bx-btn bx-btn--primary" {% if section.settings.button_1_link != blank %}href="{{ section.settings.button_1_link }}"{% if section.settings.button_1_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.button_1_label | escape }}</a>
         {%- endif -%}
         {%- if section.settings.button_2_label != blank -%}
-          <a class="bx-btn bx-btn--ghost" {% if section.settings.button_2_link != blank %}href="{{ section.settings.button_2_link }}"{% endif %}>{{ section.settings.button_2_label | escape }}</a>
+          <a class="bx-btn bx-btn--ghost" {% if section.settings.button_2_link != blank %}href="{{ section.settings.button_2_link }}"{% if section.settings.button_2_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.button_2_label | escape }}</a>
         {%- endif -%}
       </div>
     {%- endif -%}

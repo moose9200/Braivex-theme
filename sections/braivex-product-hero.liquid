@@ -23,17 +23,17 @@
             {% assign lkey = 'feature_' | append: i | append: '_label' %}
             {% assign rkey = 'feature_' | append: i | append: '_region' %}
             {% if section.settings[lkey] != blank %}
-              <li><a class="bvx-chip" href="{{ section.settings.chips_link | default: '#what' }}" data-region="{{ section.settings[rkey] }}">{{ section.settings[lkey] }}</a></li>
+              <li><a class="bvx-chip" href="{{ section.settings.chips_link | default: '#what' }}"{% if section.settings.chips_link contains '://' %} target="_blank" rel="noopener"{% endif %} data-region="{{ section.settings[rkey] }}">{{ section.settings[lkey] }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
 
         <div class="bvx-actions">
           {% if section.settings.cta_primary_label != blank %}
-            <a class="bvx-btn bvx-btn--primary" href="{{ section.settings.cta_primary_link | default: '/pages/contact' }}">{{ section.settings.cta_primary_label }}</a>
+            <a class="bvx-btn bvx-btn--primary" href="{{ section.settings.cta_primary_link | default: '/pages/contact' }}"{% if section.settings.cta_primary_link contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.cta_primary_label }}</a>
           {% endif %}
           {% if section.settings.cta_secondary_label != blank %}
-            <a class="bvx-link" href="{{ section.settings.cta_secondary_link | default: '#what' }}">{{ section.settings.cta_secondary_label }} <span class="bvx-link__arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="bvx-link" href="{{ section.settings.cta_secondary_link | default: '#what' }}"{% if section.settings.cta_secondary_link contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.cta_secondary_label }} <span class="bvx-link__arrow" aria-hidden="true">&rarr;</span></a>
           {% endif %}
         </div>
       </div>

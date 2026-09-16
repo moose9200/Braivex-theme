@@ -16,7 +16,7 @@
           <p class="bvx-cell__desc">{{ block.settings.desc | newline_to_br }}</p>
           {% if block.settings.link_label != blank %}
             <div class="bvx-actions">
-              <a class="bvx-btn {% if forloop.index == 1 %}bvx-btn--primary{% else %}bvx-btn--ghost{% endif %}" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }}</a>
+              <a class="bvx-btn {% if forloop.index == 1 %}bvx-btn--primary{% else %}bvx-btn--ghost{% endif %}" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ block.settings.link_label }}</a>
             </div>
           {% endif %}
         </div>

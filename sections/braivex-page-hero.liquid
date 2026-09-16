@@ -13,7 +13,7 @@
     {% if section.settings.lede != blank %}<p class="bvx-pagehero__lede">{{ section.settings.lede }}</p>{% endif %}
     {% if section.settings.cta_label != blank %}
       <div class="bvx-actions" style="margin-top: 34px;">
-        <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% endif %}>{{ section.settings.cta_label }}</a>
+        <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% if section.settings.cta_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.cta_label }}</a>
       </div>
     {% endif %}
   </div>

@@ -30,7 +30,7 @@
         {% endfor %}
       {% else %}
         {% for block in section.blocks %}
-          <a class="bvx-row" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {{ block.shopify_attributes }}>
+          <a class="bvx-row" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %} {{ block.shopify_attributes }}>
             <span class="bvx-row__date">{{ block.settings.date }}</span>
             <span class="bvx-row__title">{{ block.settings.title }}</span>
             <span class="bvx-row__arrow">&rarr;</span>
@@ -41,7 +41,7 @@
 
     {% if section.settings.all_label != blank %}
       <div class="bvx-actions bvx-reveal" style="margin-top: 40px;">
-        <a class="bvx-btn bvx-btn--ghost" {% if section.settings.all_link != blank %}href="{{ section.settings.all_link }}"{% endif %}>{{ section.settings.all_label }}</a>
+        <a class="bvx-btn bvx-btn--ghost" {% if section.settings.all_link != blank %}href="{{ section.settings.all_link }}"{% if section.settings.all_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.all_label }}</a>
       </div>
     {% endif %}
   </div>

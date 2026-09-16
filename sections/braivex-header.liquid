@@ -26,7 +26,7 @@
     <nav class="bvx-nav" aria-label="Primary">
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
-          <a class="bvx-nav__link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+          <a class="bvx-nav__link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
         {% endfor %}
       {% else %}
         {% for link in linklists[section.settings.menu].links %}
@@ -36,7 +36,7 @@
     </nav>
 
     {% if section.settings.cta_label != blank %}
-      <a class="bvx-btn bvx-btn--primary bvx-header__cta" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% endif %}>{{ section.settings.cta_label }}</a>
+      <a class="bvx-btn bvx-btn--primary bvx-header__cta" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% if section.settings.cta_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.cta_label }}</a>
     {% endif %}
 
     <button class="bvx-burger" type="button" aria-expanded="false" aria-label="Open menu">
@@ -48,7 +48,7 @@
     <nav class="bvx-drawer__nav" aria-label="Mobile">
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
-          <a class="bvx-drawer__link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.label }}</a>
+          <a class="bvx-drawer__link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% if block.settings.link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ block.settings.label }}</a>
         {% endfor %}
       {% else %}
         {% for link in linklists[section.settings.menu].links %}
@@ -57,7 +57,7 @@
       {% endif %}
     </nav>
     {% if section.settings.cta_label != blank %}
-      <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% endif %}>{{ section.settings.cta_label }}</a>
+      <a class="bvx-btn bvx-btn--primary" {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% if section.settings.cta_link contains '://' %} target="_blank" rel="noopener"{% endif %}{% endif %}>{{ section.settings.cta_label }}</a>
     {% endif %}
   </div>
 </header>
