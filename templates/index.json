@@ -585,7 +585,7 @@
             "badge": "Early access",
             "headline": "Ads, sales, stock, email, marketplaces and inbox, read for you each morning.\nA guru explains the numbers and is never allowed to calculate them.",
             "metric": "Ten data sections, your own API keys, one brief",
-            "page_link": "/pages/briefsieve",
+            "page_link": "https://mypa.services",
             "mock": "briefsieve",
             "reverse": false,
             "feature_1_label": "The morning brief",
@@ -596,9 +596,9 @@
             "feature_3_region": "channels",
             "feature_4_label": "Ask the guru",
             "feature_4_region": "guru",
-            "cta_primary_label": "Request early access",
-            "cta_primary_link": "/pages/contact",
-            "cta_secondary_label": "See what a brief contains"
+            "cta_primary_label": "Open BriefSieve",
+            "cta_primary_link": "https://mypa.services",
+            "cta_secondary_label": "Open mypa.services"
           }
         },
         "homesieve": {

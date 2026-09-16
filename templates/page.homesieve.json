@@ -231,7 +231,7 @@
             "title": "The operator's morning brief.",
             "desc": "BriefSieve reads ads, sales, stock, email and marketplaces overnight and tells you what changed.\nA guru explains the numbers and is never allowed to calculate them.",
             "link_label": "See BriefSieve",
-            "link": "/pages/briefsieve"
+            "link": "https://mypa.services"
           }
         }
       },
