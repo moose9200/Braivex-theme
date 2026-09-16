@@ -6,13 +6,13 @@
   <div class="bvx__inner">
     <div class="bvx__head bvx__head--center bvx-reveal">
       {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
-      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
     </div>
     <div class="bvx-faq bvx-reveal">
       {% for block in section.blocks %}
         <details class="bvx-faq__item" {{ block.shopify_attributes }}>
           <summary class="bvx-faq__q"><span>{{ block.settings.q }}</span><span class="bvx-faq__mark" aria-hidden="true"></span></summary>
-          <p class="bvx-faq__a">{{ block.settings.a }}</p>
+          <p class="bvx-faq__a">{{ block.settings.a | newline_to_br }}</p>
         </details>
       {% endfor %}
     </div>

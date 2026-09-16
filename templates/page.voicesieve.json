@@ -6,14 +6,18 @@
         "eyebrow": "VoiceSieve by Braivex · Voice agents for commerce",
         "heading": "VoiceSieve",
         "badge": "In development",
-        "lede": "Phone calls, answered and made from what your best people already said. VoiceSieve mines your recorded calls into a knowledge base and a house style, answers inbound calls live against your order system, and calls lapsed customers back — declaring itself an AI in its first sentence, every call.",
-        "metric": "Specified end to end — nine architecture decisions, eight research reports; product build starts after sign-off",
+        "lede": "AI voice agents for commerce, built from what your best people already said on the phone.\nVoiceSieve mines your recorded calls into a knowledge base and a house style, answers inbound calls live against your order system, and calls lapsed customers back.\nIt says it is an AI in its first sentence, on every call.",
+        "metric": "Specified end to end in nine architecture decisions and eight research reports; the build starts after sign-off",
         "mock": "voicesieve",
         "chips_link": "#what",
-        "feature_1_label": "Mined from real calls", "feature_1_region": "mine",
-        "feature_2_label": "Inbound, live from Shopify", "feature_2_region": "inbound",
-        "feature_3_label": "Win-back calling", "feature_3_region": "outbound",
-        "feature_4_label": "Hands off when unsure", "feature_4_region": "handoff",
+        "feature_1_label": "Mined from real calls",
+        "feature_1_region": "mine",
+        "feature_2_label": "Inbound, live from Shopify",
+        "feature_2_region": "inbound",
+        "feature_3_label": "Win-back calling",
+        "feature_3_region": "outbound",
+        "feature_4_label": "Hands off when unsure",
+        "feature_4_region": "handoff",
         "cta_primary_label": "Join the waitlist",
         "cta_primary_link": "/pages/contact",
         "cta_secondary_label": "What it will never say",
@@ -23,18 +27,61 @@
     "what": {
       "type": "braivex-spec",
       "blocks": {
-        "w-1": { "type": "spec", "settings": { "label": "Mine · your calls become the knowledge base", "value": "Historical recordings for the agents you name are transcribed, speaker-separated and redacted for personal data, then distilled into structured notes, a searchable knowledge base and a house style guide. Both agents below speak from it." } },
-        "w-2": { "type": "spec", "settings": { "label": "Inbound · answers from the order system", "value": "The top intent on a commerce line is “where is my order?”. VoiceSieve resolves it live against Shopify — dispatch, carrier, tracking, expected date — and says nothing the data does not support. No date in the record, no date spoken." } },
-        "w-3": { "type": "spec", "settings": { "label": "Outbound · win-back, one call at a time", "value": "Works a list of lapsed customers scored on recency, frequency and value, inside a calling window you set. Objection handling is mined from the real calls that won customers back. Offers come only from an approved matrix." } },
-        "w-4": { "type": "spec", "settings": { "label": "Disclosure, first sentence", "value": "The agent says it is an AI assistant before any question is asked and before any caller data is requested, with the recording notice in the same breath. Asked “are you a robot?”, it answers plainly and at once." } },
-        "w-5": { "type": "spec", "settings": { "label": "Hands off when it does not know", "value": "If the answer is not in an authoritative source — the order system, the offer matrix, an approved policy — the agent says so and offers a callback or a transfer to a person, with the notes attached. It never guesses." } },
-        "w-6": { "type": "spec", "settings": { "label": "Open-source-first, no per-minute markup", "value": "Built on an open voice runtime and self-hosted telephony, with licences checked for the model weights and not only the code. The aim is platform-class quality without the platform's per-minute fee." } }
+        "w-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Mine · your calls become the knowledge base",
+            "value": "Historical recordings for the agents you name are transcribed, speaker-separated and redacted for personal data.\nThey are distilled into structured notes, a searchable knowledge base and a house style guide.\nBoth agents speak from it."
+          }
+        },
+        "w-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Inbound · answers from the order system",
+            "value": "The top intent on a commerce line is “where is my order?”.\nVoiceSieve resolves it live against Shopify: dispatch, carrier, tracking, expected date.\nIt says nothing the data does not support.\nNo date in the record means no date is spoken."
+          }
+        },
+        "w-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Outbound · win-back, one call at a time",
+            "value": "It works a list of lapsed customers scored on recency, frequency and value, inside a calling window you set.\nObjection handling is mined from the real calls that won customers back.\nOffers come only from an approved matrix."
+          }
+        },
+        "w-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Disclosure, first sentence",
+            "value": "The agent says it is an AI assistant before any question is asked and before any caller data is requested.\nThe recording notice is in the same breath.\nAsked “are you a robot?”, it answers plainly and at once."
+          }
+        },
+        "w-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Hands off when it does not know",
+            "value": "If the answer is not in an authoritative source (the order system, the offer matrix, an approved policy) the agent says so.\nIt offers a callback or a transfer to a person, with the notes attached.\nIt never guesses."
+          }
+        },
+        "w-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Open-source-first, no per-minute markup",
+            "value": "Built on an open voice runtime and self-hosted telephony.\nLicences are checked for the model weights as well as the code.\nThe aim is platform-class quality without the platform's per-minute fee."
+          }
+        }
       },
-      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "block_order": [
+        "w-1",
+        "w-2",
+        "w-3",
+        "w-4",
+        "w-5",
+        "w-6"
+      ],
       "settings": {
         "eyebrow": "What it does",
-        "heading": "Three components. One voice, learnt from yours.",
-        "lede": "Designed for a wholesale commerce business whose phone still rings — and whose customers deserve an honest answer when it does.",
+        "heading": "Three components, one voice learnt from yours.",
+        "lede": "Designed for a wholesale commerce business whose phone still rings and whose customers deserve an honest answer when it does.",
         "cta_label": "",
         "cta_link": "/pages/contact"
       }
@@ -42,18 +89,61 @@
     "guardrails": {
       "type": "braivex-spec",
       "blocks": {
-        "g-1": { "type": "spec", "settings": { "label": "Invent a fact", "value": "No product name, price, discount, stock level, lead time, delivery date or policy unless it came from an authoritative source on that turn." } },
-        "g-2": { "type": "spec", "settings": { "label": "Invent scarcity or urgency", "value": "Unless the offer matrix carries that fact with a real date." } },
-        "g-3": { "type": "spec", "settings": { "label": "Talk about competitors", "value": "No claims about their prices, quality or reliability." } },
-        "g-4": { "type": "spec", "settings": { "label": "Improvise an offer", "value": "The agent cannot combine, extend or increase an offer, and cannot match a figure a caller says they were quoted." } },
-        "g-5": { "type": "spec", "settings": { "label": "Push past a no", "value": "An explicit refusal ends persuasion for that call, and is recorded." } },
-        "g-6": { "type": "spec", "settings": { "label": "Admit liability or promise compensation", "value": "It may apologise for the experience. It may not accept fault or promise a refund, credit or replacement — that is a person's decision." } }
+        "g-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Invent a fact",
+            "value": "No product name, price, discount, stock level, lead time, delivery date or policy unless it came from an authoritative source on that turn."
+          }
+        },
+        "g-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Invent scarcity or urgency",
+            "value": "Unless the offer matrix carries that fact with a real date."
+          }
+        },
+        "g-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Talk about competitors",
+            "value": "No claims about their prices, quality or reliability."
+          }
+        },
+        "g-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Improvise an offer",
+            "value": "The agent cannot combine, extend or increase an offer.\nIt cannot match a figure a caller says they were quoted."
+          }
+        },
+        "g-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Push past a no",
+            "value": "An explicit refusal ends persuasion for that call.\nThe refusal is recorded."
+          }
+        },
+        "g-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Admit liability or promise compensation",
+            "value": "It may apologise for the experience.\nIt may not accept fault or promise a refund, credit or replacement.\nThat is a person's decision."
+          }
+        }
       },
-      "block_order": ["g-1", "g-2", "g-3", "g-4", "g-5", "g-6"],
+      "block_order": [
+        "g-1",
+        "g-2",
+        "g-3",
+        "g-4",
+        "g-5",
+        "g-6"
+      ],
       "settings": {
         "eyebrow": "Guardrails",
         "heading": "What it will never say.",
-        "lede": "Persuasive is allowed. Dishonest is not — and no caller, campaign target or instruction can soften that.",
+        "lede": "Persuasive is allowed.\nDishonest is not, and no caller, campaign target or instruction can soften that.",
         "cta_label": "",
         "cta_link": "/pages/contact"
       }
@@ -61,40 +151,152 @@
     "plans": {
       "type": "braivex-pricing",
       "blocks": {
-        "p-1": { "type": "plan", "settings": { "name": "Starter", "price": "$99", "period": "/month", "featured": false, "blurb": "One inbound line, answered.", "features": "300 minutes a month\n1 inbound agent\n1 phone number\nKnowledge base mined from your calls\nOverage $0.35 a minute", "cta_label": "Join the waitlist", "cta_link": "/pages/contact" } },
-        "p-2": { "type": "plan", "settings": { "name": "Growth", "price": "$299", "period": "/month", "badge": "Planned", "featured": true, "blurb": "Inbound answered, lapsed customers called back.", "features": "1,000 minutes a month\n1 inbound + 1 win-back agent\n3 phone numbers\nApproved offer matrix\nOverage $0.30 a minute", "cta_label": "Join the waitlist", "cta_link": "/pages/contact" } },
-        "p-3": { "type": "plan", "settings": { "name": "Scale", "price": "$699", "period": "/month", "featured": false, "blurb": "Several lines and campaigns.", "features": "2,500 minutes a month\n3 inbound + 2 win-back agents\n10 phone numbers\nPriority support\nOverage $0.25 a minute", "cta_label": "Join the waitlist", "cta_link": "/pages/contact" } }
+        "p-1": {
+          "type": "plan",
+          "settings": {
+            "name": "Starter",
+            "price": "$99",
+            "period": "/month",
+            "featured": false,
+            "blurb": "One inbound line, answered.",
+            "features": "300 minutes a month\n1 inbound agent\n1 phone number\nKnowledge base mined from your calls\nOverage $0.35 a minute",
+            "cta_label": "Join the waitlist",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "p-2": {
+          "type": "plan",
+          "settings": {
+            "name": "Growth",
+            "price": "$299",
+            "period": "/month",
+            "badge": "Planned",
+            "featured": true,
+            "blurb": "Inbound answered and lapsed customers called back.",
+            "features": "1,000 minutes a month\n1 inbound + 1 win-back agent\n3 phone numbers\nApproved offer matrix\nOverage $0.30 a minute",
+            "cta_label": "Join the waitlist",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "p-3": {
+          "type": "plan",
+          "settings": {
+            "name": "Scale",
+            "price": "$699",
+            "period": "/month",
+            "featured": false,
+            "blurb": "Several lines and campaigns.",
+            "features": "2,500 minutes a month\n3 inbound + 2 win-back agents\n10 phone numbers\nPriority support\nOverage $0.25 a minute",
+            "cta_label": "Join the waitlist",
+            "cta_link": "/pages/contact"
+          }
+        }
       },
-      "block_order": ["p-1", "p-2", "p-3"],
+      "block_order": [
+        "p-1",
+        "p-2",
+        "p-3"
+      ],
       "settings": {
         "anchor": "plans",
         "eyebrow": "Planned pricing",
         "heading": "Flat monthly plans with minutes included.",
-        "lede": "Planned tiers in USD. Final pricing is confirmed at launch; waitlist customers hear first.",
-        "note": "Planned pricing, not yet on sale. Prices in USD, billed monthly. Minutes count inbound and outbound alike."
+        "lede": "Planned tiers in USD.\nFinal pricing is confirmed at launch, and waitlist customers hear first.",
+        "note": "Planned pricing, not yet on sale.\nPrices in USD, billed monthly.\nMinutes count inbound and outbound alike."
       }
     },
     "faq": {
       "type": "braivex-faq",
       "blocks": {
-        "q-1": { "type": "qa", "settings": { "q": "Is VoiceSieve live?", "a": "Not yet. The research and the full specification are complete — the stack, the conversation design, the data model, the compliance obligations and the evaluation plan. Product build starts after sign-off. Join the waitlist to be onboarded first." } },
-        "q-2": { "type": "qa", "settings": { "q": "Will callers know they are talking to an AI?", "a": "Yes, in the first sentence, before any question is asked — with the recording notice in the same opening. Asked directly, it says so again, plainly." } },
-        "q-3": { "type": "qa", "settings": { "q": "Can it invent an offer to close a sale?", "a": "No. Offers come only from an approved matrix. It cannot combine, extend or increase one, and it cannot match a figure a caller claims to have been quoted. A no ends the pitch." } },
-        "q-4": { "type": "qa", "settings": { "q": "What happens when it does not know?", "a": "It says so and offers a callback or a transfer to a person, with its notes attached. It does not guess and does not give hedged half-answers." } },
-        "q-5": { "type": "qa", "settings": { "q": "Whose voice is it?", "a": "A persona with its own first name. Where the voice is modelled on a member of your team, the agent will never claim to be that person." } }
+        "q-1": {
+          "type": "qa",
+          "settings": {
+            "q": "Is VoiceSieve live?",
+            "a": "Not yet.\nThe research and the full specification are complete: the stack, the conversation design, the data model, the compliance obligations and the evaluation plan.\nThe build starts after sign-off.\nJoin the waitlist to be onboarded first."
+          }
+        },
+        "q-2": {
+          "type": "qa",
+          "settings": {
+            "q": "Will callers know they are talking to an AI?",
+            "a": "Yes, in the first sentence, before any question is asked.\nThe recording notice is in the same opening.\nAsked directly, it says so again."
+          }
+        },
+        "q-3": {
+          "type": "qa",
+          "settings": {
+            "q": "Can it invent an offer to close a sale?",
+            "a": "No.\nOffers come only from an approved matrix.\nIt cannot combine, extend or increase one, and it cannot match a figure a caller claims to have been quoted.\nA no ends the pitch."
+          }
+        },
+        "q-4": {
+          "type": "qa",
+          "settings": {
+            "q": "What happens when it does not know?",
+            "a": "It says so and offers a callback or a transfer to a person, with its notes attached.\nIt does not guess and does not give half-answers."
+          }
+        },
+        "q-5": {
+          "type": "qa",
+          "settings": {
+            "q": "Whose voice is it?",
+            "a": "A persona with its own first name.\nWhere the voice is modelled on a member of your team, the agent will never claim to be that person."
+          }
+        }
       },
-      "block_order": ["q-1", "q-2", "q-3", "q-4", "q-5"],
-      "settings": { "anchor": "faq", "eyebrow": "Questions", "heading": "Asked before joining the waitlist." }
+      "block_order": [
+        "q-1",
+        "q-2",
+        "q-3",
+        "q-4",
+        "q-5"
+      ],
+      "settings": {
+        "anchor": "faq",
+        "eyebrow": "Questions",
+        "heading": "Asked before joining the waitlist."
+      }
     },
     "cta": {
       "type": "braivex-cta",
       "blocks": {
-        "path-1": { "type": "path", "settings": { "kicker": "Waitlist", "title": "Be the line it learns on.", "desc": "Tell us about your call volume and your order system. Waitlist customers shape the build and are onboarded first.", "link_label": "Join the waitlist", "link": "/pages/contact" } },
-        "path-2": { "type": "path", "settings": { "kicker": "Live today", "title": "Every branch's reviews, read and answered.", "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply — a person still presses send.", "link_label": "See Loculens", "link": "/pages/loculens" } }
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "Waitlist",
+            "title": "Be the line it learns on.",
+            "desc": "Tell us about your call volume and your order system.\nWaitlist customers shape the build and are onboarded first.",
+            "link_label": "Join the waitlist",
+            "link": "/pages/contact"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Live today",
+            "title": "Every branch's reviews, read and answered.",
+            "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply.\nA person still presses send.",
+            "link_label": "See Loculens",
+            "link": "/pages/loculens"
+          }
+        }
       },
-      "block_order": ["path-1", "path-2"],
-      "settings": { "anchor": "get-started", "heading": "A phone agent that tells the truth, in your house style." }
+      "block_order": [
+        "path-1",
+        "path-2"
+      ],
+      "settings": {
+        "anchor": "get-started",
+        "heading": "A phone agent that tells the truth, in your house style."
+      }
     }
   },
-  "order": ["hero", "what", "guardrails", "plans", "faq", "cta"]
+  "order": [
+    "hero",
+    "what",
+    "guardrails",
+    "plans",
+    "faq",
+    "cta"
+  ]
 }

@@ -7,7 +7,7 @@
     <div class="bvx__head bvx-reveal">
       {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
       {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
-      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede | newline_to_br }}</p>{% endif %}
     </div>
 
     <div class="bvx-grid bvx-grid--3 bvx-reveal">
@@ -16,7 +16,7 @@
           <span class="bvx-cell__index">0{{ forloop.index }}</span>
           {% if block.settings.kicker != blank %}<span class="bvx-cell__kicker">{{ block.settings.kicker }}</span>{% endif %}
           <h3 class="bvx-cell__title">{{ block.settings.title }}</h3>
-          <p class="bvx-cell__desc">{{ block.settings.desc }}</p>
+          <p class="bvx-cell__desc">{{ block.settings.desc | newline_to_br }}</p>
           {% if block.settings.link_label != blank %}
             <div class="bvx-cell__foot">
               <a class="bvx-link" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }} <span class="bvx-link__arrow">&rarr;</span></a>

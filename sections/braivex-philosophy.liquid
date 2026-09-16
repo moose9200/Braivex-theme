@@ -8,7 +8,7 @@
       <div>
         <div class="bvx__head" style="margin-bottom: 28px;">
           {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
-          {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+          {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
         </div>
         {% if section.settings.cta_1_label != blank %}
           <div class="bvx-actions">
@@ -20,10 +20,10 @@
         {% endif %}
       </div>
       <div class="bvx-split__body">
-        {% if section.settings.body != blank %}<p>{{ section.settings.body }}</p>{% endif %}
+        {% if section.settings.body != blank %}<p>{{ section.settings.body | newline_to_br }}</p>{% endif %}
         {% if section.settings.quote != blank %}
           <blockquote class="bvx-quote">
-            <p class="bvx-quote__text">{{ section.settings.quote }}</p>
+            <p class="bvx-quote__text">{{ section.settings.quote | replace: '. ', '.<br>' }}</p>
             {% if section.settings.quote_by != blank %}<span class="bvx-quote__by">{{ section.settings.quote_by }}</span>{% endif %}
           </blockquote>
         {% endif %}

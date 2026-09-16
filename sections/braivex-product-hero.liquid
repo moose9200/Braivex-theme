@@ -13,7 +13,7 @@
       <div class="bvx-product__copy">
         {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
         <h1 class="bvx-product__name">{{ section.settings.heading | default: page.title }}{% if section.settings.badge != blank %} <span class="bvx-product__badge">{{ section.settings.badge }}</span>{% endif %}</h1>
-        {% if section.settings.lede != blank %}<p class="bvx-product__headline">{{ section.settings.lede }}</p>{% endif %}
+        {% if section.settings.lede != blank %}<p class="bvx-product__headline">{{ section.settings.lede | newline_to_br }}</p>{% endif %}
         {% if section.settings.metric != blank %}
           <p class="bvx-product__metric"><span class="bvx-product__metric-dot" aria-hidden="true"></span>{{ section.settings.metric }}</p>
         {% endif %}

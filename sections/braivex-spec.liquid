@@ -6,15 +6,15 @@
   <div class="bvx__inner">
     <div class="bvx__head bvx-reveal">
       {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
-      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
-      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
+      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede | newline_to_br }}</p>{% endif %}
     </div>
 
     <div class="bvx-grid bvx-grid--2 bvx-reveal">
       {% for block in section.blocks %}
         <div class="bvx-cell" style="min-height:0;" {{ block.shopify_attributes }}>
           <span class="bvx-cell__kicker">{{ block.settings.label }}</span>
-          <p class="bvx-cell__desc" style="flex-grow:0;">{{ block.settings.value }}</p>
+          <p class="bvx-cell__desc" style="flex-grow:0;">{{ block.settings.value | newline_to_br }}</p>
         </div>
       {% endfor %}
     </div>

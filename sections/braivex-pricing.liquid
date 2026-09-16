@@ -11,8 +11,8 @@
   <div class="bvx__inner">
     <div class="bvx__head bvx-reveal">
       {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
-      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
-      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
+      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede | newline_to_br }}</p>{% endif %}
     </div>
 
     <div class="bvx-plans bvx-reveal" style="--plan-cols: {{ plans.size | at_least: 1 | at_most: 4 }};">
@@ -21,7 +21,7 @@
           {% if block.settings.badge != blank %}<span class="bvx-plan__badge">{{ block.settings.badge }}</span>{% endif %}
           <h3 class="bvx-plan__name">{{ block.settings.name }}</h3>
           <p class="bvx-plan__price"><b>{{ block.settings.price }}</b>{% if block.settings.period != blank %}<span>{{ block.settings.period }}</span>{% endif %}</p>
-          {% if block.settings.blurb != blank %}<p class="bvx-plan__blurb">{{ block.settings.blurb }}</p>{% endif %}
+          {% if block.settings.blurb != blank %}<p class="bvx-plan__blurb">{{ block.settings.blurb | newline_to_br }}</p>{% endif %}
           {% if block.settings.features != blank %}
             <ul class="bvx-plan__list">
               {% assign lines = block.settings.features | newline_to_br | split: '<br />' %}
@@ -35,7 +35,7 @@
       {% endfor %}
     </div>
 
-    {% if section.settings.note != blank %}<p class="bvx-plans__note bvx-reveal">{{ section.settings.note }}</p>{% endif %}
+    {% if section.settings.note != blank %}<p class="bvx-plans__note bvx-reveal">{{ section.settings.note | newline_to_br }}</p>{% endif %}
   </div>
 </section>
 

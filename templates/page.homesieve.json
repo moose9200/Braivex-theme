@@ -6,15 +6,19 @@
         "eyebrow": "HomeSieve by Braivex · Property listings copilot",
         "heading": "HomeSieve",
         "badge": "Early access",
-        "lede": "Ask the market a question. Get the listings, with their sources. HomeSieve reads live commercial-property listings from five sources into one index, scores each against your brief, reads the photos, and answers in plain language — every answer citing the listing it came from.",
+        "lede": "A property listings copilot for commercial property.\nHomeSieve reads live listings from five sources into one index, scores each one against your brief, reads the photos, and answers in plain language.\nEvery answer cites the listing it came from.",
         "metric": "Five live listing sources, two of them scrapers we built",
         "mock": "homesieve",
         "reverse": true,
         "chips_link": "#what",
-        "feature_1_label": "Ask in plain language", "feature_1_region": "ask",
-        "feature_2_label": "Live sources", "feature_2_region": "sources",
-        "feature_3_label": "Scored listings", "feature_3_region": "listings",
-        "feature_4_label": "Every answer cited", "feature_4_region": "evidence",
+        "feature_1_label": "Ask in plain language",
+        "feature_1_region": "ask",
+        "feature_2_label": "Live sources",
+        "feature_2_region": "sources",
+        "feature_3_label": "Scored listings",
+        "feature_3_region": "listings",
+        "feature_4_label": "Every answer cited",
+        "feature_4_region": "evidence",
         "cta_primary_label": "Request early access",
         "cta_primary_link": "/pages/contact",
         "cta_secondary_label": "See the plans",
@@ -24,17 +28,60 @@
     "what": {
       "type": "braivex-spec",
       "blocks": {
-        "w-1": { "type": "spec", "settings": { "label": "Ask in plain language", "value": "Describe the unit you want the way you would to a colleague — size, budget, area, frontage, use. The copilot searches the index and answers with the listings that fit, streamed as it reads." } },
-        "w-2": { "type": "spec", "settings": { "label": "Hybrid retrieval, reranked", "value": "Every listing is embedded and full-text indexed. A query runs both, fuses the results, and a second model reranks the top candidates before anything is written — so a rare word in your brief is not lost to a vector average." } },
-        "w-3": { "type": "spec", "settings": { "label": "Enriched and scored", "value": "Size, use class and features are extracted from listing text where the portal left them out. Each listing is scored against comparables and against your brief, and the score is shown next to it." } },
-        "w-4": { "type": "spec", "settings": { "label": "Photos, read", "value": "Listing photos are read by a vision model, so a glazed corner, a mezzanine or a loading door counts even when the agent's description never mentioned it." } },
-        "w-5": { "type": "spec", "settings": { "label": "Watch profiles and alerts", "value": "Save a brief as a watch profile and be alerted when a new listing matches. A map view and a watchlist keep the shortlist where the team can see it." } },
-        "w-6": { "type": "spec", "settings": { "label": "Sources on your budget", "value": "Five live sources today, two on scrapers we built ourselves when the third-party ones returned blanks. Scraping runs behind an on/off switch and a budget, so the data bill never surprises you." } }
+        "w-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Ask in plain language",
+            "value": "Describe the unit you want the way you would to a colleague: size, budget, area, frontage, use.\nThe copilot searches the index and streams back the listings that fit as it reads."
+          }
+        },
+        "w-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Hybrid retrieval, reranked",
+            "value": "Every listing is embedded and full-text indexed.\nA query runs both searches, fuses the results, and a second model reranks the top candidates before anything is written.\nA rare word in your brief is not lost to a vector average."
+          }
+        },
+        "w-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Enriched and scored",
+            "value": "Size, use class and features are extracted from the listing text where the portal left them out.\nEach listing is scored against comparables and against your brief.\nThe score is shown next to it."
+          }
+        },
+        "w-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Photos, read",
+            "value": "A vision model reads the listing photos.\nA glazed corner, a mezzanine or a loading door counts even when the agent's description never mentioned it."
+          }
+        },
+        "w-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Watch profiles and alerts",
+            "value": "Save a brief as a watch profile and get an alert when a new listing matches.\nA map view and a watchlist keep the shortlist where the team can see it."
+          }
+        },
+        "w-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Sources on your budget",
+            "value": "Five live sources today, two of them on scrapers we built ourselves after the third-party ones returned blanks.\nScraping runs behind an on/off switch and a budget, so the data bill never surprises you."
+          }
+        }
       },
-      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "block_order": [
+        "w-1",
+        "w-2",
+        "w-3",
+        "w-4",
+        "w-5",
+        "w-6"
+      ],
       "settings": {
         "eyebrow": "What it does",
-        "heading": "A copilot that has read every listing, and shows you which.",
+        "heading": "A copilot that has read every listing and shows you which.",
         "lede": "Built for investors, agents and occupiers who search across portals and would rather ask once.",
         "cta_label": "",
         "cta_link": "/pages/contact"
@@ -46,7 +93,7 @@
         "anchor": "why",
         "eyebrow": "Why cited",
         "heading": "A property answer without its listing is a rumour.",
-        "body": "Language models are happy to describe a unit that does not exist. HomeSieve only answers from listings in its index, and every claim in the answer links to the listing and the field it came from — the price as listed, the size as stated, the feature as photographed. If the index has nothing that fits, it says so.",
+        "body": "Language models will happily describe a unit that does not exist.\nHomeSieve only answers from listings in its index.\nEvery claim in the answer links to the listing and the field it came from: the price as listed, the size as stated, the feature as photographed.\nIf the index has nothing that fits, it says so.",
         "quote": "Every answer links the listing it came from. If it cannot, it does not answer.",
         "quote_by": "HomeSieve product principle",
         "cta_1_label": "Request early access",
@@ -58,40 +105,152 @@
     "plans": {
       "type": "braivex-pricing",
       "blocks": {
-        "p-1": { "type": "plan", "settings": { "name": "Solo", "price": "$79", "period": "/month", "featured": false, "blurb": "One investor or agent, one market.", "features": "1 seat\n500 copilot queries a month\n1,000 listing lookups a month\n50 exports a month\nEmail support", "cta_label": "Request early access", "cta_link": "/pages/contact" } },
-        "p-2": { "type": "plan", "settings": { "name": "Team", "price": "$199", "period": "/month", "badge": "Most popular", "featured": true, "blurb": "A small team sharing briefs and shortlists.", "features": "5 seats\n3,000 copilot queries a month, pooled\n7,500 listing lookups a month\n500 exports a month\nShared watch profiles, PDF reports", "cta_label": "Request early access", "cta_link": "/pages/contact" } },
-        "p-3": { "type": "plan", "settings": { "name": "Brokerage", "price": "$599", "period": "/month", "featured": false, "blurb": "Many agents, several markets, your own sources.", "features": "15 seats\n12,000 copilot queries a month, pooled\n30,000 listing lookups a month\n5,000 exports a month + API\nCustom data sources, SSO, priority support", "cta_label": "Request early access", "cta_link": "/pages/contact" } }
+        "p-1": {
+          "type": "plan",
+          "settings": {
+            "name": "Solo",
+            "price": "$79",
+            "period": "/month",
+            "featured": false,
+            "blurb": "One investor or agent in one market.",
+            "features": "1 seat\n500 copilot queries a month\n1,000 listing lookups a month\n50 exports a month\nEmail support",
+            "cta_label": "Request early access",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "p-2": {
+          "type": "plan",
+          "settings": {
+            "name": "Team",
+            "price": "$199",
+            "period": "/month",
+            "badge": "Most popular",
+            "featured": true,
+            "blurb": "A small team sharing briefs and shortlists.",
+            "features": "5 seats\n3,000 copilot queries a month, pooled\n7,500 listing lookups a month\n500 exports a month\nShared watch profiles, PDF reports",
+            "cta_label": "Request early access",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "p-3": {
+          "type": "plan",
+          "settings": {
+            "name": "Brokerage",
+            "price": "$599",
+            "period": "/month",
+            "featured": false,
+            "blurb": "Many agents, several markets, your own sources.",
+            "features": "15 seats\n12,000 copilot queries a month, pooled\n30,000 listing lookups a month\n5,000 exports a month + API\nCustom data sources, SSO, priority support",
+            "cta_label": "Request early access",
+            "cta_link": "/pages/contact"
+          }
+        }
       },
-      "block_order": ["p-1", "p-2", "p-3"],
+      "block_order": [
+        "p-1",
+        "p-2",
+        "p-3"
+      ],
       "settings": {
         "anchor": "plans",
         "eyebrow": "Plans",
-        "heading": "Priced by seats, queries and lookups. Every plan has the whole copilot.",
-        "lede": "Early-access pricing in USD, billed monthly.",
-        "note": "Prices in USD, billed monthly, cancel any time. Query and lookup allowances are pooled across the team. Early-access customers keep their launch price."
+        "heading": "Priced by seats, queries and lookups.",
+        "lede": "Every plan has the whole copilot.\nEarly-access pricing in USD, billed monthly.",
+        "note": "Prices in USD, billed monthly.\nCancel any time.\nQuery and lookup allowances are pooled across the team.\nEarly-access customers keep their launch price."
       }
     },
     "faq": {
       "type": "braivex-faq",
       "blocks": {
-        "q-1": { "type": "qa", "settings": { "q": "Which markets and sources does it cover?", "a": "The five live sources today are UK property portals, two of them on scrapers we built ourselves. New markets are added per customer: each source is a scraper we build or license and run on your budget, so ask about yours." } },
-        "q-2": { "type": "qa", "settings": { "q": "Can it make up a listing?", "a": "No. Answers come only from listings in the index, and every claim links to the listing and the field it came from. If nothing fits your brief, it tells you that instead of inventing a match." } },
-        "q-3": { "type": "qa", "settings": { "q": "How fresh is the data?", "a": "Sources sync on a schedule you control, with an on/off switch and a monthly budget for scraping. Each listing shows when it was posted and when it was last seen." } },
-        "q-4": { "type": "qa", "settings": { "q": "Is my team's data separate from other customers'?", "a": "Yes. Every customer has their own workspace with admin and agent roles. Shortlists, watch profiles and alerts are scoped to that workspace." } },
-        "q-5": { "type": "qa", "settings": { "q": "What does early access mean?", "a": "The copilot is built and indexing live listings. Early-access customers are onboarded by us, tell us which sources and markets they need, and keep their launch price." } }
+        "q-1": {
+          "type": "qa",
+          "settings": {
+            "q": "Which markets and sources does it cover?",
+            "a": "The five live sources today are UK property portals, two of them on scrapers we built ourselves.\nNew markets are added per customer.\nEach source is a scraper we build or license and run on your budget, so ask about yours."
+          }
+        },
+        "q-2": {
+          "type": "qa",
+          "settings": {
+            "q": "Can it make up a listing?",
+            "a": "No.\nAnswers come only from listings in the index, and every claim links to the listing and the field it came from.\nIf nothing fits your brief, it tells you so instead of inventing a match."
+          }
+        },
+        "q-3": {
+          "type": "qa",
+          "settings": {
+            "q": "How fresh is the data?",
+            "a": "Sources sync on a schedule you control, with an on/off switch and a monthly budget for scraping.\nEach listing shows when it was posted and when it was last seen."
+          }
+        },
+        "q-4": {
+          "type": "qa",
+          "settings": {
+            "q": "Is my team's data separate from other customers'?",
+            "a": "Yes.\nEvery customer has their own workspace with admin and agent roles.\nShortlists, watch profiles and alerts stay inside that workspace."
+          }
+        },
+        "q-5": {
+          "type": "qa",
+          "settings": {
+            "q": "What does early access mean?",
+            "a": "The copilot is built and indexing live listings.\nWe onboard early-access customers ourselves.\nThey tell us which sources and markets they need, and they keep their launch price."
+          }
+        }
       },
-      "block_order": ["q-1", "q-2", "q-3", "q-4", "q-5"],
-      "settings": { "anchor": "faq", "eyebrow": "Questions", "heading": "Asked before signing up." }
+      "block_order": [
+        "q-1",
+        "q-2",
+        "q-3",
+        "q-4",
+        "q-5"
+      ],
+      "settings": {
+        "anchor": "faq",
+        "eyebrow": "Questions",
+        "heading": "Asked before signing up."
+      }
     },
     "cta": {
       "type": "braivex-cta",
       "blocks": {
-        "path-1": { "type": "path", "settings": { "kicker": "Early access", "title": "Bring a brief. We will bring the listings.", "desc": "Tell us the market you search and the kind of unit you want. We set up your workspace and sources, and you ask the first question.", "link_label": "Request early access", "link": "/pages/contact" } },
-        "path-2": { "type": "path", "settings": { "kicker": "Also from Braivex", "title": "The operator's morning brief.", "desc": "BriefSieve reads ads, sales, stock, email and marketplaces overnight and tells you what changed — with a guru that narrates the numbers and never computes them.", "link_label": "See BriefSieve", "link": "/pages/briefsieve" } }
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "Early access",
+            "title": "Bring a brief. We will bring the listings.",
+            "desc": "Tell us the market you search and the kind of unit you want.\nWe set up your workspace and sources, and you ask the first question.",
+            "link_label": "Request early access",
+            "link": "/pages/contact"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Also from Braivex",
+            "title": "The operator's morning brief.",
+            "desc": "BriefSieve reads ads, sales, stock, email and marketplaces overnight and tells you what changed.\nA guru explains the numbers and is never allowed to calculate them.",
+            "link_label": "See BriefSieve",
+            "link": "/pages/briefsieve"
+          }
+        }
       },
-      "block_order": ["path-1", "path-2"],
-      "settings": { "anchor": "get-started", "heading": "Search every portal once. Get the answer with its source." }
+      "block_order": [
+        "path-1",
+        "path-2"
+      ],
+      "settings": {
+        "anchor": "get-started",
+        "heading": "Search every portal once. Get the answer with its source."
+      }
     }
   },
-  "order": ["hero", "what", "why", "plans", "faq", "cta"]
+  "order": [
+    "hero",
+    "what",
+    "why",
+    "plans",
+    "faq",
+    "cta"
+  ]
 }

@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "HireSieve by Braivex · Recruitment screening",
         "heading": "HireSieve",
-        "lede": "Drop a folder of CVs in, press one button, and get an evidence-based shortlist where every number quotes the line of the CV it came from. An LLM extracts facts. Python does all the arithmetic. Nothing auto-rejects.",
+        "lede": "CV screening software that keeps a human deciding.\nDrop a folder of CVs in, press one button, and get an evidence-based shortlist where every number quotes the line of the CV it came from.\nAn AI model extracts the facts.\nCode does all the arithmetic.\nNothing auto-rejects.",
         "metric": "About 45 seconds and a few cents per CV, with the cost shown before it spends",
         "mock": "hiresieve",
         "reverse": true,
@@ -31,42 +31,42 @@
           "type": "spec",
           "settings": {
             "label": "Folder in, shortlist out",
-            "value": "Copy the CVs into the folder for that store and job, press Scan folders, and every candidate is read and ranked against the advert. Inbox intake takes applications from any job board."
+            "value": "Copy the CVs into the folder for that store and job and press Scan folders.\nEvery candidate is read and ranked against the advert.\nInbox intake takes applications from any job board."
           }
         },
         "w-2": {
           "type": "spec",
           "settings": {
             "label": "Evidence per criterion",
-            "value": "Every score quotes the line of the CV it came from. You can check any number against the document in one click, and a reviewer can see why two candidates rank the way they do."
+            "value": "Every score quotes the line of the CV it came from.\nYou can check any number against the document in one click.\nA reviewer can see why two candidates rank the way they do."
           }
         },
         "w-3": {
           "type": "spec",
           "settings": {
             "label": "Deterministic scoring",
-            "value": "The model returns facts and quotes. The scoring engine does every calculation, and it is the only place a number is created — so the same CV against the same advert scores the same every time."
+            "value": "The model returns facts and quotes.\nThe scoring engine does every calculation, and it is the only place a number is created.\nThe same CV against the same advert scores the same every time."
           }
         },
         "w-4": {
           "type": "spec",
           "settings": {
             "label": "Asks before it spends",
-            "value": "It always shows the count, the folder, the job advert and the cost before sending anything. Over 80 CVs in one run, it asks a second time. Bring your own AI key if you prefer."
+            "value": "It shows the count, the folder, the job advert and the cost before sending anything.\nOver 80 CVs in one run, it asks a second time.\nYou can bring your own AI key."
           }
         },
         "w-5": {
           "type": "spec",
           "settings": {
             "label": "Roles, pipeline, audit",
-            "value": "Owner, admin, member and viewer roles; teammates join by invite. Pipeline stages with SLA rules, a provider change audit log, and a multi-location folder tree for high-volume hiring."
+            "value": "Owner, admin, member and viewer roles.\nTeammates join by invite.\nPipeline stages with SLA rules, a provider change audit log, and a multi-location folder tree for high-volume hiring."
           }
         },
         "w-6": {
           "type": "spec",
           "settings": {
             "label": "Undo, retention, documentation",
-            "value": "Nothing is deleted by mistake: undo removes an assessment, the CV stays, and every batch can be undone. A 12-month retention sweep runs in one command. DPIA, legitimate-interests assessment, ROPA and candidate notices ship with it."
+            "value": "Nothing is deleted by mistake.\nUndo removes an assessment and the CV file stays, and every batch can be undone.\nA 12-month retention sweep runs in one command.\nDPIA, legitimate-interests assessment, ROPA and candidate notices ship with it."
           }
         }
       },
@@ -80,8 +80,8 @@
       ],
       "settings": {
         "eyebrow": "What it does",
-        "heading": "CV screening that keeps a human deciding.",
-        "lede": "Recruitment screening software for hiring teams with more applicants than hours. Built so the shortlist can be defended line by line.",
+        "heading": "Recruitment screening you can defend line by line.",
+        "lede": "Built for hiring teams with more applicants than hours.",
         "cta_label": "",
         "cta_link": "/pages/contact"
       }
@@ -93,42 +93,42 @@
           "type": "spec",
           "settings": {
             "label": "Reject anyone automatically",
-            "value": "A failed requirement is a label a person can overrule, not a deletion. The full score and the full record are kept either way."
+            "value": "A failed requirement is a label a person can overrule.\nThe full score and the full record are kept either way."
           }
         },
         "g-2": {
           "type": "spec",
           "settings": {
             "label": "Guess whether a CV was written by AI",
-            "value": "Detectors misfire on about 61% of non-native English writers and show demographic bias. Using one would be a discrimination claim with the claimant's evidence already published."
+            "value": "Detectors misfire on about 61% of non-native English writers and show demographic bias.\nUsing one would hand a discrimination claim its evidence."
           }
         },
         "g-3": {
           "type": "spec",
           "settings": {
             "label": "Score spelling, grammar, or which school someone went to",
-            "value": "Class and race proxies that look like merit."
+            "value": "These are class and race proxies that look like merit."
           }
         },
         "g-4": {
           "type": "spec",
           "settings": {
             "label": "Score a career gap",
-            "value": "Gaps are shown to a human, never counted against anyone."
+            "value": "Gaps are shown to a human and never counted against anyone."
           }
         },
         "g-5": {
           "type": "spec",
           "settings": {
             "label": "Penalise part-time work",
-            "value": "Same."
+            "value": "Part-time work is shown, never scored."
           }
         },
         "g-6": {
           "type": "spec",
           "settings": {
             "label": "Produce a number the model invented",
-            "value": "The model returns facts and quotes. The engine does every calculation, and it is the only place a number is created."
+            "value": "The model returns facts and quotes.\nThe engine does every calculation, and it is the only place a number is created."
           }
         }
       },
@@ -143,7 +143,7 @@
       "settings": {
         "eyebrow": "Guardrails",
         "heading": "What it deliberately will not do.",
-        "lede": "This matters more than the feature list, and it is enforced by tests rather than by good intentions.",
+        "lede": "This matters more than the feature list.\nTests enforce it, not good intentions.",
         "cta_label": "",
         "cta_link": "/pages/contact"
       }
@@ -158,7 +158,7 @@
             "price": "$0",
             "period": "",
             "featured": false,
-            "blurb": "Try it on fictional demo data, or your own.",
+            "blurb": "Try it on fictional demo data, or on your own.",
             "features": "2 seats\n25 screenings\nEvery screening feature\nEvidence quote per criterion\nBring your own AI key",
             "cta_label": "Request a trial",
             "cta_link": "/pages/contact"
@@ -214,9 +214,9 @@
       "settings": {
         "anchor": "plans",
         "eyebrow": "Plans",
-        "heading": "Priced by seats and screenings. Every tier has the whole product.",
-        "lede": "",
-        "note": "Every plan includes: zero auto-rejects · evidence quote per criterion · deterministic scoring engine · bring your own AI key · billed monthly in USD · cancel anytime, keep your data."
+        "heading": "Priced by seats and screenings.",
+        "lede": "Every tier has the whole product.",
+        "note": "Every plan includes zero auto-rejects, an evidence quote per criterion, the deterministic scoring engine and the option to bring your own AI key.\nBilled monthly in USD.\nCancel anytime and keep your data."
       }
     },
     "cta": {
@@ -227,7 +227,7 @@
           "settings": {
             "kicker": "Get started",
             "title": "Bring a job advert and a folder of CVs.",
-            "desc": "We set up your deployment and screen your first batch with you — on your own applicants, not a demo set.",
+            "desc": "We set up your deployment and screen your first batch with you, on your own applicants.",
             "link_label": "Request a deployment",
             "link": "/pages/contact"
           }
@@ -237,7 +237,7 @@
           "settings": {
             "kicker": "Also from Braivex",
             "title": "Every branch's reviews, read with the same care.",
-            "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply — a person still presses send.",
+            "desc": "Loculens reads every Google review across your locations, names the team members mentioned, and drafts the reply.\nA person still presses send.",
             "link_label": "See Loculens",
             "link": "/pages/loculens"
           }

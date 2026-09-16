@@ -512,7 +512,7 @@
           "settings": {
             "kicker": "Review management · multi-location",
             "name": "Loculens",
-            "headline": "Every review, every branch, one workspace — with the team members named and the reply already drafted.",
+            "headline": "Every review from every branch, in one workspace.\nThe team members mentioned are named and the reply is already drafted.",
             "metric": "Live across 5 branches and 479 reviews for a national jewellery retailer",
             "page_link": "/pages/loculens",
             "mock": "loculens",
@@ -535,7 +535,7 @@
           "settings": {
             "kicker": "Recruitment screening · evidence-quoted",
             "name": "HireSieve",
-            "headline": "A folder of CVs in, a ranked shortlist out — and every score quotes the line it came from.",
+            "headline": "A folder of CVs goes in and a ranked shortlist comes out.\nEvery score quotes the line of the CV it came from.",
             "metric": "About 45 seconds and a few cents per CV, with the cost shown before it spends",
             "page_link": "/pages/hiresieve",
             "mock": "hiresieve",
@@ -568,13 +568,13 @@
         "p3": {
           "type": "pillar",
           "settings": {
-            "text": "Every output traceable to its source — a review, a CV line, a record."
+            "text": "Every output can be traced to its source: a review, a line of a CV, a record."
           }
         },
         "p4": {
           "type": "pillar",
           "settings": {
-            "text": "Priced on outcomes, not logins."
+            "text": "Every price is on the page."
           }
         },
         "briefsieve": {
@@ -583,7 +583,7 @@
             "kicker": "Operator's daily brief · every channel",
             "name": "BriefSieve",
             "badge": "Early access",
-            "headline": "Ads, sales, stock, email, marketplaces and inbox read for you each morning — with a guru that narrates the numbers and never computes them.",
+            "headline": "Ads, sales, stock, email, marketplaces and inbox, read for you each morning.\nA guru explains the numbers and is never allowed to calculate them.",
             "metric": "Ten data sections, your own API keys, one brief",
             "page_link": "/pages/briefsieve",
             "mock": "briefsieve",
@@ -607,7 +607,7 @@
             "kicker": "Property listings copilot · cited answers",
             "name": "HomeSieve",
             "badge": "Early access",
-            "headline": "Ask the market a question in plain language. Get the listings that match, scored against your brief, each answer citing where it came from.",
+            "headline": "Ask about the market in plain language.\nThe listings that match come back scored against your brief, and each answer cites the listing it came from.",
             "metric": "Five live listing sources, two of them scrapers we built",
             "page_link": "/pages/homesieve",
             "mock": "homesieve",
@@ -631,7 +631,7 @@
             "kicker": "Voice agents · inbound and win-back",
             "name": "VoiceSieve",
             "badge": "In development",
-            "headline": "Mines your recorded calls into a knowledge base, answers customers live from your order system, and calls lapsed customers back — declaring itself an AI in its first sentence.",
+            "headline": "It learns from your recorded calls, answers customers live from your order system, and calls lapsed customers back.\nEvery call opens with the agent saying it is an AI.",
             "metric": "Specified end to end; product build starts after sign-off",
             "page_link": "/pages/voicesieve",
             "mock": "voicesieve",
@@ -665,7 +665,7 @@
         "anchor": "products",
         "eyebrow": "Products",
         "heading": "Purpose-built products. One intelligence layer.",
-        "lede": "Purpose-built agents that live inside the systems you already run — reviews, hiring, marketing, property, the phone. Each one keeps a person deciding, and shows its evidence.",
+        "lede": "Each product does one job inside a system you already run: Google reviews, hiring, marketing data, property listings, the phone line.\nA person makes every decision, and every output shows where it came from.",
         "bridge_eyebrow": "What they share",
         "bridge_heading": "Different jobs. The same discipline."
       }

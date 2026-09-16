@@ -14,8 +14,8 @@
   <div class="bvx__inner">
     <div class="bvx__head bvx-reveal">
       {% if section.settings.eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
-      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
-      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede }}</p>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
+      {% if section.settings.lede != blank %}<p class="bvx__lede">{{ section.settings.lede | newline_to_br }}</p>{% endif %}
     </div>
 
     <div class="bvx-products">
@@ -28,7 +28,7 @@
             <div class="bvx-product__copy">
               {% if block.settings.kicker != blank %}<p class="bvx-cell__kicker">{{ block.settings.kicker }}</p>{% endif %}
               <h3 class="bvx-product__name">{{ block.settings.name }}{% if block.settings.badge != blank %} <span class="bvx-product__badge">{{ block.settings.badge }}</span>{% endif %}</h3>
-              {% if block.settings.headline != blank %}<p class="bvx-product__headline">{{ block.settings.headline }}</p>{% endif %}
+              {% if block.settings.headline != blank %}<p class="bvx-product__headline">{{ block.settings.headline | newline_to_br }}</p>{% endif %}
               {% if block.settings.metric != blank %}
                 <p class="bvx-product__metric"><span class="bvx-product__metric-dot" aria-hidden="true"></span>{{ block.settings.metric }}</p>
               {% endif %}
@@ -76,14 +76,14 @@
       <div class="bvx-bridge bvx-reveal">
         <div class="bvx-bridge__head">
           {% if section.settings.bridge_eyebrow != blank %}<p class="bvx__eyebrow">{{ section.settings.bridge_eyebrow }}</p>{% endif %}
-          {% if section.settings.bridge_heading != blank %}<h3 class="bvx-bridge__h3">{{ section.settings.bridge_heading }}</h3>{% endif %}
+          {% if section.settings.bridge_heading != blank %}<h3 class="bvx-bridge__h3">{{ section.settings.bridge_heading | replace: '. ', '.<br>' }}</h3>{% endif %}
         </div>
         {% if pillars.size > 0 %}
           <ol class="bvx-bridge__pillars">
             {% for p in pillars %}
               <li class="bvx-bridge__pillar" {{ p.shopify_attributes }}>
                 <span class="bvx-bridge__node" aria-hidden="true"></span>
-                <span class="bvx-bridge__text">{{ p.settings.text }}</span>
+                <span class="bvx-bridge__text">{{ p.settings.text | replace: '. ', '.<br>' }}</span>
               </li>
             {% endfor %}
           </ol>

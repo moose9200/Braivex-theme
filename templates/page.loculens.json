@@ -5,14 +5,18 @@
       "settings": {
         "eyebrow": "Loculens by Braivex · Google review management",
         "heading": "Loculens",
-        "lede": "Every location's reviews, read and answered. One workspace for all your branches: sentiment, the topics customers keep raising, the team members they name, and a reply drafted in your own voice for the ones that need one. A person still presses send.",
+        "lede": "Google review management for businesses with more than one location.\nOne workspace holds every branch: sentiment, the topics customers keep raising, the team members they name, and a reply drafted in your own voice for the reviews that need one.\nA person still presses send.",
         "metric": "Live across 5 branches and 479 reviews for a national jewellery retailer",
         "mock": "loculens",
         "chips_link": "#what",
-        "feature_1_label": "Every branch, one screen", "feature_1_region": "branches",
-        "feature_2_label": "Sentiment, topics, names", "feature_2_region": "sentiment",
-        "feature_3_label": "Team-member mentions", "feature_3_region": "team",
-        "feature_4_label": "Replies in your voice", "feature_4_region": "reply",
+        "feature_1_label": "Every branch, one screen",
+        "feature_1_region": "branches",
+        "feature_2_label": "Sentiment, topics, names",
+        "feature_2_region": "sentiment",
+        "feature_3_label": "Team-member mentions",
+        "feature_3_region": "team",
+        "feature_4_label": "Replies in your voice",
+        "feature_4_region": "reply",
         "cta_primary_label": "Start a 14-day trial",
         "cta_primary_link": "https://loculens.braivex.com/signup",
         "cta_secondary_label": "See how it works",
@@ -22,18 +26,61 @@
     "what": {
       "type": "braivex-spec",
       "blocks": {
-        "w-1": { "type": "spec", "settings": { "label": "Read · Every branch, one screen", "value": "Per-location counts, averages and filters. Narrow to one branch or widen to all of them. A struggling site stops hiding inside a group average." } },
-        "w-2": { "type": "spec", "settings": { "label": "Understand · Sentiment, topics, names", "value": "Positive, neutral or negative; tagged with the topics you choose; matched against your team roster so the people customers praise get seen." } },
-        "w-3": { "type": "spec", "settings": { "label": "Answer · Replies in your voice", "value": "A draft measured from how your business already replies, opened in the right Google panel. Reply state is tracked so nothing sits unanswered." } },
-        "w-4": { "type": "spec", "settings": { "label": "Branch discovery", "value": "Connect the Google account that manages the business and Loculens finds every verified location itself. No spreadsheet of Place IDs, no location seeding." } },
-        "w-5": { "type": "spec", "settings": { "label": "Time windows and export", "value": "Every panel carries its own window with custom date ranges, scoped to one branch or all of them. CSV export for the full review set and the team ranking." } },
-        "w-6": { "type": "spec", "settings": { "label": "Spend caps you control", "value": "Review collection bills per review returned, so it runs behind a monthly budget, a minimum sync interval and a pause switch. Syncs are incremental: each run asks only for reviews newer than the last one." } }
+        "w-1": {
+          "type": "spec",
+          "settings": {
+            "label": "Read · Every branch, one screen",
+            "value": "Per-location counts, averages and filters.\nNarrow to one branch or widen to all of them.\nA struggling site stops hiding inside a group average."
+          }
+        },
+        "w-2": {
+          "type": "spec",
+          "settings": {
+            "label": "Understand · Sentiment, topics, names",
+            "value": "Each review is classed positive, neutral or negative and tagged with the topics you choose.\nNames in the text are matched against your team roster, so the people customers praise get seen."
+          }
+        },
+        "w-3": {
+          "type": "spec",
+          "settings": {
+            "label": "Answer · Replies in your voice",
+            "value": "A draft measured from how your business already replies, opened in the right Google panel.\nReply state is tracked so nothing sits unanswered."
+          }
+        },
+        "w-4": {
+          "type": "spec",
+          "settings": {
+            "label": "Branch discovery",
+            "value": "Connect the Google account that manages the business and Loculens finds every verified location itself.\nNo spreadsheet of Place IDs and no location seeding."
+          }
+        },
+        "w-5": {
+          "type": "spec",
+          "settings": {
+            "label": "Time windows and export",
+            "value": "Every panel has its own time window with custom date ranges, scoped to one branch or all of them.\nThe full review set and the team ranking export to CSV."
+          }
+        },
+        "w-6": {
+          "type": "spec",
+          "settings": {
+            "label": "Spend caps you control",
+            "value": "Review collection bills per review returned, so it runs behind a monthly budget, a minimum sync interval and a pause switch.\nSyncs are incremental: each run asks only for reviews newer than the last one."
+          }
+        }
       },
-      "block_order": ["w-1", "w-2", "w-3", "w-4", "w-5", "w-6"],
+      "block_order": [
+        "w-1",
+        "w-2",
+        "w-3",
+        "w-4",
+        "w-5",
+        "w-6"
+      ],
       "settings": {
         "eyebrow": "What it does",
         "heading": "Three things, done properly.",
-        "lede": "Not a suite. A dashboard that reads Google reviews for every branch you run, tells you what they mean, and helps you answer.",
+        "lede": "A dashboard that reads the Google reviews for every branch you run, tells you what they mean, and helps you answer them.",
         "cta_label": "",
         "cta_link": "/pages/contact"
       }
@@ -44,7 +91,7 @@
         "anchor": "why",
         "eyebrow": "Why multi-location",
         "heading": "The average hides the branch that needs you.",
-        "body": "Ten locations at 4.6 stars can be nine at 4.8 and one at 3.4. Group dashboards report the first number. Loculens keeps every branch separate, so the outlier is the first thing you see, not the last thing you find out.",
+        "body": "Ten locations at 4.6 stars can be nine at 4.8 and one at 3.4.\nGroup dashboards report the first number.\nLoculens keeps every branch separate, so the outlier is the first thing you see, not the last thing you find out.",
         "quote": "A person reads every review and posts every reply. The software makes sure nothing is missed.",
         "quote_by": "Loculens product principle",
         "cta_1_label": "Start a 14-day trial",
@@ -56,52 +103,221 @@
     "how": {
       "type": "braivex-routes",
       "blocks": {
-        "s-1": { "type": "route", "settings": { "kicker": "Step 1", "title": "Create a workspace", "desc": "One per business. Invite the people who should see it; admins keep the roster, the connections and the plan.", "link_label": "", "link": "" } },
-        "s-2": { "type": "route", "settings": { "kicker": "Step 2", "title": "Add your locations", "desc": "Connect the Google account that manages your Business Profile, or add each location's Place ID and connect an Apify account so scraping is billed to you directly.", "link_label": "", "link": "" } },
-        "s-3": { "type": "route", "settings": { "kicker": "Step 3", "title": "Sync, read, reply", "desc": "A nightly sync fetches only what is new. Read by branch, sentiment or topic, and answer the ones that need it with a draft ready to edit.", "link_label": "", "link": "" } }
+        "s-1": {
+          "type": "route",
+          "settings": {
+            "kicker": "Step 1",
+            "title": "Create a workspace",
+            "desc": "One per business.\nInvite the people who should see it.\nAdmins keep the roster, the connections and the plan.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "s-2": {
+          "type": "route",
+          "settings": {
+            "kicker": "Step 2",
+            "title": "Add your locations",
+            "desc": "Connect the Google account that manages your Business Profile.\nOr add each location's Place ID and connect an Apify account, so scraping is billed to you directly.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "s-3": {
+          "type": "route",
+          "settings": {
+            "kicker": "Step 3",
+            "title": "Sync, read, reply",
+            "desc": "A nightly sync fetches only what is new.\nRead by branch, sentiment or topic.\nAnswer the reviews that need it with a draft ready to edit.",
+            "link_label": "",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["s-1", "s-2", "s-3"],
-      "settings": { "anchor": "how", "eyebrow": "How it works", "heading": "Live in an afternoon.", "lede": "" }
+      "block_order": [
+        "s-1",
+        "s-2",
+        "s-3"
+      ],
+      "settings": {
+        "anchor": "how",
+        "eyebrow": "How it works",
+        "heading": "Live in an afternoon.",
+        "lede": ""
+      }
     },
     "plans": {
       "type": "braivex-pricing",
       "blocks": {
-        "p-1": { "type": "plan", "settings": { "name": "Starter", "price": "$39", "period": "/month", "featured": false, "blurb": "For a business with a handful of locations and one person watching the reviews.", "features": "Up to 5 locations\n2,500 reviews synced a month\n100 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV", "cta_label": "Start free trial", "cta_link": "https://loculens.braivex.com/signup" } },
-        "p-2": { "type": "plan", "settings": { "name": "Growth", "price": "$99", "period": "/month", "badge": "Most popular", "featured": true, "blurb": "For a growing group that needs every location's sentiment side by side.", "features": "Up to 25 locations\n15,000 reviews synced a month\n750 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV", "cta_label": "Start free trial", "cta_link": "https://loculens.braivex.com/signup" } },
-        "p-3": { "type": "plan", "settings": { "name": "Scale", "price": "$299", "period": "/month", "featured": false, "blurb": "For a national estate, with the review volume and draft allowance to match.", "features": "Up to 100 locations\n75,000 reviews synced a month\n5,000 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV", "cta_label": "Start free trial", "cta_link": "https://loculens.braivex.com/signup" } },
-        "p-4": { "type": "plan", "settings": { "name": "Enterprise", "price": "Let's talk", "period": "", "featured": false, "blurb": "More than 100 locations, or your own contract terms.", "features": "Everything in Scale\nCapacity sized to your estate\nInvoiced billing\nA named contact at Braivex", "cta_label": "Contact Braivex", "cta_link": "/pages/contact" } }
+        "p-1": {
+          "type": "plan",
+          "settings": {
+            "name": "Starter",
+            "price": "$39",
+            "period": "/month",
+            "featured": false,
+            "blurb": "For a business with a handful of locations and one person watching the reviews.",
+            "features": "Up to 5 locations\n2,500 reviews synced a month\n100 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV",
+            "cta_label": "Start free trial",
+            "cta_link": "https://loculens.braivex.com/signup"
+          }
+        },
+        "p-2": {
+          "type": "plan",
+          "settings": {
+            "name": "Growth",
+            "price": "$99",
+            "period": "/month",
+            "badge": "Most popular",
+            "featured": true,
+            "blurb": "For a growing group that needs every location's sentiment side by side.",
+            "features": "Up to 25 locations\n15,000 reviews synced a month\n750 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV",
+            "cta_label": "Start free trial",
+            "cta_link": "https://loculens.braivex.com/signup"
+          }
+        },
+        "p-3": {
+          "type": "plan",
+          "settings": {
+            "name": "Scale",
+            "price": "$299",
+            "period": "/month",
+            "featured": false,
+            "blurb": "For a national estate, with the review volume and draft allowance to match.",
+            "features": "Up to 100 locations\n75,000 reviews synced a month\n5,000 reply drafts a month\nUnlimited team accounts\nSentiment, topics, mentions, CSV",
+            "cta_label": "Start free trial",
+            "cta_link": "https://loculens.braivex.com/signup"
+          }
+        },
+        "p-4": {
+          "type": "plan",
+          "settings": {
+            "name": "Enterprise",
+            "price": "Let's talk",
+            "period": "",
+            "featured": false,
+            "blurb": "More than 100 locations, or your own contract terms.",
+            "features": "Everything in Scale\nCapacity sized to your estate\nInvoiced billing\nA named contact at Braivex",
+            "cta_label": "Contact Braivex",
+            "cta_link": "/pages/contact"
+          }
+        }
       },
-      "block_order": ["p-1", "p-2", "p-3", "p-4"],
+      "block_order": [
+        "p-1",
+        "p-2",
+        "p-3",
+        "p-4"
+      ],
       "settings": {
         "anchor": "plans",
         "eyebrow": "Plans",
         "heading": "Priced by locations and reviews. Nothing else.",
-        "lede": "Every plan has the whole product; only the capacity changes. Fourteen days free, no card.",
-        "note": "Prices in USD, billed monthly, exclusive of tax. Cancel any time. Every price on the page — no sales call to find out."
+        "lede": "Every plan has the whole product.\nOnly the capacity changes.\nFourteen days free, no card.",
+        "note": "Prices in USD, billed monthly, before tax.\nCancel any time.\nEvery price is on this page."
       }
     },
     "faq": {
       "type": "braivex-faq",
       "blocks": {
-        "q-1": { "type": "qa", "settings": { "q": "Which review sites does Loculens read?", "a": "Google only. Most multi-location businesses get the bulk of their public reviews there, and one source read properly beats six read badly. Reviews arrive through your Google Business Profile once you connect it, or through a scraping run you control and pay for per review." } },
-        "q-2": { "type": "qa", "settings": { "q": "Does it post replies for me?", "a": "No. It drafts a reply in your own voice, measured from the replies you have already posted, and opens the right Google panel. A person reads it and presses send. Nothing goes out without someone looking at it." } },
-        "q-3": { "type": "qa", "settings": { "q": "How does it know who was mentioned?", "a": "You keep a roster of your team. Loculens matches names in review text against that roster, whole word and case-insensitive, and proposes new names it keeps seeing so you can confirm or dismiss them. It never guesses a name into your leaderboard." } },
-        "q-4": { "type": "qa", "settings": { "q": "What does a sync cost?", "a": "Syncs are incremental: each run asks only for reviews newer than the last one, so a routine sync costs cents. You see the month's spend in the footer, a monthly cap stops runaway costs, and you can bill scraping to your own Apify account if you prefer." } },
-        "q-5": { "type": "qa", "settings": { "q": "Can head office see every branch while a manager sees one?", "a": "Every location sits in one workspace with per-location counts and filters. Members you invite see the shared data; admins manage the roster, the connections and the plan. Separate businesses get separate workspaces and never see each other." } },
-        "q-6": { "type": "qa", "settings": { "q": "Is there a free trial?", "a": "Fourteen days, no card. Create a workspace, add your locations, run a sync and read your own reviews before you decide." } }
+        "q-1": {
+          "type": "qa",
+          "settings": {
+            "q": "Which review sites does Loculens read?",
+            "a": "Google only.\nMost multi-location businesses get the bulk of their public reviews there, and one source read properly beats six read badly.\nReviews arrive through your Google Business Profile once you connect it, or through a scraping run you control and pay for per review."
+          }
+        },
+        "q-2": {
+          "type": "qa",
+          "settings": {
+            "q": "Does it post replies for me?",
+            "a": "No.\nIt drafts a reply in your own voice, measured from the replies you have already posted, and opens the right Google panel.\nA person reads it and presses send.\nNothing goes out without someone looking at it."
+          }
+        },
+        "q-3": {
+          "type": "qa",
+          "settings": {
+            "q": "How does it know who was mentioned?",
+            "a": "You keep a roster of your team.\nLoculens matches names in review text against that roster, whole word and case-insensitive.\nIt proposes new names it keeps seeing so you can confirm or dismiss them.\nIt never guesses a name into your leaderboard."
+          }
+        },
+        "q-4": {
+          "type": "qa",
+          "settings": {
+            "q": "What does a sync cost?",
+            "a": "Syncs are incremental.\nEach run asks only for reviews newer than the last one, so a routine sync costs cents.\nYou see the month's spend in the footer.\nA monthly cap stops runaway costs, and you can bill scraping to your own Apify account if you prefer."
+          }
+        },
+        "q-5": {
+          "type": "qa",
+          "settings": {
+            "q": "Can head office see every branch while a manager sees one?",
+            "a": "Yes.\nEvery location sits in one workspace with per-location counts and filters.\nMembers you invite see the shared data.\nAdmins manage the roster, the connections and the plan.\nSeparate businesses get separate workspaces and never see each other."
+          }
+        },
+        "q-6": {
+          "type": "qa",
+          "settings": {
+            "q": "Is there a free trial?",
+            "a": "Fourteen days, no card.\nCreate a workspace, add your locations, run a sync and read your own reviews before you decide."
+          }
+        }
       },
-      "block_order": ["q-1", "q-2", "q-3", "q-4", "q-5", "q-6"],
-      "settings": { "anchor": "faq", "eyebrow": "Questions", "heading": "Asked before signing up." }
+      "block_order": [
+        "q-1",
+        "q-2",
+        "q-3",
+        "q-4",
+        "q-5",
+        "q-6"
+      ],
+      "settings": {
+        "anchor": "faq",
+        "eyebrow": "Questions",
+        "heading": "Asked before signing up."
+      }
     },
     "cta": {
       "type": "braivex-cta",
       "blocks": {
-        "path-1": { "type": "path", "settings": { "kicker": "Start now", "title": "Read your reviews the way your customers wrote them.", "desc": "Set up a workspace in a couple of minutes. The first sync is yours to run.", "link_label": "Start a 14-day trial", "link": "https://loculens.braivex.com/signup" } },
-        "path-2": { "type": "path", "settings": { "kicker": "Also from Braivex", "title": "Hiring, screened with the same discipline.", "desc": "HireSieve turns a folder of CVs into an evidence-quoted shortlist — and never rejects anyone on its own.", "link_label": "See HireSieve", "link": "/pages/hiresieve" } }
+        "path-1": {
+          "type": "path",
+          "settings": {
+            "kicker": "Start now",
+            "title": "Read your reviews the way your customers wrote them.",
+            "desc": "Set up a workspace in a couple of minutes.\nThe first sync is yours to run.",
+            "link_label": "Start a 14-day trial",
+            "link": "https://loculens.braivex.com/signup"
+          }
+        },
+        "path-2": {
+          "type": "path",
+          "settings": {
+            "kicker": "Also from Braivex",
+            "title": "Hiring, screened with the same discipline.",
+            "desc": "HireSieve turns a folder of CVs into an evidence-quoted shortlist.\nIt never rejects anyone on its own.",
+            "link_label": "See HireSieve",
+            "link": "/pages/hiresieve"
+          }
+        }
       },
-      "block_order": ["path-1", "path-2"],
-      "settings": { "anchor": "get-started", "heading": "Review management that scales with your branches, not your headcount." }
+      "block_order": [
+        "path-1",
+        "path-2"
+      ],
+      "settings": {
+        "anchor": "get-started",
+        "heading": "Review management that scales with your branches, not your headcount."
+      }
     }
   },
-  "order": ["hero", "what", "why", "how", "plans", "faq", "cta"]
+  "order": [
+    "hero",
+    "what",
+    "why",
+    "how",
+    "plans",
+    "faq",
+    "cta"
+  ]
 }

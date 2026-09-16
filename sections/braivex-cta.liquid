@@ -5,15 +5,15 @@
 <section class="bvx bvx--hairline-top" id="{{ section.settings.anchor }}">
   <div class="bvx__inner">
     <div class="bvx__head bvx__head--center bvx-reveal">
-      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading }}</h2>{% endif %}
+      {% if section.settings.heading != blank %}<h2 class="bvx__h2">{{ section.settings.heading | replace: '. ', '.<br>' }}</h2>{% endif %}
     </div>
 
     <div class="bvx-dual bvx-reveal">
       {% for block in section.blocks %}
         <div class="bvx-dual__panel" {{ block.shopify_attributes }}>
           {% if block.settings.kicker != blank %}<span class="bvx-cell__kicker">{{ block.settings.kicker }}</span>{% endif %}
-          <h3 class="bvx-cell__title" style="font-size: 2.4rem;">{{ block.settings.title }}</h3>
-          <p class="bvx-cell__desc">{{ block.settings.desc }}</p>
+          <h3 class="bvx-cell__title" style="font-size: 2.4rem;">{{ block.settings.title | replace: '. ', '.<br>' }}</h3>
+          <p class="bvx-cell__desc">{{ block.settings.desc | newline_to_br }}</p>
           {% if block.settings.link_label != blank %}
             <div class="bvx-actions">
               <a class="bvx-btn {% if forloop.index == 1 %}bvx-btn--primary{% else %}bvx-btn--ghost{% endif %}" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }}</a>
