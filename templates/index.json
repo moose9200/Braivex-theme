@@ -601,30 +601,6 @@
             "cta_secondary_label": "Open mypa.services"
           }
         },
-        "homesieve": {
-          "type": "product",
-          "settings": {
-            "kicker": "Property listings copilot · cited answers",
-            "name": "HomeSieve",
-            "badge": "Early access",
-            "headline": "Ask about the market in plain language.\nThe listings that match come back scored against your brief, and each answer cites the listing it came from.",
-            "metric": "Five live listing sources, two of them scrapers we built",
-            "page_link": "/pages/homesieve",
-            "mock": "homesieve",
-            "reverse": true,
-            "feature_1_label": "Ask in plain language",
-            "feature_1_region": "ask",
-            "feature_2_label": "Live sources",
-            "feature_2_region": "sources",
-            "feature_3_label": "Scored listings",
-            "feature_3_region": "listings",
-            "feature_4_label": "Every answer cited",
-            "feature_4_region": "evidence",
-            "cta_primary_label": "Request early access",
-            "cta_primary_link": "/pages/contact",
-            "cta_secondary_label": "See how HomeSieve answers a brief"
-          }
-        },
         "voicesieve": {
           "type": "product",
           "settings": {
@@ -648,13 +624,36 @@
             "cta_primary_link": "/pages/contact",
             "cta_secondary_label": "See how VoiceSieve handles a call"
           }
+        },
+        "housieve": {
+          "type": "product",
+          "settings": {
+            "kicker": "House hunting · buy, rent, invest",
+            "name": "Housieve",
+            "headline": "One search across Rightmove, Zoopla, OnTheMarket, Gumtree and Nestoria.\nEvery listing scored 0 to 100, and an alert the moment a match lands.",
+            "metric": "Five portals read every night, scored by morning",
+            "page_link": "https://housieve.braivex.com",
+            "mock": "housieve",
+            "reverse": true,
+            "feature_1_label": "Ask in plain words",
+            "feature_1_region": "ask",
+            "feature_2_label": "Five portals, one feed",
+            "feature_2_region": "sources",
+            "feature_3_label": "A number on every door",
+            "feature_3_region": "listings",
+            "feature_4_label": "Pinged before the crowd",
+            "feature_4_region": "alert",
+            "cta_primary_label": "Start hunting free",
+            "cta_primary_link": "https://housieve.braivex.com",
+            "cta_secondary_label": "Open housieve.braivex.com"
+          }
         }
       },
       "block_order": [
         "loculens",
         "hiresieve",
         "briefsieve",
-        "homesieve",
+        "housieve",
         "voicesieve",
         "p1",
         "p2",

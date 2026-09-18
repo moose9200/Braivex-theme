@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "go": {
+      "type": "braivex-redirect",
+      "settings": {
+        "url": "https://housieve.braivex.com"
+      }
+    }
+  },
+  "order": [
+    "go"
+  ]
+}

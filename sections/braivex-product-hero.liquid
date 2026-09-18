@@ -44,7 +44,7 @@
           {% when 'loculens' %}{% render 'product-mock-loculens', name: mock_name %}
           {% when 'hiresieve' %}{% render 'product-mock-hiresieve', name: mock_name %}
           {% when 'briefsieve' %}{% render 'product-mock-briefsieve', name: mock_name %}
-          {% when 'homesieve' %}{% render 'product-mock-homesieve', name: mock_name %}
+          {% when 'housieve' %}{% render 'product-mock-housieve', name: mock_name %}
           {% when 'voicesieve' %}{% render 'product-mock-voicesieve', name: mock_name %}
         {% endcase %}
       </div>
@@ -68,7 +68,7 @@
         { "value": "loculens", "label": "Loculens dashboard" },
         { "value": "hiresieve", "label": "HireSieve shortlist" },
         { "value": "briefsieve", "label": "BriefSieve brief" },
-        { "value": "homesieve", "label": "HomeSieve copilot" },
+        { "value": "housieve", "label": "Housieve feed" },
         { "value": "voicesieve", "label": "VoiceSieve console" }
       ],
       "default": "loculens"
@@ -77,7 +77,7 @@
     { "type": "header", "content": "Feature chips (hover lights the mockup)" },
     { "type": "text", "id": "chips_link", "label": "Chips link to", "default": "#what" },
     { "type": "text", "id": "feature_1_label", "label": "Feature 1" },
-    { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "loculens: branches, sentiment, team, reply · hiresieve: evidence, score, flag, cost · briefsieve: brief, kpis, channels, guru · homesieve: ask, sources, listings, evidence · voicesieve: mine, inbound, outbound, handoff" },
+    { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "loculens: branches, sentiment, team, reply · hiresieve: evidence, score, flag, cost · briefsieve: brief, kpis, channels, guru · housieve: ask, sources, listings, alert · voicesieve: mine, inbound, outbound, handoff" },
     { "type": "text", "id": "feature_2_label", "label": "Feature 2" },
     { "type": "text", "id": "feature_2_region", "label": "Region 2" },
     { "type": "text", "id": "feature_3_label", "label": "Feature 3" },

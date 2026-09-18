@@ -61,7 +61,7 @@
                 {% when 'loculens' %}{% render 'product-mock-loculens', name: block.settings.name %}
                 {% when 'hiresieve' %}{% render 'product-mock-hiresieve', name: block.settings.name %}
                 {% when 'briefsieve' %}{% render 'product-mock-briefsieve', name: block.settings.name %}
-                {% when 'homesieve' %}{% render 'product-mock-homesieve', name: block.settings.name %}
+                {% when 'housieve' %}{% render 'product-mock-housieve', name: block.settings.name %}
                 {% when 'voicesieve' %}{% render 'product-mock-voicesieve', name: block.settings.name %}
               {% endcase %}
             </div>
@@ -126,7 +126,7 @@
             { "value": "loculens", "label": "Loculens dashboard" },
             { "value": "hiresieve", "label": "HireSieve shortlist" },
             { "value": "briefsieve", "label": "BriefSieve brief" },
-            { "value": "homesieve", "label": "HomeSieve copilot" },
+            { "value": "housieve", "label": "Housieve feed" },
             { "value": "voicesieve", "label": "VoiceSieve console" }
           ],
           "default": "loculens"
@@ -134,7 +134,7 @@
         { "type": "checkbox", "id": "reverse", "label": "Mockup on the left", "default": false },
         { "type": "header", "content": "Feature chips (hover lights the mockup)" },
         { "type": "text", "id": "feature_1_label", "label": "Feature 1" },
-        { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "loculens: branches, sentiment, team, reply · hiresieve: evidence, score, flag, cost · briefsieve: brief, kpis, channels, guru · homesieve: ask, sources, listings, evidence · voicesieve: mine, inbound, outbound, handoff" },
+        { "type": "text", "id": "feature_1_region", "label": "Region 1", "info": "loculens: branches, sentiment, team, reply · hiresieve: evidence, score, flag, cost · briefsieve: brief, kpis, channels, guru · housieve: ask, sources, listings, alert · voicesieve: mine, inbound, outbound, handoff" },
         { "type": "text", "id": "feature_2_label", "label": "Feature 2" },
         { "type": "text", "id": "feature_2_region", "label": "Region 2" },
         { "type": "text", "id": "feature_3_label", "label": "Feature 3" },
@@ -213,20 +213,20 @@
         {
           "type": "product",
           "settings": {
-            "kicker": "Property listings copilot · cited answers",
-            "name": "HomeSieve",
-            "badge": "Early access",
-            "headline": "Ask the market a question in plain language. Get the listings that match, scored against your brief, each answer citing where it came from.",
-            "metric": "Five live listing sources, two of them scrapers we built",
-            "page_link": "/pages/homesieve",
-            "mock": "homesieve",
+            "kicker": "House hunting · buy, rent, invest",
+            "name": "Housieve",
+            "headline": "One search across Rightmove, Zoopla, OnTheMarket, Gumtree and Nestoria.\nEvery listing scored 0 to 100, and an alert the moment a match lands.",
+            "metric": "Five portals read every night, scored by morning",
+            "page_link": "https://housieve.braivex.com",
+            "mock": "housieve",
             "reverse": true,
-            "feature_1_label": "Ask in plain language", "feature_1_region": "ask",
-            "feature_2_label": "Live sources", "feature_2_region": "sources",
-            "feature_3_label": "Scored listings", "feature_3_region": "listings",
-            "feature_4_label": "Every answer cited", "feature_4_region": "evidence",
-            "cta_primary_label": "Request early access",
-            "cta_secondary_label": "See how HomeSieve answers a brief"
+            "feature_1_label": "Ask in plain words", "feature_1_region": "ask",
+            "feature_2_label": "Five portals, one feed", "feature_2_region": "sources",
+            "feature_3_label": "A number on every door", "feature_3_region": "listings",
+            "feature_4_label": "Pinged before the crowd", "feature_4_region": "alert",
+            "cta_primary_label": "Start hunting free",
+            "cta_primary_link": "https://housieve.braivex.com",
+            "cta_secondary_label": "Open housieve.braivex.com"
           }
         },
         {
